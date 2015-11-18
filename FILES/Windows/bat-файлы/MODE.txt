@@ -1,0 +1,18 @@
+Настройка системных устройств.
+
+Последовательный порт:   MODE COMm[:] [BAUD=b] [PARITY=p] [DATA=d] [STOP=s]
+                                      [to=on|off] [xon=on|off] [odsr=on|off]
+                                      [octs=on|off] [dtr=on|off|hs]
+                                      [rts=on|off|hs|tg] [idsr=on|off]
+
+Состояние устройства:    MODE [устройство] [/STATUS]
+
+Переадресация печати:    MODE LPTn[:]=COMm[:]
+
+Выбор кодовой страницы:  MODE CON[:] CP SELECT=yyy
+
+Вывод кодовой страницы:  MODE CON[:] CP [/STATUS]
+
+Режим работы экрана:     MODE CON[:] [COLS=c] [LINES=n]
+
+Ввод с клавиатуры:       MODE CON[:] [RATE=r DELAY=d]

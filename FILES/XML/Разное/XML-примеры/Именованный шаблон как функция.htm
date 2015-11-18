@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>Именованный шаблон как функция</title>
+<link rel="stylesheet" href="css/xsltbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.59.1">
+<link rel="home" href="xsltbook.html" title="Технология XSLT">
+<link rel="up" href="ch_11.html" title="Глава 11. Готовые решения">
+<link rel="previous" href="ch_11_02.html" title="Перечисление узлов">
+<link rel="next" href="ch_11_04.html" title="Рекурсия">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="sect1" lang="ru">
+<div class="titlepage"><div><h2 class="title" style="clear: both">
+<a name="ch_11_03"></a>Именованный шаблон как функция</h2></div></div>
+<p>Сложно переоценить возможности механизмов расширений языка XSLT. 
+         Они позволяют сочетать простоту и гибкость обработки XML-документов 
+				 при помощи элементов XSLT и выражений XPath. 
+         Практически любая функция, которая отсутствует в XSLT, 
+         может быть написана на подходящем языке программирования и подключена к процессору.</p>
+<p>Но как уже отмечалось ранее, функции расширения ограничивают переносимость преобразований. 
+         Во-первых, функции расширения одного процессора совсем необязательно будут присутствовать 
+         в другом процессоре — скорее наоборот. 
+         Во-вторых, не приходится надеяться, что пользовательские модули, 
+         написанные на одном языке или с использованием одного интерфейса, 
+         смогут использоваться любым процессором. 
+         Поэтому часто перед разработчиком стоит проблема решить определённую задачу, 
+         используя только стандартные функции и элементы XSLT.</p>
+<p>В этом разделе мы рассмотрим возможность использования 
+        именованных шаблонов в качестве функций, 
+        которые принимают на вход несколько параметров и возвращают некоторое вычисленное значение.</p>
+<p>Использование именованных шаблонов как функций обуславливается следующими тезисами.</p>
+<div class="itemizedlist"><ul type="disc">
+<li><p>Именованный шаблон можно вызывать вне зависимости от того, 
+         какая часть документа обрабатывается в данный момент.</p></li>
+<li><p>Именованному шаблону можно передавать параметры.</p></li>
+<li><p>Результат выполнения именованного шаблона можно присваивать переменной.</p></li>
+</ul></div>
+<p>Вызов именованного шаблона выполняется элементом <tt>xsl:call-template</tt>, 
+        в атрибуте <tt>name</tt> которого указывается имя вызываемого шаблона. 
+        Такой вызов не зависит от того, какая часть документа обрабатывается 
+        в данный момент и может производиться по необходимости.</p>
+<p>Параметры именованному шаблону передаются точно так же, 
+        как и обычному — при помощи элементов <tt>xsl:with-param</tt>, 
+        которые могут быть включены в вызывающий элемент <tt>xsl:call-template</tt>. 
+        Примером вызова именованного шаблона с параметрами может быть конструкция вида</p>
+<pre class="programlisting">&lt;xsl:call-template name=&quot;foo&quot;&gt;
+  &lt;xsl:with-param name=&quot;x&quot; select=&quot;1&quot;/&gt;
+  &lt;xsl:with-param name=&quot;y&quot; select=&quot;2&quot;/&gt;
+&lt;/xsl:call-template&gt;</pre>
+<p>которая вызывает шаблон с именем <tt>foo</tt> 
+				и передаёт ему параметр <tt>x</tt> со значением, равным <tt>1</tt> и параметр <tt>y</tt> со значением, равным <tt>2</tt>.</p>
+<p>Вызов именованного шаблона может также производиться при инициализации переменной — 
+         внутри элемента <tt>xsl:variable</tt>. 
+         В этом случае с переменной связывается результирующий фрагмент дерева, 
+         возвращаемый именованным шаблоном.</p>
+<p>В качестве примера приведём простой шаблон, 
+				который вычисляет квадрат переданного ему параметра <tt>x</tt>:</p>
+<pre class="programlisting">&lt;xsl:template name=&quot;sqr&quot;&gt;
+  &lt;xsl:param name=&quot;x&quot;/&gt;
+  &lt;xsl:value-of select=&quot;$x * $x&quot;/&gt;
+&lt;/xsl:template&gt;</pre>
+<p>Для того чтобы присвоить переменной <tt>y</tt> квадрат числа <tt>6</tt> 
+         мы можем записать следующее:</p>
+<pre class="programlisting">&lt;xsl:variable name=&quot;y&quot;&gt;
+  &lt;xsl:call-template name=&quot;sqr&quot;&gt;
+    &lt;xsl:with-param name=&quot;x&quot; select=&quot;6&quot;/&gt;
+  &lt;/xsl:call-template&gt;
+&lt;/xsl:variable&gt;</pre>
+<p>Обратим внимание, что значение переменной <tt>y</tt> будет иметь вовсе не численный тип. 
+				Несмотря на то, что элемент</p>
+<pre class="programlisting">&lt;xsl:value-of select=&quot;$y&quot;/&gt;</pre>
+<p>выведет строку «36», переменная <tt>y</tt> содержит не число, а дерево, 
+				и <tt>36</tt> лишь является результатом конвертации в строку при выполнении <tt>xsl:value-of</tt>.</p>
+<p>Для того чтобы присвоить переменной результат выполнения 
+         именованного шаблона в виде булевого значения, 
+         строки или числа, следует воспользоваться промежуточной переменной для явного преобразования типов.</p>
+<p>После выполнения действий</p>
+<pre class="programlisting">&lt;xsl:variable name=&quot;result&quot;&gt;
+  &lt;xsl:call-template name=&quot;sqr&quot;&gt;
+    &lt;xsl:with-param name=&quot;x&quot; select=&quot;6&quot;/&gt;
+  &lt;/xsl:call-template&gt;
+&lt;/xsl:variable&gt;
+&lt;xsl:variable name=&quot;sqr-string&quot; select=&quot;string($result)&quot;/&gt;
+&lt;xsl:variable name=&quot;sqr-number&quot; select=&quot;number($result)&quot;/&gt;</pre>
+<p>переменные <tt>sqr-string</tt> и <tt>sqr-number</tt> 
+          будут содержать строковое и численное значение результата вычисления соответственно.</p>
+<p>Немного сложнее обстоит дело с булевым типом. 
+				 При приведении дерева к булевому типу результатом всегда будет «истина», 
+          поэтому такое преобразование необходимо выполнить в два шага: 
+          сначала преобразовать дерево в число, только затем число в булевый тип.</p>
+<p>В следующем преобразовании шаблон с именем <tt>less-than</tt> 
+          сравнивает значения параметров <tt>x</tt> и <tt>y</tt>.
+          Переменной <tt>less-than</tt> присваивается булевое значение результата сравнения.</p>
+<div class="example">
+<a name="LIST_11_07"></a><p class="title"><b>Пример 11.7. Вычисление булевого значения функции</b></p>
+<pre class="programlisting">&lt;xsl:stylesheet
+  version=&quot;1.0&quot;
+  xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
+
+  &lt;xsl:template match=&quot;/&quot;&gt;
+    &lt;xsl:variable name=&quot;result&quot;&gt;
+      &lt;xsl:call-template name=&quot;less-than&quot;&gt;
+        &lt;xsl:with-param name=&quot;x&quot; select=&quot;2&quot;/&gt;
+        &lt;xsl:with-param name=&quot;y&quot; select=&quot;1&quot;/&gt;
+      &lt;/xsl:call-template&gt;
+    &lt;/xsl:variable&gt;
+    &lt;xsl:variable name=&quot;less-than&quot; select=&quot;boolean(number($result))&quot;/&gt;
+    &lt;xsl:value-of select=&quot;$less-than&quot;/&gt;
+  &lt;/xsl:template&gt;
+
+  &lt;xsl:template name=&quot;less-than&quot;&gt;
+    &lt;xsl:param name=&quot;x&quot;/&gt;
+    &lt;xsl:param name=&quot;y&quot;/&gt;
+    &lt;xsl:value-of select=&quot;number($x &amp;lt; $y)&quot;/&gt;
+  &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;</pre>
+</div>
+<p>Простым примером шаблона-функции может быть шаблон, 
+         который форматирует дату в нужном виде, 
+				 например 7 августа 93 года как «07-Aug-1993». 
+         В качестве параметров этот шаблон будет принимать численные значения дня, месяца и года. 
+         Год, имеющий значение меньшее 25, мы будем считать принадлежащим новому тысячелетию.</p>
+<div class="example">
+<a name="LIST_11_08"></a><p class="title"><b>Пример 11.8. Шаблон, форматирующий дату</b></p>
+<pre class="programlisting">&lt;xsl:template name=&quot;format-date&quot;&gt;
+  &lt;xsl:param name=&quot;day&quot;/&gt;
+  &lt;xsl:param name=&quot;month&quot;/&gt;
+  &lt;xsl:param name=&quot;year&quot;/&gt;
+  &lt;xsl:value-of select=&quot;format-number($day,'00')&quot;/&gt;
+  &lt;xsl:text&gt;-&lt;/xsl:text&gt;
+  &lt;xsl:choose&gt;
+    &lt;xsl:when test=&quot;$month = 1&quot;&gt;Jan&lt;/xsl:when&gt;
+    &lt;xsl:when test=&quot;$month = 2&quot;&gt;Feb&lt;/xsl:when&gt;
+    &lt;xsl:when test=&quot;$month = 3&quot;&gt;Mar&lt;/xsl:when&gt;
+    &lt;xsl:when test=&quot;$month = 4&quot;&gt;Apr&lt;/xsl:when&gt;
+    &lt;xsl:when test=&quot;$month = 5&quot;&gt;May&lt;/xsl:when&gt;
+    &lt;xsl:when test=&quot;$month = 6&quot;&gt;Jun&lt;/xsl:when&gt;
+    &lt;xsl:when test=&quot;$month = 7&quot;&gt;Jul&lt;/xsl:when&gt;
+    &lt;xsl:when test=&quot;$month = 8&quot;&gt;Aug&lt;/xsl:when&gt;
+    &lt;xsl:when test=&quot;$month = 9&quot;&gt;Sen&lt;/xsl:when&gt;
+    &lt;xsl:when test=&quot;$month = 10&quot;&gt;Oct&lt;/xsl:when&gt;
+    &lt;xsl:when test=&quot;$month = 11&quot;&gt;Nov&lt;/xsl:when&gt;
+    &lt;xsl:when test=&quot;$month = 12&quot;&gt;Dec&lt;/xsl:when&gt;
+  &lt;/xsl:choose&gt;
+  &lt;xsl:text&gt;-&lt;/xsl:text&gt;
+  &lt;xsl:choose&gt;
+    &lt;xsl:when test=&quot;$year &amp;lt;= 25&quot;&gt;
+      &lt;xsl:value-of select=&quot;format-number($year + 2000, '0000')&quot;/&gt;
+    &lt;/xsl:when&gt;
+    &lt;xsl:otherwise&gt;
+      &lt;xsl:value-of select=&quot;format-number($year, '0000')&quot;/&gt;
+    &lt;/xsl:otherwise&gt;
+  &lt;/xsl:choose&gt;
+&lt;/xsl:template&gt;</pre>
+</div>
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="ch_11_02.html"><img src="images/db/prev.gif" alt="Пред."></a> </td>
+<td width="20%" align="center"><a accesskey="u" href="ch_11.html"><img src="images/db/up.gif" alt="Уровень выше"></a></td>
+<td width="40%" align="right"> <a accesskey="n" href="ch_11_04.html"><img src="images/db/next.gif" alt="След."></a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Перечисление узлов </td>
+<td width="20%" align="center"><a accesskey="h" href="xsltbook.html"><img src="images/db/home.gif" alt="Начало"></a></td>
+<td width="40%" align="right" valign="top"> Рекурсия</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

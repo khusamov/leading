@@ -1,0 +1,275 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>Raleigh.ru - Школа XPath</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../stdtheme.css" TITLE="Style"><LINK REL="stylesheet" TYPE="text/css" HREF="http://www.raleigh.ru/sdv.css" TITLE="Style">
+
+</head>
+
+<body background="http://www.raleigh.ru/Images/back.gif" topmargin="0" leftmargin="0">
+<div align="center">
+
+<table border="0" cellpadding="0" cellspacing="0" width="780"><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+	<td colspan="2"><img src="http://www.raleigh.ru/Images/1_10.gif"
+	width="1" height="10"></td></tr><FORM method=GET action=http://www.google.com/custom>
+	<tr><td background="http://www.raleigh.ru/Images/t_back.gif"><img
+	src="http://www.raleigh.ru/Images/t_logo.gif"
+		width="131" height="44"><a href="mailto:yarosh@au.ru"
+		onfocus="blur()"><img src="http://www.raleigh.ru/Images/t_text.gif"
+		width="393" height="44" border="0"></a></td><td width=100% background="http://www.raleigh.ru/Images/t_back.gif" align=right valign=center>
+          <!-- Search Google -->
+<INPUT TYPE=text name=q size=20 maxlength=255 value="">
+<INPUT type=submit name=sa VALUE="Поиск">
+<INPUT type=hidden name=cof VALUE="AH:center;AWFID:1f2d8e2f2b6c57b0;">
+<INPUT type=hidden name=sitesearch value="www.raleigh.ru">
+<!-- Search Google -->&nbsp;</td><td background="http://www.raleigh.ru/Images/t_back.gif" align="right"><img
+	        src="http://www.raleigh.ru/Images/t_right.gif" width="6" height="44"></td>
+	</tr></form>
+</table><!----><table cellpadding="0" cellspacing="0" width="100%" border="0">
+	<tr><td><img src="http://www.raleigh.ru/Images/menu_left.gif" width="17"
+		height="45"></td><td width="100%" valign="bottom"
+		background="http://www.raleigh.ru/Images/menu_grey.gif"><span
+		style="background:url(http://www.raleigh.ru/Images/back.gif);
+		color:#ffffff;font-family:courier">
+		&nbsp;<a href="http://www.raleigh.ru" style="color:#ffffff;text-decoration:none;" onFocus=blur();>Главная</a> -> <a href="../../" style="color:#ffffff;text-decoration:none;" onFocus=blur();>XML&...</a> -> <a href="../" style="color:#ffffff;text-decoration:none;" onFocus=blur();>Школы W3C</a>&nbsp;</span>
+		</td><td><img
+		src="http://www.raleigh.ru/Images/menu_right.gif" width="29" height="45"></td>
+	</tr>
+</table><table border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
+	<tr><td><img src="http://www.raleigh.ru/Images/t_leftline.gif" width="12"
+		height="16"></td><td style="font-size:10pt;" width="573">&nbsp;</td><td><img
+		src="http://www.raleigh.ru/Images/t_rightline.gif" width="195" height="16"></td>
+	</tr>
+</table><table border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" width="100%">
+	<tr>
+		<td valign="top" background="http://www.raleigh.ru/Images/l_back.gif"><img
+		src="http://www.raleigh.ru/Images/l_line.gif" width="11" height="75"></td>
+	        <td width="100%" valign="bottom" rowspan="2"
+	        style="padding-left: 10px; padding-right: 10px"><table class=w3s border="0" width="100%"><tr><td width=150 valign="top" class="content">
+<br />
+<a class="left" href="../"><b>Школы W3C</b></a><br />
+<br />
+<b>Школа XPath</b><br />
+<a class="left" href="./" >Начало</a><br />
+<a class="left" href="intro.php" >Введение в XPath</a><br />
+<a class="left" href="location.php">Пути адресации XPath</a><br />
+<a class="left" href="expressions.php">Выражения XPath</a><br />
+<a class="left" href="functions.php">Функции XPath</a><br />
+<a class="left" href="examples.php" style='font-weight:bold;color:#000000;background-color:transparent;'>Примеры XPath</a><br />
+</td><td>
+<h1>Примеры XPath</h1>
+<a href="functions.php"><img border="0" src="../images/btn_previous.gif" width="100" height="20" alt="Назад" /></a>
+<a href="../"><img border="0" src="../images/btn_next.gif" width="100" height="20" alt="Вперед" /></a>
+
+<hr />
+
+<p class="intro">Мы используем каталог CD из нашей Школы XML для демонстрации некоторых примеров XPath.</p>
+
+<hr />
+
+<h2>Каталог CD</h2>
+
+<p>Если вы читали нашу Школу XML, вы наверняка помните следующий XML-документ:</p>
+
+<p>(Фрагмент каталога CD)</p>
+<table width="100%" border="1" class="ex" cellspacing="0">
+  <tr>
+    <td>
+      <pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
+&lt;catalog&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Empire Burlesque&lt;/title&gt;
+    &lt;artist&gt;Bob Dylan&lt;/artist&gt;
+    &lt;country&gt;USA&lt;/country&gt;
+    &lt;company&gt;Columbia&lt;/company&gt;
+    &lt;price&gt;10.90&lt;/price&gt;
+    &lt;year&gt;1985&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Hide your heart&lt;/title&gt;
+    &lt;artist&gt;Bonnie Tyler&lt;/artist&gt;
+    &lt;country&gt;UK&lt;/country&gt;
+    &lt;company&gt;CBS Records&lt;/company&gt;
+    &lt;price&gt;9.90&lt;/price&gt;
+    &lt;year&gt;1988&lt;/year&gt;
+  &lt;/cd&gt;
+.
+.
+.
+.
+&lt;/catalog&gt;   </pre>
+    </td>
+  </tr>
+</table>
+<p>Если вы используете IE 5 или выше, вы можете <a target="_blank" href="cdcatalog.xml">открыть cdcatalog здесь</a>.</p>
+<hr />
+
+<h2>Извлечение Узлов</h2>
+
+<p>XPath может использоваться для определения узлов, которые должны быть выбраны или извлечены из XML-файла.</p>
+
+<p>Мы можем продемонстрировать эту возможность с помощью функции selectNodes в Internet Explorer. Эта функция получает выражение для пути адресации в качестве аргумента:</p>
+
+<table width="100%" border="1" class="ex" cellspacing="0">
+  <tr>
+    <td>
+      <pre>syntax:
+xmlobject.selectNodes(XPath expression) </pre>
+      <pre>example:
+xmlDoc.selectNodes(&quot;/catalog/cd/price&quot;) </pre>
+    </td>
+  </tr>
+</table>
+<br />
+<hr />
+
+<h2>Извлечение Узла &lt;cd&gt;</h2>
+
+<p>В следующем примере из каталога CD извлекаются все узлы &lt;cd&gt;:</p>
+
+<table width="100%" border="1" class="ex" cellspacing="0">
+  <tr>
+    <td>
+      <pre>xmlDoc.selectNodes(&quot;/catalog/cd&quot;) </pre>
+    </td>
+  </tr>
+</table>
+
+<p>Если вы используете Internet Explorer, вы можете <a target="_blank" href="http://www.w3schools.com/xpath/tryit.asp?filename=try_xpath_select_cdnodes">посмотреть на результат здесь</a>.</p>
+
+<hr />
+<h2>Извлечение Первого Узла &lt;cd&gt;</h2>
+
+<p>В следующем примере из каталога CD извлекается только первый узел &lt;cd&gt;:</p>
+
+<table width="100%" border="1" class="ex" cellspacing="0">
+  <tr>
+    <td>
+      <pre>xmlDoc.selectNodes(&quot;/catalog/cd[0]&quot;) </pre>
+    </td>
+  </tr>
+</table>
+
+<p>Если вы используете Internet Explorer, вы можете <a target="_blank" href="http://www.w3schools.com/xpath/tryit.asp?filename=try_xpath_select_cdnodes_first">посмотреть на результат здесь</a>.</p>
+
+<hr />
+
+<h2>Извлечение Узлов &lt;price&gt;</h2>
+
+<p>В следующем примере из каталога CD извлекаются все узлы &lt;price&gt;:</p>
+
+<table width="100%" border="1" class="ex" cellspacing="0">
+  <tr>
+    <td>
+      <pre>xmlDoc.selectNodes(&quot;/catalog/cd/price&quot;) </pre>
+    </td>
+  </tr>
+</table>
+
+<p>Если вы используете Internet Explorer, вы можете <a target="_blank" href="http://www.w3schools.com/xpath/tryit.asp?filename=try_xpath_select_pricenodes">посмотреть на результат здесь</a>.</p>
+
+<hr />
+
+
+<h2>Извлечение Текстовых Узлов &lt;price&gt;</h2>
+
+<p>В следующем примере извлекается только текст из узлов &lt;price&gt;:</p>
+
+<table width="100%" border="1" class="ex" cellspacing="0">
+  <tr>
+    <td>
+      <pre>xmlDoc.selectNodes(&quot;/catalog/cd/price/text()&quot;) </pre>
+    </td>
+  </tr>
+</table>
+
+<p>Если вы используете Internet Explorer, вы можете <a target="_blank" href="http://www.w3schools.com/xpath/tryit.asp?filename=try_xpath_select_pricenodes_text">посмотреть на результат здесь</a>.</p>
+
+<hr />
+
+
+<h2>Извлечение Узлов &lt;cd&gt; со Значением Price&gt;10.80</h2>
+
+<p>В следующем примере извлекаются все узлы &lt;cd&gt; nodes&nbsp; со значением price &gt;10.80:</p>
+
+<table width="100%" border="1" class="ex" cellspacing="0">
+  <tr>
+    <td>
+      <pre>xmlDoc.selectNodes(&quot;/catalog/cd[price&gt;10.80]&quot;) </pre>
+    </td>
+  </tr>
+</table>
+
+<p>Если вы используете Internet Explorer, вы можете <a target="_blank" href="http://www.w3schools.com/xpath/tryit.asp?filename=try_xpath_select_pricenodes_high">посмотреть на результат здесь</a></p>
+
+<hr />
+
+
+<a href="functions.php"><img border="0" src="../images/btn_previous.gif" width="100" height="20" alt="Назад" /></a>
+<a href="../"><img border="0" src="../images/btn_next.gif" width="100" height="20" alt="Вперед" /></a>
+
+</td></tr></table>
+        </td>
+		<td valign="top"
+		background="http://www.raleigh.ru/Images/r_back.gif" rowspan="2"><img
+		src="http://www.raleigh.ru/Images/r_line.gif" width="25" height="128"></td>
+	</tr><tr>
+		<td valign="bottom" background="http://www.raleigh.ru/Images/l_back.gif"><img
+		src="http://www.raleigh.ru/Images/l_bottom.gif" width="11" height="21"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" width="100%">
+	<tr><td background="http://www.raleigh.ru/Images/b_back.gif"><a href="mailto:yarosh@au.ru"
+		onfocus="blur();"><img src="http://www.raleigh.ru/Images/b_yarosh.gif"
+		width="94" height="115"	border="0"></a><img
+		src="http://www.raleigh.ru/Images/1.gif" width="89" height="1"></td>
+		<td background="http://www.raleigh.ru/Images/b_back.gif"
+		align="center" valign="bottom">
+<!-- SpyLOG f:0111 --> 
+<script language="javascript"> 
+u="u681.47.spylog.com";d=document;nv=navigator;na=nv.appName;p=1; 
+bv=Math.round(parseFloat(nv.appVersion)*100); 
+n=(na.substring(0,2)=="Mi")?0:1;rn=Math.random();z="p="+p+"&rn="+rn;y=""; 
+y+="<a href='http://"+u+"/cnt?f=3&p="+p+"&rn="+rn+"' target=_blank>"; 
+y+="<img src='http://"+u+"/cnt?"+z+ 
+"&r="+escape(d.referrer)+"&pg="+escape(window.location.href)+"' border=0 width=88 height=31 alt='SpyLOG'>"; 
+y+="</a>"; d.write(y);if(!n) { d.write("<"+"!--"); }//--></script><noscript> 
+<a href="http://u681.47.spylog.com/cnt?f=3&p=1" target=_blank> 
+<img src="http://u681.47.spylog.com/cnt?p=1" alt='SpyLOG' border='0' width=88 height=31 > 
+</a></noscript><script language="javascript1.2"><!-- 
+if(!n) { d.write("--"+">"); }//--></script>&nbsp;
+<!-- SpyLOG -->
+<!--Rating@Mail.ru COUNTER--><script language="JavaScript"><!--
+d=document;a='';a+=';r='+escape(d.referrer)
+js=10//--></script><script language="JavaScript1.1"><!--
+a+=';j='+navigator.javaEnabled()
+js=11//--></script><script language="JavaScript1.2"><!--
+s=screen;a+=';s='+s.width+'*'+s.height
+a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth)
+js=12//--></script><script language="JavaScript1.3"><!--
+js=13//--></script><script language="JavaScript"><!--
+d.write('<a href="http://top.mail.ru/jump?from=321106"'+
+' target=_top><img src="http://top.list.ru/counter'+
+'?id=321106;t=211;js='+js+a+';rand='+Math.random()+
+'" alt="Рейтинг@Mail.ru"'+' border=0 height=31 width=88></a>')
+if(js>11)d.write('<'+'!-- ')//--></script><noscript><a
+target=_top href="http://top.mail.ru/jump?from=321106"><img
+src="http://top.list.ru/counter?js=na;id=321106;t=211"
+border=0 height=31 width=88
+alt="Рейтинг@Mail.ru"></a></noscript><script language="JavaScript"><!--
+if(js>11)d.write('--'+'>')//--></script><!--/COUNTER-->
+
+<div style="font-size:8pt">&copy;&nbsp;2001, Vasil I. Yaroshevich<br>&nbsp;</div>
+		</td>		
+        	<td background="http://www.raleigh.ru/Images/b_back.gif" align="right"><img
+        	src="http://www.raleigh.ru/Images/b_corner.gif"	width="183" height="115"></td>
+	</tr><tr>
+		<td background="http://www.raleigh.ru/Images/back.gif" colspan="3"><img
+		src="http://www.raleigh.ru/Images/1_10.gif" width="1" height="10"></td>
+	</tr>
+</table></td></tr></table>
+</div></body>
+</html>

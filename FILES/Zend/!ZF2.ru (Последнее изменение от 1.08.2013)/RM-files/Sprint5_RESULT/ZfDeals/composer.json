@@ -1,0 +1,28 @@
+{
+    "name": "zf2book/zf-deals",
+    "description": "This is the companion to the book 'Webentwicklung mit Zend Framework 2'",
+    "type": "library",
+    "keywords": [
+        "zfdeals"
+    ],
+    "homepage": "http://zendframework2.de",
+    "authors": [
+        {
+            "name": "Michael Romer",
+            "email": "zf2buch@michael-romer.de",
+            "homepage": "http://zendframework2.de"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "ZfDeals": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}

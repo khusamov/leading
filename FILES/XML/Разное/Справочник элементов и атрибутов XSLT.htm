@@ -1,0 +1,1262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>Приложение П2. Краткий справочник элементов и атрибутов XSLT</title>
+<link rel="stylesheet" href="css/xsltbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.59.1">
+<link rel="home" href="xsltbook.html" title="Технология XSLT">
+<link rel="up" href="xsltbook.html" title="Технология XSLT">
+<link rel="previous" href="app_01_09_02.html" title="Расширения">
+<link rel="next" href="xpathref.html" title="Приложение П3. Краткий справочник функций XSLT и XPath">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="appendix" lang="ru">
+<div class="titlepage"><div><h2 class="title">
+<a name="xsltref"></a>Приложение П2. Краткий справочник элементов и атрибутов XSLT</h2></div></div>
+<nobr>[<a href="#applyimports">xsl:apply-imports</a>]</nobr>
+<nobr>[<a href="#applytemplates">xsl:apply-templates</a>]</nobr>
+<nobr>[<a href="#attribute">xsl:attribute</a>]</nobr>
+<nobr>[<a href="#attributeset">xsl:attribute-set</a>]</nobr>
+<nobr>[<a href="#calltemplate">xsl:call-template</a>]</nobr>
+<nobr>[<a href="#choose">xsl:choose</a>]</nobr>
+<nobr>[<a href="#comment">xsl:comment</a>]</nobr>
+<nobr>[<a href="#copy">xsl:copy</a>]</nobr>
+<nobr>[<a href="#copyof">xsl:copy-of</a>]</nobr>
+<nobr>[<a href="#decimalformat">xsl:decimal-format</a>]</nobr>
+<nobr>[<a href="#element">xsl:element</a>]</nobr>
+<nobr>[<a href="#fallback">xsl:fallback</a>]</nobr>
+<nobr>[<a href="#foreach">xsl:for-each</a>]</nobr>
+<nobr>[<a href="#if">xsl:if</a>]</nobr>
+<nobr>[<a href="#import">xsl:import</a>]</nobr>
+<nobr>[<a href="#include">xsl:include</a>]</nobr>
+<nobr>[<a href="#key">xsl:key</a>]</nobr>
+<nobr>[<a href="#message">xsl:message</a>]</nobr>
+<nobr>[<a href="#namespacealias">xsl:namespace-alias</a>]</nobr>
+<nobr>[<a href="#number">xsl:number</a>]</nobr>
+<nobr>[<a href="#otherwise">xsl:otherwise</a>]</nobr>
+<nobr>[<a href="#output">xsl:output</a>]</nobr>
+<nobr>[<a href="#param">xsl:param</a>]</nobr>
+<nobr>[<a href="#preservespace">xsl:preserve-space</a>]</nobr>
+<nobr>[<a href="#processinginstruction">xsl:processing-instruction</a>]</nobr>
+<nobr>[<a href="#sort">xsl:sort</a>]</nobr>
+<nobr>[<a href="#stripspace">xsl:strip-space</a>]</nobr>
+<nobr>[<a href="#stylesheet">xsl:stylesheet</a>]</nobr>
+<nobr>[<a href="#template">xsl:template</a>]</nobr>
+<nobr>[<a href="#text">xsl:text</a>]</nobr>
+<nobr>[<a href="#transform">xsl:transform</a>]</nobr>
+<nobr>[<a href="#valueof">xsl:value-of</a>]</nobr>
+<nobr>[<a href="#variable">xsl:variable</a>]</nobr>
+<nobr>[<a href="#when">xsl:when</a>]</nobr>
+<nobr>[<a href="#withparam">xsl:with-param</a>]</nobr>
+<nobr>[<a href="#legend">Обозначения</a>]</nobr>
+
+    <h2>Элементы</h2>
+    
+    
+    
+      <div class="textwide">
+<a name="applyimports"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:apply-imports</code></b><tt>/</tt><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Применяет шаблонные правила, которые содержатся в импортированных преобразованиях.</p>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="applytemplates"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:apply-templates</code></b><br>
+<nobr><code class="mono">  </code><code>select</code><tt>=</tt><tt>&quot;</tt><i>выражение</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>mode</code><tt>=</tt><tt>&quot;</tt><i>режим</i><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+несколько элементов <a href="#sort"><code>xsl:sort</code></a> или <a href="#withparam"><code>xsl:with-param</code></a><br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:apply-templates</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Применяет шаблонные правила к множеству узлов, возвращаемому выражением, записанным в атрибуте select.</p>
+          <dl>
+            
+              <dt><code>select</code></dt>
+              <dd>
+                <p>содержит выражение, возвращающее множество узлов для обработки</p>
+              </dd>
+            
+            
+              <dt><code>mode</code></dt>
+              <dd>
+                <p>указывает режим, в котором должны применяться шаблоны</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="attribute"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:attribute</code></b><br>
+<nobr><code class="mono">  </code><b><code>name</code></b><tt>=</tt><tt>&quot;</tt><tt>{</tt><i>имя</i><tt>}</tt><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>namespace</code><tt>=</tt><tt>&quot;</tt><tt>{</tt><i>пространство имён</i><tt>}</tt><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+шаблон<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:attribute</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Создаёт в выходящем документе узел атрибута.</p>
+          <dl>
+            
+              <dt><code>name</code></dt>
+              <dd>
+                <p>определяет имя атрибута</p>
+              </dd>
+            
+            
+              <dt><code>namespace</code></dt>
+              <dd>
+                <p>URI пространства имён создаваемого атрибута</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="attributeset"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:attribute-set</code></b><br>
+<nobr><code class="mono">  </code><b><code>name</code></b><tt>=</tt><tt>&quot;</tt><i>имя</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>use-attribute-sets</code><tt>=</tt><tt>&quot;</tt><i>имена</i><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+несколько элементов <a href="#attribute"><code>xsl:attribute</code></a><br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:attribute-set</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Элемент верхнего уровня.</p>
+          <p>Определяет именованный набор атрибутов.</p>
+          <dl>
+            
+              <dt><code>name</code></dt>
+              <dd>
+                <p>содержит имя набора атрибутов</p>
+              </dd>
+            
+            
+              <dt><code>use-attribute-sets</code></dt>
+              <dd>
+                <p>перечисляет через пробелы имена наборов атрибутов, которые следует включить определяемый набор</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="calltemplate"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:call-template</code></b><br>
+<nobr><code class="mono">  </code><b><code>name</code></b><tt>=</tt><tt>&quot;</tt><i>имя</i><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+несколько элементов <a href="#withparam"><code>xsl:with-param</code></a><br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:call-template</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Вызов именованного шаблона.</p>
+          <dl>
+            
+              <dt><code>name</code></dt>
+              <dd>
+                <p>имя вызываемого шаблона</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="choose"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:choose</code></b><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+один или более элемент <a href="#when"><code>xsl:when</code></a>, опциональный элемент <a href="#otherwise"><code>xsl:otherwise</code></a><br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:choose</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Выполняет содержимое одного из субэлементов в зависимости от условий.</p>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="comment"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:comment</code></b><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+шаблон<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:comment</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Создаёт в выходящем документе узел комментария.</p>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="copy"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:copy</code></b><br>
+<nobr><code class="mono">  </code><code>use-attribute-sets</code><tt>=</tt><tt>&quot;</tt><i>имена</i><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+шаблон<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:copy</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Создаёт в выходящем документе копию текущего узла. Копии дочерних узлов не создаются.</p>
+          <dl>
+            
+              <dt><code>use-attribute-sets</code></dt>
+              <dd>
+                <p>перечисляет именованные наборы атрибутов, которые следует добавить в создаваемый узел</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="copyof"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:copy-of</code></b><br>
+<nobr><code class="mono">  </code><b><code>select</code></b><tt>=</tt><tt>&quot;</tt><i>выражение</i><tt>&quot;</tt></nobr><tt>/</tt><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Копирует в выходящий документ результат вычисления выражения.</p>
+          <dl>
+            
+              <dt><code>select</code></dt>
+              <dd>
+                <p>содержит выражение, результат которого нужно скопировать</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="decimalformat"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:decimal-format</code></b><br>
+<nobr><code class="mono">  </code><code>name</code><tt>=</tt><tt>&quot;</tt><i>имя</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>decimal-separator</code><tt>=</tt><tt>&quot;</tt><i>символ</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>grouping-separator</code><tt>=</tt><tt>&quot;</tt><i>символ</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>infinity</code><tt>=</tt><tt>&quot;</tt><i>строка</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>minus-sign</code><tt>=</tt><tt>&quot;</tt><i>символ</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>NaN</code><tt>=</tt><tt>&quot;</tt><i>строка</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>percent</code><tt>=</tt><tt>&quot;</tt><i>символ</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>per-mille</code><tt>=</tt><tt>&quot;</tt><i>символ</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>zero-digit</code><tt>=</tt><tt>&quot;</tt><i>символ</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>digit</code><tt>=</tt><tt>&quot;</tt><i>символ</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>pattern-separator</code><tt>=</tt><tt>&quot;</tt><i>символ</i><tt>&quot;</tt></nobr><tt>/</tt><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Элемент верхнего уровня.</p>
+          <p>Определяет именованный набор параметров для формата числа.</p>
+          <dl>
+            
+              <dt><code>name</code></dt>
+              <dd>
+                <p>имя. Если <code>name</code> отсутствует, формат числа определяется по умолчанию</p>
+              </dd>
+            
+            
+              <dt><code>decimal-separator</code></dt>
+              <dd>
+                <p>символ, разделяющий целую и дробную часть</p>
+              </dd>
+            
+            
+              <dt><code>grouping-separator</code></dt>
+              <dd>
+                <p>символ, разделяющий группы цифр целой части числа</p>
+              </dd>
+            
+            
+              <dt><code>infinity</code></dt>
+              <dd>
+                <p>строка, соответствующая бесконечности</p>
+              </dd>
+            
+            
+              <dt><code>minus-sign</code></dt>
+              <dd>
+                <p>символ отрицания</p>
+              </dd>
+            
+            
+              <dt><code>NaN</code></dt>
+              <dd>
+                <p>строка, соответствующая не-числу</p>
+              </dd>
+            
+            
+              <dt><code>percent</code></dt>
+              <dd>
+                <p>символ процента</p>
+              </dd>
+            
+            
+              <dt><code>per-mille</code></dt>
+              <dd>
+                <p>символ промилле</p>
+              </dd>
+            
+            
+              <dt><code>zero-digit</code></dt>
+              <dd>
+                <p>символ нуля</p>
+              </dd>
+            
+            
+              <dt><code>digit</code></dt>
+              <dd>
+                <p>символ, помечающий позицию необязательной цифры</p>
+              </dd>
+            
+            
+              <dt><code>pattern-separator</code></dt>
+              <dd>
+                <p>символ, разделяющий положительный и отрицательный образцы форматирования</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="element"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:element</code></b><br>
+<nobr><code class="mono">  </code><b><code>name</code></b><tt>=</tt><tt>&quot;</tt><tt>{</tt><i>имя</i><tt>}</tt><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>namespace</code><tt>=</tt><tt>&quot;</tt><tt>{</tt><i>пространство</i><i>имён</i><tt>}</tt><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>use-attribute-sets</code><tt>=</tt><tt>&quot;</tt><i>имена</i><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+шаблон<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:element</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Создаёт в выходящем документе элемент.</p>
+          <dl>
+            
+              <dt><code>name</code></dt>
+              <dd>
+                <p>имя элемента</p>
+              </dd>
+            
+            
+              <dt><code>namespace</code></dt>
+              <dd>
+                <p>URI пространства имён создаваемого элемента</p>
+              </dd>
+            
+            
+              <dt><code>use-attribute-sets</code></dt>
+              <dd>
+                <p>перечисляет имена наборов атрибутов, которые надо включить в создаваемый элемент</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="fallback"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:fallback</code></b><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+шаблон<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:fallback</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Выполняется при невозможности выполнить родительскую инструкцию.</p>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="foreach"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:for-each</code></b><br>
+<nobr><code class="mono">  </code><b><code>select</code></b><tt>=</tt><tt>&quot;</tt><i>выражение</i><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+несколько элементов <a href="#sort"><code>xsl:sort</code></a>, шаблон<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:for-each</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Выполняет содержащийся шаблон для каждого из узлов множества.</p>
+          <dl>
+            
+              <dt><code>select</code></dt>
+              <dd>
+                <p>содержит выражение, возвращающее перебираемое множество узлов</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="if"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:if</code></b><br>
+<nobr><code class="mono">  </code><b><code>test</code></b><tt>=</tt><tt>&quot;</tt><i>выражение</i><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+шаблон<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:if</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Выполняет или не выполняет дочерний шаблон в зависимости от заданного условия.</p>
+          <dl>
+            
+              <dt><code>test</code></dt>
+              <dd>
+                <p>содержит выражение проверяемого условия</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="import"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:import</code></b><br>
+<nobr><code class="mono">  </code><b><code>href</code></b><tt>=</tt><tt>&quot;</tt><i>URI</i><tt>&quot;</tt></nobr><tt>/</tt><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Элемент верхнего уровня.</p>
+          <p>Импортирует указанный шаблон.</p>
+          <dl>
+            
+              <dt><code>href</code></dt>
+              <dd>
+                <p>URI импортируемого шаблона</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="include"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:include</code></b><br>
+<nobr><code class="mono">  </code><b><code>href</code></b><tt>=</tt><tt>&quot;</tt><i>URI</i><tt>&quot;</tt></nobr><tt>/</tt><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Элемент верхнего уровня.</p>
+          <p>Включает указанный шаблон.</p>
+          <dl>
+            
+              <dt><code>href</code></dt>
+              <dd>
+                <p>URI включаемого шаблона</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="key"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:key</code></b><br>
+<nobr><code class="mono">  </code><b><code>name</code></b><tt>=</tt><tt>&quot;</tt><i>имя</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><b><code>match</code></b><tt>=</tt><tt>&quot;</tt><i>паттерн</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><b><code>use</code></b><tt>=</tt><tt>&quot;</tt><i>выражение</i><tt>&quot;</tt></nobr><tt>/</tt><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Элемент верхнего уровня.</p>
+          <p>Определяет именованный ключ.</p>
+          <dl>
+            
+              <dt><code>name</code></dt>
+              <dd>
+                <p>имя ключа</p>
+              </dd>
+            
+            
+              <dt><code>match</code></dt>
+              <dd>
+                <p>выбирает узлы, для которых будут определяться значения ключа</p>
+              </dd>
+            
+            
+              <dt><code>use</code></dt>
+              <dd>
+                <p>выражение, значение которого будет значением ключа для каждого из узлов</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="message"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:message</code></b><br>
+<nobr><code class="mono">  </code><code>terminate</code><tt>=</tt><tt>&quot;</tt><code>yes</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>no</code><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+шаблон<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:message</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Указывает процессору на то, что нужно вывести сообщение.</p>
+          <dl>
+            
+              <dt><code>terminate</code></dt>
+              <dd>
+                <p>определяет, следует ли прервать обработку после вывода сообщения или нет</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="namespacealias"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:namespace-alias</code></b><br>
+<nobr><code class="mono">  </code><b><code>stylesheet-prefix</code></b><tt>=</tt><tt>&quot;</tt><i>префикс</i><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>#default</code><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><b><code>result-prefix</code></b><tt>=</tt><tt>&quot;</tt><i>префикс</i><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>#default</code><tt>&quot;</tt></nobr><tt>/</tt><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Элемент верхнего уровня.</p>
+          <p>Определяет псевдоним для префикса.</p>
+          <dl>
+            
+              <dt><code>stylesheet-prefix</code></dt>
+              <dd>
+                <p>префикс в преобразовании</p>
+              </dd>
+            
+            
+              <dt><code>result-prefix</code></dt>
+              <dd>
+                <p>префикс в результирующем документе</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="number"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:number</code></b><br>
+<nobr><code class="mono">  </code><code>level</code><tt>=</tt><tt>&quot;</tt><code>single</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>multiple</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>any</code><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>count</code><tt>=</tt><tt>&quot;</tt><i>паттерн</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>from</code><tt>=</tt><tt>&quot;</tt><i>паттерн</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>value</code><tt>=</tt><tt>&quot;</tt><i>выражение</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>format</code><tt>=</tt><tt>&quot;</tt><tt>{</tt><i>строка</i><tt>}</tt><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>lang</code><tt>=</tt><tt>&quot;</tt><tt>{</tt><i>токен</i><tt>}</tt><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>letter-value</code><tt>=</tt><tt>{</tt><tt>&quot;</tt><code>alphabetic</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>traditional</code><tt>&quot;</tt><tt>}</tt></nobr><br>
+<nobr><code class="mono">  </code><code>grouping-separator</code><tt>=</tt><tt>&quot;</tt><tt>{</tt><i>символ</i><tt>}</tt><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>grouping-size</code><tt>=</tt><tt>&quot;</tt><tt>{</tt><i>число</i><tt>}</tt><tt>&quot;</tt></nobr><tt>/</tt><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Выводит номер в соответствии с заданными критериями.</p>
+          <dl>
+            
+              <dt><code>level</code></dt>
+              <dd>
+                <p>на каких уровнях нумеровать узлы</p>
+              </dd>
+            
+            
+              <dt><code>count</code></dt>
+              <dd>
+                <p>какие узлы учитывать при нумерации</p>
+              </dd>
+            
+            
+              <dt><code>from</code></dt>
+              <dd>
+                <p>в какой части документа нумеровать узлы</p>
+              </dd>
+            
+            
+              <dt><code>value</code></dt>
+              <dd>
+                <p>выражение, вычисляющее номер</p>
+              </dd>
+            
+            
+              <dt><code>format</code></dt>
+              <dd>
+                <p>форматирующая строка номера</p>
+              </dd>
+            
+            
+              <dt><code>lang</code></dt>
+              <dd>
+                <p>язык для алфавитных последовательностей</p>
+              </dd>
+            
+            
+              <dt><code>letter-value</code></dt>
+              <dd>
+                <p>алфавитная или традиционная нумерация</p>
+              </dd>
+            
+            
+              <dt><code>grouping-separator</code></dt>
+              <dd>
+                <p>разделяющий символ групп цифр номера</p>
+              </dd>
+            
+            
+              <dt><code>grouping-size</code></dt>
+              <dd>
+                <p>количество цифр в группах цифр номера</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="otherwise"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:otherwise</code></b><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+шаблон<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:otherwise</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Субэлемент элемента <a href="#choose"><code>xsl:choose</code></a>.</p>
+          <p>Выполняется в элементе <a href="#choose"><code>xsl:choose</code></a>, если ни одно из других условий не верно.</p>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="output"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:output</code></b><br>
+<nobr><code class="mono">  </code><code>method</code><tt>=</tt><tt>&quot;</tt><code>xml</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>html</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>text</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><i>префикс:имя</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>version</code><tt>=</tt><tt>&quot;</tt><i>токен</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>encoding</code><tt>=</tt><tt>&quot;</tt><i>строка</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>omit-xml-declaration</code><tt>=</tt><tt>&quot;</tt><code>yes</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>no</code><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>standalone</code><tt>=</tt><tt>&quot;</tt><code>yes</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>no</code><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>doctype-public</code><tt>=</tt><tt>&quot;</tt><i>строка</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>doctype-system</code><tt>=</tt><tt>&quot;</tt><i>строка</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>cdata-section-elements</code><tt>=</tt><tt>&quot;</tt><i>имена</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>indent</code><tt>=</tt><tt>&quot;</tt><code>yes</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>no</code><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>media-type</code><tt>=</tt><tt>&quot;</tt><i>строка</i><tt>&quot;</tt></nobr><tt>/</tt><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Элемент верхнего уровня.</p>
+          <p>Определяет параметры вывода результирующего документа.</p>
+          <dl>
+            
+              <dt><code>method</code></dt>
+              <dd>
+                <p>метод сериализации</p>
+              </dd>
+            
+            
+              <dt><code>version</code></dt>
+              <dd>
+                <p>версия языка сериализации</p>
+              </dd>
+            
+            
+              <dt><code>encoding</code></dt>
+              <dd>
+                <p>кодировка выходящего документа</p>
+              </dd>
+            
+            
+              <dt><code>omit-xml-declaration</code></dt>
+              <dd>
+                <p>опустить декларацию XML</p>
+              </dd>
+            
+            
+              <dt><code>standalone</code></dt>
+              <dd>
+                <p>самостоятельный или несамостоятельный документ</p>
+              </dd>
+            
+            
+              <dt><code>doctype-public</code></dt>
+              <dd>
+                <p>публичный идентификатор типа документа</p>
+              </dd>
+            
+            
+              <dt><code>doctypre-public</code></dt>
+              <dd>
+                <p>системный идентификатор типа документа</p>
+              </dd>
+            
+            
+              <dt><code>cdata-section-elements</code></dt>
+              <dd>
+                <p>элементы, содержимое которых следует выводить как секции CDATA</p>
+              </dd>
+            
+            
+              <dt><code>indent</code></dt>
+              <dd>
+                <p>индентация (вывод отступов)</p>
+              </dd>
+            
+            
+              <dt><code>media-type</code></dt>
+              <dd>
+                <p>медиа-тип</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="param"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:param</code></b><br>
+<nobr><code class="mono">  </code><b><code>name</code></b><tt>=</tt><tt>&quot;</tt><i>имя</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>select</code><tt>=</tt><tt>&quot;</tt><i>выражение</i><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+шаблон<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:param</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция, элемент верхнего уровня.</p>
+          <p>Определяет параметр преобразования или шаблонного правила.</p>
+          <dl>
+            
+              <dt><code>name</code></dt>
+              <dd>
+                <p>имя параметра</p>
+              </dd>
+            
+            
+              <dt><code>select</code></dt>
+              <dd>
+                <p>выражение, задающее значение параметра</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="preservespace"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:preserve-space</code></b><br>
+<nobr><code class="mono">  </code><b><code>elements</code></b><tt>=</tt><tt>&quot;</tt><i>токены</i><tt>&quot;</tt></nobr><tt>/</tt><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Элемент верхнего уровня.</p>
+          <p>Определяет элементы входящего документа, в которых следует сохранять текстовые узлы, содержащие только пробельные символы.</p>
+          <dl>
+            
+              <dt><code>elements</code></dt>
+              <dd>
+                <p>перечисляет элементы, в которых пробельные символы должны быть сохранены</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="processinginstruction"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:processing-instruction</code></b><br>
+<nobr><code class="mono">  </code><b><code>name</code></b><tt>=</tt><tt>&quot;</tt><tt>{</tt><i>имя</i><tt>}</tt><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+шаблон<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:processing-instruction</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Создаёт узел инструкции по обработке.</p>
+          <dl>
+            
+              <dt><code>name</code></dt>
+              <dd>
+                <p>определяет имя целевого приложения создаваемой инструкции</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="sort"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:sort</code></b><br>
+<nobr><code class="mono">  </code><code>select</code><tt>=</tt><tt>&quot;</tt><i>выражение</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>lang</code><tt>=</tt><tt>&quot;</tt><tt>{</tt><i>токен</i><tt>}</tt><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>data-type</code><tt>=</tt><tt>{</tt><tt>&quot;</tt><code>text</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>number</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><i>префикс:имя</i><tt>&quot;</tt><tt>}</tt></nobr><br>
+<nobr><code class="mono">  </code><code>order</code><tt>=</tt><tt>{</tt><tt>&quot;</tt><code>ascending</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>descending</code><tt>&quot;</tt><tt>}</tt></nobr><br>
+<nobr><code class="mono">  </code><code>case-order</code><tt>=</tt><tt>{</tt><tt>&quot;</tt><code>upper-first</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>lower-first</code><tt>&quot;</tt><tt>}</tt></nobr><tt>/</tt><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Субэлемент элементов <a href="#applytemplates"><code>xsl:apply-templates</code></a> и <a href="#foreach"><code>xsl:for-each</code></a>.</p>
+          <dl>
+            
+              <dt><code>select</code></dt>
+              <dd>
+                <p>выражения для сортировки</p>
+              </dd>
+            
+            
+              <dt><code>lang</code></dt>
+              <dd>
+                <p>язык сортировки</p>
+              </dd>
+            
+            
+              <dt><code>data-type</code></dt>
+              <dd>
+                <p>тип данных сортировки</p>
+              </dd>
+            
+            
+              <dt><code>order</code></dt>
+              <dd>
+                <p>порядок сортировки</p>
+              </dd>
+            
+            
+              <dt><code>case-order</code></dt>
+              <dd>
+                <p>упорядоченность строчных и прописных букв</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="stripspace"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:strip-space</code></b><br>
+<nobr><code class="mono">  </code><b><code>elements</code></b><tt>=</tt><tt>&quot;</tt><i>токены</i><tt>&quot;</tt></nobr><tt>/</tt><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Элемент верхнего уровня.</p>
+          <p>Определяет элементы входящего документа, в которых следует удалять текстовые узлы, содержащие только пробельные символы.</p>
+          <dl>
+            
+              <dt><code>elements</code></dt>
+              <dd>
+                <p>перечисляет элементы, в которых пробельные символы должны быть удалены</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="stylesheet"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:stylesheet</code></b><br>
+<nobr><code class="mono">  </code><code>id</code><tt>=</tt><tt>&quot;</tt><i>идентификатор</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>extension-element-prefixes</code><tt>=</tt><tt>&quot;</tt><i>префиксы</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>exclude-result-prefixes</code><tt>=</tt><tt>&quot;</tt><i>префиксы</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><b><code>version</code></b><tt>=</tt><tt>&quot;</tt><i>число</i><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+несколько элементов <a href="#import"><code>xsl:import</code></a>, элементы верхнего уровня<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:stylesheet</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Корневой элемент преобразования.</p>
+          <dl>
+            
+              <dt><code>id</code></dt>
+              <dd>
+                <p>идентификатор преобразования</p>
+              </dd>
+            
+            
+              <dt><code>extension-element-prefixes</code></dt>
+              <dd>
+                <p>префиксы элементов расширения</p>
+              </dd>
+            
+            
+              <dt><code>exclude-result-prefixes</code></dt>
+              <dd>
+                <p>префиксы, не включаемые в выходящий документ</p>
+              </dd>
+            
+            
+              <dt><code>version</code></dt>
+              <dd>
+                <p>версия языка XSLT</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="template"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:template</code></b><br>
+<nobr><code class="mono">  </code><code>match</code><tt>=</tt><tt>&quot;</tt><i>паттерн</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>name</code><tt>=</tt><tt>&quot;</tt><i>имя</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>priority</code><tt>=</tt><tt>&quot;</tt><i>число</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>mode</code><tt>=</tt><tt>&quot;</tt><i>имя</i><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+несколько элементов <a href="#param"><code>xsl:param</code></a>, шаблон<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:template</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Элемент верхнего уровня.</p>
+          <p>Определяет шаблонное правило.</p>
+          <dl>
+            
+              <dt><code>match</code></dt>
+              <dd>
+                <p>содержит паттерн, которому должны удовлетворять узлы, обрабатываемые данным шаблоном</p>
+              </dd>
+            
+            
+              <dt><code>name</code></dt>
+              <dd>
+                <p>имя шаблона</p>
+              </dd>
+            
+            
+              <dt><code>priority</code></dt>
+              <dd>
+                <p>приоритет шаблона</p>
+              </dd>
+            
+            
+              <dt><code>mode</code></dt>
+              <dd>
+                <p>режим шаблона</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="text"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:text</code></b><br>
+<nobr><code class="mono">  </code><code>disable-output-escaping</code><tt>=</tt><tt>&quot;</tt><code>yes</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>no</code><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+символьные данные<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:text</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Создаёт в выходящем документе текстовый узел. Пробельные символы, находящиеся внутри <a href="#text"><code>xsl:text</code></a> не удаляются.</p>
+          <dl>
+            
+              <dt><code>disable-output-escaping</code></dt>
+              <dd>
+                <p>определяет, должны ли в выходящем документе особые символы этого текстового узла заменяться на сущности</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="transform"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:transform</code></b><br>
+<nobr><code class="mono">  </code><code>id</code><tt>=</tt><tt>&quot;</tt><i>идентификатор</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>extension-element-prefixes</code><tt>=</tt><tt>&quot;</tt><i>префиксы</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>exclude-result-prefixes</code><tt>=</tt><tt>&quot;</tt><i>префиксы</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><b><code>version</code></b><tt>=</tt><tt>&quot;</tt><i>число</i><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+несколько элементов <a href="#import"><code>xsl:import</code></a>, элементы верхнего уровня<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:transform</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Корневой документ преобразования.</p>
+          <p>Псевдоним элемента <a href="#stylesheet"><code>xsl:stylesheet</code></a>.</p>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="valueof"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:value-of</code></b><br>
+<nobr><code class="mono">  </code><b><code>select</code></b><tt>=</tt><tt>&quot;</tt><i>выражение</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>disable-output-escaping</code><tt>=</tt><tt>&quot;</tt><code>yes</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>no</code><tt>&quot;</tt></nobr><tt>/</tt><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция.</p>
+          <p>Создаёт в выходящем документе текстовый узел, содержащий результат вычисления выражения, приведённый к строке.</p>
+          <dl>
+            
+              <dt><code>select</code></dt>
+              <dd>
+                <p>содержит вычисляемое выражение</p>
+              </dd>
+            
+            
+              <dt><code>disable-output-escaping</code></dt>
+              <dd>
+                <p>определяет, должны ли в выходящем документе особые символы этого текстового узла заменяться на сущности</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="variable"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:variable</code></b><br>
+<nobr><code class="mono">  </code><b><code>name</code></b><tt>=</tt><tt>&quot;</tt><i>имя</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>select</code><tt>=</tt><tt>&quot;</tt><i>выражение</i><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+шаблон<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:variable</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Инструкция, элемент верхнего уровня.</p>
+          <p>Создаёт глобальную или локальную переменную. Значение переменной не может быть изменено.</p>
+          <dl>
+            
+              <dt><code>name</code></dt>
+              <dd>
+                <p>задаёт имя определяемой переменной</p>
+              </dd>
+            
+            
+              <dt><code>select</code></dt>
+              <dd>
+                <p>задаёт значение определяемой переменной</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="when"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:when</code></b><br>
+<nobr><code class="mono">  </code><b><code>test</code></b><tt>=</tt><tt>&quot;</tt><i>выражение</i><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+шаблон<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:when</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Субэлемент элемента <a href="#choose"><code>xsl:choose</code></a>.</p>
+          <p>Выполняется один из вариантов в блоке <a href="#choose"><code>xsl:choose</code></a> в зависимости от условия.</p>
+          <dl>
+            
+              <dt><code>test</code></dt>
+              <dd>
+                <p>задаёт выражение логического условия</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+      <div class="textwide">
+<a name="withparam"></a>
+        <div class="proto"><p>
+<tt>&lt;</tt><b><code>xsl:with-param</code></b><br>
+<nobr><code class="mono">  </code><b><code>name</code></b><tt>=</tt><tt>&quot;</tt><i>имя</i><tt>&quot;</tt></nobr><br>
+<nobr><code class="mono">  </code><code>select</code><tt>=</tt><tt>&quot;</tt><i>выражение</i><tt>&quot;</tt></nobr><tt>&gt;</tt><br>
+<tt>&lt;--</tt><br>
+шаблон<br>
+<tt>--&gt;</tt><br>
+<tt>&lt;/</tt><code>xsl:with-param</code><tt>&gt;</tt>
+</p></div>
+        <div class="ref">
+          <p>Субэлемент элементов <a href="#applytemplates"><code>xsl:apply-templates</code></a>, <a href="#calltemplate"><code>xsl:call-template</code></a>.</p>
+          <p>Задаёт значение одного параметра при вызове параметризованного шаблона.</p>
+          <dl>
+            
+              <dt><code>name</code></dt>
+              <dd>
+                <p>имя параметра</p>
+              </dd>
+            
+            
+              <dt><code>select</code></dt>
+              <dd>
+                <p>выражение, значение которого должно быть передано как параметр</p>
+                <p>В случае если атрибут <code>select</code> не определён, значением передаваемого параметра является дерево, полученное в результате выполнения содержимого <a href="#withparam"><code>xsl:with-param</code></a>
+</p>
+                <p>Если элемент при этом пуст, значением параметра является пустая строка</p>
+              </dd>
+            
+          </dl>
+        </div>
+<br clear="both">
+      </div>
+    
+  
+    <h2>Атрибуты</h2>
+    <dl>
+      
+        <dt><code>xsl:version</code></dt>
+        <dd>
+          <p>Указывает версию языка в случае использования упрощённого синтаксиса записи преобразований</p>
+        </dd>
+      
+      
+        <dt><code>xsl:exclude-result-prefixes</code></dt>
+        <dd>
+          <p>Перечисляет префиксы пространств имён, которые должны быть исключены в данном элементе.</p>
+        </dd>
+      
+      
+        <dt><code>xsl:extension-elements-prefixes</code></dt>
+        <dd>
+          <p>Перечисляет префиксы пространств имён, которые используются в элементах расширения</p>
+        </dd>
+      
+      
+        <dt><code>xsl:use-attribute-sets</code></dt>
+        <dd>
+          <p>Перечисляет названия именованных наборов атрибутов, которые следует включить в данный элемент на выходе</p>
+        </dd>
+      
+    </dl>
+  <a name="legend"></a>
+    <h2>Обозначения</h2>
+    <dl>
+      
+        <dt><b><code>attribute</code></b></dt>
+        <dd>
+          <p>обязательный атрибут</p>
+        </dd>
+      
+      
+        <dt><code>attribute</code></dt>
+        <dd>
+          <p>необязательный атрибут</p>
+        </dd>
+      
+      
+        <dt>
+<code>attribute</code><tt>=</tt><tt>&quot;</tt><i>строка</i><tt>&quot;</tt>
+</dt>
+        <dd>
+          <p>атрибут со строковым параметром</p>
+        </dd>
+      
+      
+        <dt>
+<code>attribute</code><tt>=</tt><tt>&quot;</tt><tt>{</tt><i>строка</i><tt>}</tt><tt>&quot;</tt>
+</dt>
+        <dd>
+          <p>атрибут со строковым параметром, значение которого является шаблоном значения атрибута</p>
+        </dd>
+      
+      
+        <dt>
+<code>attribute</code><tt>=</tt><tt>&quot;</tt><code>yes</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>no</code><tt>&quot;</tt>
+</dt>
+        <dd>
+          <p>атрибут с вариантами значений</p>
+        </dd>
+      
+      
+        <dt>
+<code>attribute</code><tt>=</tt><tt>{</tt><tt>&quot;</tt><code>yes</code><tt>&quot;</tt><tt>|</tt><tt>&quot;</tt><code>no</code><tt>&quot;</tt><tt>}</tt>
+</dt>
+        <dd>
+          <p>атрибут с вариантами значений, которые могут быть заданы шаблонами значений атрибутов</p>
+        </dd>
+      
+      
+        <dt>&lt;-- шаблон --&gt;</dt>
+        <dd>
+          <p>содержимым элемента является шаблон</p>
+        </dd>
+      
+      
+        <dt>&lt;-- несколько элементов <code>xsl:import</code> ... --&gt;</dt>
+        <dd>
+          <p>элемент содержит последовательность из нуля или более элементов <code>xsl:import</code>
+</p>
+        </dd>
+      
+      
+        <dt>&lt;-- один или более элемент <code>xsl:when</code> ... --&gt;</dt>
+        <dd>
+          <p>элемент содержит последовательность из одного или более элементов <code>xsl:when</code>
+</p>
+        </dd>
+      
+      
+        <dt>&lt;-- ... опциональный элемент <code>xsl:otherwise</code> --&gt;</dt>
+        <dd>
+          <p>элемент содержит элемент <code>xsl:otherwise</code>, который может быть пропущен</p>
+        </dd>
+      
+    </dl>
+  </div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="app_01_09_02.html"><img src="images/db/prev.gif" alt="Пред."></a> </td>
+<td width="20%" align="center"><a accesskey="u" href="xsltbook.html"><img src="images/db/up.gif" alt="Уровень выше"></a></td>
+<td width="40%" align="right"> <a accesskey="n" href="xpathref.html"><img src="images/db/next.gif" alt="След."></a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Расширения </td>
+<td width="20%" align="center"><a accesskey="h" href="xsltbook.html"><img src="images/db/home.gif" alt="Начало"></a></td>
+<td width="40%" align="right" valign="top"> Приложение П3. Краткий справочник функций XSLT и XPath</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

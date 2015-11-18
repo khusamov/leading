@@ -1,0 +1,49 @@
+http://zendframework.ru/forum/index.php?topic=6797.0
+
+Самоучитель на русском языке
+
+http://dfiles.ru/files/ecd8yg81g пароль - zendframework2
+Последнее изменение от 1.08.2013
+
+
+Содержимое:
+Самоучитель, пдф - 1 шт
+Примеры кода для раздела практики - 1 набор
+
+Начата методичка по авторизации и аутентификации - 1шт
++ стандартные модули быстрый старт
+Примеры кода - 1 набор
+
+
+Для начинающих глава "за запросом и обратно" может показаться несколько сложной, поскольку объясняет "внутреннюю механику" фреймворка. Поэтому отнеситесь к ней следующим образом:" Вы в новой большой компании, и вам представляют участников по именам. Естественно, всех сразу вы можете и не запомнить.
+
+Так что если вам нужен самоучитель и уроки по Zend Framework 2 на русском языке, книги, литература, учебник то читайте и ждите продолжения, это еще не все
+
+Цитировать
+Время пришло.
+
+
+Конечно же, родная документация по zf2 на английском:
+Мануал онлайн    или скачать PDF
+API онлайн           или скачать HTML 
+
+Очень информативные источники, но тоже на английском
+http://my.safaribooksonline.com/book/web-development/9781782161929/6dot-media-sharing/ch06s03_html
+http://www.mwop.net/blog/tag/zend+framework.html
+http://www.maltblue.com/category/tutorial/beginner
+http://www.google.com.ua/search?q=site:akrabat.com+Zend+Framework+2
+
+
+Некоторая часть документации уже переведена на русский язык:
+http://zf2.com.ua/doc
+
+Есть даже переведенный быстрый старт:
+http://zf2.com.ua/doc/31
+
+Серия статей на русском языке для пользователей разного уровня подготовки:
+http://zftutorials.ru/blog/tag/zf2
+http://slyweb.ru/zend-framework
+http://jokerov.com/category/zf2
+http://shadurin.com/zend-framework-2-voprosy-otvety
+http://webdraft.org/category/zend-framework
+http://www.pvsm.ru/zend-framework-2

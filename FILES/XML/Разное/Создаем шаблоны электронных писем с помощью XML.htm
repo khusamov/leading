@@ -1,0 +1,711 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<TITLE>Создаем шаблоны электронных писем с помощью XML</TITLE>
+<LINK REL="SHORTCUT ICON" HREF="http://www.codenet.ru/favicon.ico">
+<META NAME="title" CONTENT="Создаем шаблоны электронных писем с помощью XML">
+<META NAME="content" CONTENT="На сегодняшний день возможность посылать электронные сообщения является неотъемлемой частью любого web-приложения. В основном, это очень специфические виды сообщений - например, сообщения, которые шлются для напоминания пользовательского пароля, приветственные сообщения, сообщения, подтверждающие заказы, и пр. Хотя содержание электронных сообщений и меняется от приложения к приложению, но процесс их отправки редко различается. Вы просто создаете письмо, отсылаете его на почтовый сервер, и позже получатель его оттуда забирает.">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<LINK rel="stylesheet" type="text/css" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Новости CodeNet.Ru" href="http://www.codenet.ru/export/read.xml"></HEAD>
+</HEAD>
+
+<BODY bgcolor="white" class="m0" background="/images/bg.gif" topmargin="0" leftmargin="0">
+
+<table cellspacing="0" cellpadding="0" border="0" bgcolor="#E6E6E6" width="100%" style="background-image:url(/images/up_bg.gif);">
+<tr><td width="1%" bgcolor="black"><img src="/images/pshop.gif" alt="Enter" width="99" height="26"></td>
+<td>
+<table cellspacing="0" cellpadding="0" border="0" width="640" id="itbl">
+<tr><td valign="top"><img src="/none.gif" width="3" height="1" alt=""><img src="/images/dots.gif" width="10" height="9" alt=""></td>
+
+<td class="m"><a class="b" href="http://www.codenet.ru/progr/">Программирование</a></td>
+<td><img src="/images/up_dot.gif" alt="" width="4" height="19"></td>
+<td class="m"><a class="b" href="http://www.codenet.ru/webmast/">Web&nbsp;Devel</a></td>
+<td><img src="/images/up_dot.gif" alt="" width="4" height="19"></td>
+<td class="m"><a class="b" href="http://www.codenet.ru/db/">Базы&nbsp;данных</a></td>
+<td><img src="/images/up_dot.gif" alt="" width="4" height="19"></td>
+<td class="m"><a class="b" href="http://www.codenet.ru/pshop/">Photoshop</a></td>
+<td><img src="/images/up_dot.gif" alt="" width="4" height="19"></td>
+<td class="m"><a class="b" href="http://sources.codenet.ru/">Исходники</a></td>
+<td><img src="/images/up_dot.gif" alt="" width="4" height="19"></td>
+<td class="m"><a class="b" href="http://www.codenet.ru/hosting/">Хостинг</a></td>
+<td><img src="/images/up_dot.gif" alt="" width="4" height="19"></td>
+<td class="m" width="100%" nowrap><a class="b" href="http://forum.codenet.ru/"><B><font color=red>Форум</font></B></a>
+<SCRIPT language="JavaScript">
+cnsd=document;cnsd.cookie='b=b';cnsc=cnsd.cookie?1:0;
+cnst=escape(cnsd.title);cnst=cnst.replace(/\+/g,'%2B');
+cnsa=navigator.appName;
+cnsn=(cnsa.substring(0,2)=='Mi')?0:1;cnss=screen;cnspx=(cnsn==0)?cnss.colorDepth:cnss.pixelDepth;
+document.write('<img src="http://www.codenet.ru/cnstats/cntc.php?i=16439867&c='+cnsc+'&e='+cnss.width+'.'+cnss.height+'&d='+cnspx+'&r='+escape(cnsd.referrer)+'&p='+escape(cnsd.location)+'&t='+cnst+'" width="1" height="1" border="0">');
+</SCRIPT>                                                                                                                                                    
+
+</td>
+</table>
+</td><td>
+
+</td><td align="right">
+<a href="/"><img src="/images/home.gif" width="28" height="26" border="0" alt="На главную"></a></td>
+<td bgcolor="white"><img src="/none.gif" width="2" height="1" alt=""></td></tr>
+</table><table bgcolor="white" cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr><td>
+
+<table cellspacing="10"><tr><td>
+<a href="/" style="font-size:11px;text-decoration:none;"><img src="/images/logo.gif" alt="CodeNet" width="83" height="23" border="0">
+<img height=1 width=1 src="http://top.list.ru/counter?id=127096" border=0>
+<img height=1 width=1 src="http://warlog.info:8081/2484;0x0;0;0;-;0" border=0>
+
+<br>
+<font color="darkorange">Все для программиста!</font><br>
+</a>
+</td></tr></table>
+
+</td>
+<td><img src="/none.gif" alt="" width="1" height="64"></td><td align="right"><table><tr><td valign=top>
+<script language="JavaScript">
+var loc=escape(document.location.href);
+var rndnum=Math.round(Math.random() * 999111);
+document.write('<iframe src="http://www.codenet.ru/bb/show.php?t=f&p=1&loc='+loc+'&nocache='+rndnum+'" frameborder=0 vspace=0 hspace=0 width=468 height=60 marginwidth=0 marginheight=0 scrolling=no>');
+document.write('<a href="http://www.codenet.ru/bb/click.php?p=1&nocache='+rndnum+'&loc='+loc+'" target="_blank">');
+document.write('<img src="http://www.codenet.ru/bb/show.php?t=i&p=1&nocache='+rndnum+'&loc='+loc+'" width=468 height=60 border=0></a></iframe>');
+</script>
+</td></tr></table></td></tr>
+<tr bgcolor="#737373"><td colspan="2"><img src="/none.gif" width="200" height="1" alt=""></td><td><img src="/none.gif" alt="" width="470" height="1"></td>
+</tr>
+</table><table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr><td width="150" valign="top" align="center"><!-- ЛЕВАЯ ЯЧЕЙКА -->
+
+<img src="/none.gif" width="1" height="6"><br>
+
+<!--LOGIN-->
+
+<noindex>
+<table width="92%" cellspacing="1" cellpadding="0" border="0" bgcolor="#C0C0C0">
+<form action="http://forum.codenet.ru/www.php" method="post">
+<tr><td bgcolor="white" style="padding:3px 0 3px 0">
+<div align="left">&nbsp;&nbsp;<font class="orange">Войти в систему</font><br>
+<img width="118" height="1" src="/images/pp1.gif" hspace="8" vspace="2"></div>
+
+<table cellspacing=0 cellpadding=0 border=0 align="center">
+<tr><td colspan="2"><table width="118" style="border:1px solid #BFBFBF;" cellspacing="0" cellpadding="0" border="0"><tr><td><img src="/images/sl_login.gif" width="15" height="16"></td><td width="100%"><input id="loginfield" type="text" name="username" accesskey="l" value="" title="логин (Alt-L)" style='margin:0px;font-family:verdana;font-size:11px;border:0;width:100%;height:15px;'></td></tr></table></td></tr>
+<tr height="2"><td colspan="2"></td></tr>
+<tr><td colspan="2"><table width="118" style="border:1px solid #BFBFBF;" cellspacing="0" cellpadding="0" border="0"><tr><td><img src="/images/sl_password.gif" width="15" height="16"></td><td width="100%"><input type="password" name="password" accesskey="p" title="пароль (Alt-P)" value="" style='margin:0px;font-family:verdana;font-size:11px;border:0;width:100%;height:15px;'></td></tr></table></td></tr>
+<tr height="2"><td colspan="2"></td></tr>
+<tr><td valign="top" style="font-size:9px;line-height:10px;">
+<a tabindex="-1" class="mn" href="http://forum.codenet.ru/register.php?action=signup" style="color:red;"><B>регистрация</B></a><br>
+<a tabindex="-1" class="mn" href="http://forum.codenet.ru/member.php?action=lostpw">забыли пароль ?</a>
+</td>
+<td align="right"><input alt="войти!" title="войти!" type="image" style="border:0;width:20px;height:20px" src="/images/action.gif"></td>
+</tr></table>
+
+
+<img src="/none.gif" width="1" height="3"><br>
+</td></tr>
+<input type="hidden" name="codenet_referer" value="http%3A%2F%2Fwww.codenet.ru%2Fwebmast%2Fxml%2Fxmlmail.php">
+<input type="hidden" name="action" value="login">
+</form>
+</table>
+
+</noindex>
+
+<!--/LOGIN-->
+
+<img src="/images/line.gif" width="137" height="9" vspace="4"><br>
+<table width="92%" cellspacing="1" cellpadding="0" border="0" bgcolor="#C0C0C0"><tr><td bgcolor="white" style="padding:3px 0 3px 0">
+<UL class="lm">
+<LI><a href=/webmast/html.php><B>HTML</B></a>
+<LI><a href=/webmast/xml/>XML</a>
+<LI><a href=/webmast/wml/>WAP (WML)</a>
+<LI class="last"><a href=/webmast/cookies.php>Cookies</a>
+<LI><a href=/webmast/php/><B>PHP</B></a>
+<LI><a href=/webmast/iis/asp.php><B>ASP</B> Manual</a>
+<LI><a href=/webmast/perl/>Perl</a>
+<LI class="last"><a href=/webmast/awk.php>AWK</a>
+<LI><a href=/webmast/apache/>Apache Server</a>
+<LI><a href=/webmast/apache/rapache.php>Russian Apache</a>
+<LI class="last"><a href=/webmast/iis/iis.php>Microsft IIS</a>
+<LI><a href=/webmast/vrml20.php>VRML 1.0</a>
+<LI><a href=/webmast/vrml97/>VRML'97</a>
+<LI><a href=/webmast/curl.php>CURL</a>
+<LI><a href=/webmast/java/>Java</a>
+<LI><a href=/webmast/js/>JavaScript</a>
+<LI><a href=/webmast/vbscript/>VB Script</a>
+<LI><a href=/webmast/wincgi.php>CGI интерфрейс</a>
+<LI><a href=/webmast/ssi/>SSI</a>
+<LI><a href=/webmast/http/>HTTP протокол</a>
+<LI><a href=/webmast/http/rfc2068/>HTTP/1.1 (RFC 2068)</a>
+<LI><a href=/webmast/socks51.php>Socks 5 (RFC 1928)</a>
+<LI><a href=/webmast/snmp/>SNMP</a>
+<LI><a href=/webmast/smtp.php>SMTP</a>
+<LI><a href=/webmast/pop3.php>POP3</a>
+<LI><a href=/webmast/ppp.php>PPP</a>
+<LI><a href=/webmast/udp.php>UDP</a>
+<LI><a href=/webmast/dns.php>Что такое DNS</a>
+<LI class="last"><a href=/webmast/tcpip.php>TCP/IP</a>
+<LI><a href=/webmast/search/>Поисковые системы</a>
+<LI><a href=/webmast/favicon.php>Иконка в URL'е</a>
+<LI><a href=/webmast/cnsearch/>CNSearch</a>
+</UL>
+</td></tr></table>
+
+<img src="/images/line.gif" width="137" height="9" vspace="4"><br>
+<table width="92%" cellspacing="1" cellpadding="0" border="0" bgcolor="#C0C0C0"><tr><td bgcolor="white" style="font-size:11px;padding:3px 0 3px 0;">
+<div align="left">&nbsp;&nbsp;<font class="orange">Почтовая рассылка</font><br>
+<img width="118" height="1" src="/images/pp1.gif" hspace="8" vspace="2"></div>
+<div align="center">
+<form action="http://www.codenet.ru/mail/subs.php" method="post" class="m0">
+<input accesskey="e" type="text" name="email" value="ваш@email.ru" size="13" maxlength="100" style='font-family:verdana;font-size:11px;border: solid 1px #BFBFBF;height:20px;width:118px;background-image: url(/images/l_email.gif);padding-left:17px;padding-top:2px;' onfocus='if (this.value=="ваш@email.ru") this.value=""' onblur='if (this.value=="") this.value="ваш@email.ru"'><br>
+
+<table cellspacing=0 cellpadding=0 border=0 width="118"><tr><td>
+<SCRIPT language="JavaScript">
+<!--
+document.write('<input type=hidden name=res value="'+screen.width+'x'+screen.height+'">');
+// -->
+</SCRIPT>
+<TR>
+<TD><img width="1" height="6" src="/none.gif"><br><INPUT name="sub" style="margin:0;width:10px;height:13px;background-color:white;" type=radio value=1 CHECKED></TD>
+<TD valign="bottom" style="font-size:11px;" width="100%">&nbsp;Подписаться</TD>
+<td rowspan="2" valign="top"><input alt="Подписаться!" title="Подписаться!" type="image" style="border:0;width:20px;height:20px" src="/images/action.gif"></td>
+</tr>
+<tr>
+<TD><INPUT name="sub" style="margin:0;width:10px;height:13px;background-color:white;" type=radio value=0></TD>
+<TD style="font-size:11px;">&nbsp;Отписаться</TD>
+</TR></TABLE>
+</form>
+</div>
+<img width=118 height=1 src="/images/pp1.gif" hspace=6 vspace=6>
+<div style="padding-left:5px">Подписчиков: 11571<br>
+<a href="http://www.codenet.ru/mail/" style="color:#404040;">Выпуск</a>: 15.06.2005<br></div>
+</td></tr></table>
+
+<img src="/images/line.gif" width="137" height="9" vspace="4"><br>
+<table width="92%" cellspacing="1" cellpadding="0" border="0" bgcolor="#C0C0C0"><tr><td bgcolor="white" style="font-size:11px;padding:3px 0 3px 0;">
+<div align=left>&nbsp;&nbsp;<font class="orange">Стоит бывать</font><br>
+<img width=118 height=1 src=/images/pp1.gif hspace=8 vspace=2></div>
+<UL class="lm">
+<LI><a target="_blank" href=http://seo-matik.ru>оптимизация сайтов</a><br>
+<LI><a target="_blank" href=http://matik.ru>разработка сайтов</a><br>
+<br>
+<LI><a target="_blank" href="http://www.wosoft.ru/">WoSoft.ru</a>
+<LI><a target="_blank" href="http://www.tumin.net" title="Ежедневные обзоры компьютерных программ и железа. Статьи">Tumin.Net</a>
+<LI><a target="_blank" href=http://r.codenet.ru/?13>RusDoc.ru</a>
+<LI><a target="_blank" href=http://r.codenet.ru/?28>WinSov.ru</a>
+</UL>
+<img width=118 height=1 src=/images/pp1.gif hspace=8 vspace=2><br>
+<table width=100%><tr><td></td><td>
+<div align=right class="mn">
+<a href=http://www.codenet.ru/contacts.php?s=3 class="mn">добавить</a> | <a class="mn" href=http://www.codenet.ru/links.php>остальные...</a>&nbsp;
+</div>
+</td></tr></table>
+</td></tr></table>
+
+<!--SEARCH-->
+
+<noindex>
+<img src="/images/line.gif" width="137" height="9" vspace="4"><br>
+<table width="92%" cellspacing="1" cellpadding="0" border="0" bgcolor="#C0C0C0">
+<form action="http://www.codenet.ru/search.php" method="get" class="m0">
+<tr><td bgcolor="white" style="padding:3px 0 3px 0">
+<div align="left">&nbsp;&nbsp;<font class="orange">Поиск</font><br>
+<img width="118" height="1" src="/images/pp1.gif" hspace="8" vspace="2"></div>
+<div align="center">
+<input type="text" name="q" accesskey="s" value="" title="поисковая фраза (Alt-S)" style='font-family:verdana;font-size:11px;border: solid 1px #BFBFBF;width:118px;height:20px;background-image: url(/images/l_search.gif);padding-left:17px;padding-top:2px;'><br>
+
+<table cellspacing=0 cellpadding=0 border=0 width="118"><tr><td>&nbsp;</td>
+<td align="right"><input alt="искать!" type="image" style="border:0;width:20px;height:20px" src="/images/action.gif"></td>
+</tr></table>
+</div>
+<img src="/none.gif" width="1" height="3"><br>
+
+</td></tr>
+</form>
+</table>
+</noindex>
+
+<!--/SEARCH-->
+
+
+<img src="/none.gif" width="150" height="4">
+<a href="http://www.codenet.ru/export/"><img src="http://www.codenet.ru/export/rss.gif" width=35 height=11 border=0 alt="Экспорт RSS"></a><br>
+<img src="/none.gif" width="1" height="3">
+</td>
+<td width="100%" valign="top"><!-- ПРАВАЯ ЯЧЕЙКА -->
+
+
+<table border="0" cellspacing=3 cellpadding=0 width="100%"><tr><td valign="top" width="100%" style="padding:3px;">
+<table cellspacing=1 cellpadding=5 bgcolor=#E0E0E0 width=98% align=center>
+<tr><td bgcolor=#F0F0F0 align=center style="font-size:11px;">
+
+<B>Свои:</B> <a style='color:gray' href="http://www.codenet.ru/valuehost.php">Хостинг от Valuehost со скидкой 50% !!!</a>
+
+</td></tr></table><table width="90%" cellspacing="7" border="0" align="center"><tr><td align="center" width="33%"><table cellspacing="1" cellpadding="0" border="0"><tr><td rowspan="2" valign="bottom"><img src="/images/views.gif" hspace="2" width="17" height="18" alt="просмотров"></td><td style="font-size:11px;">Просмотров: 3026</td></tr><tr><td><img src="/images/green/0.gif" width="43" height="7"></td></tr></table></td><td align="center" width="33%"><table cellspacing="1" cellpadding="0" border="0"><tr><td rowspan="2" valign="bottom"><img src="/images/comments.gif" hspace="2" width="17" height="18" alt="комментариев"></td><td style="font-size:11px;"><a href="#addcomment">Комментариев</a>: <font color="#AAAAAA">нет</font></td></tr><tr><td><img src="/images/blue/0.gif" width="43" height="7"></td></tr></table></td></tr></table><H1>Создаем шаблоны электронных писем с помощью XML</H1>
+
+<div align="right"><a href="mailto:litvinuke@tut.by">Алексей Литвинюк</a><br><a target="_blank" href="http://r.codenet.ru/?http://litvinuke.hut.ru/" target="_blank">http://litvinuke.hut.ru/</a></div>
+
+
+<p><i>На сегодняшний день возможность посылать электронные сообщения является 
+неотъемлемой частью любого web-приложения. В основном, это очень специфические 
+виды сообщений - например, сообщения, которые шлются для напоминания 
+пользовательского пароля, приветственные сообщения, сообщения, подтверждающие 
+заказы, и пр. Хотя содержание электронных сообщений и меняется от приложения к 
+приложению, но процесс их отправки редко различается. Вы просто создаете письмо, 
+отсылаете его на почтовый сервер, и позже получатель его оттуда забирает.
+</i><P>
+
+Когда вы программируете на Java, обычно для выполнения всей черной работы, 
+связанной с соединением с почтовым сервером и отправкой письма, используется 
+JavaMail API ( <a href="http://r.codenet.ru/?http://java.sun.com/products/javamail/" 
+target="_blank">http://java.sun.com/products/javamail/</a> ). К сожалению, 
+этим API крайне неудобно пользоваться (в основном, из-за гибкости электронной 
+почты как таковой), поэтому, если вы собираетесь использовать его достаточно 
+часто, будет куда удобнее и разумнее написать для него специальную оболочку. 
+В зависимости от того, как его использовать, оболочка может быть нацелена на 
+работу с каким-нибудь конкретным видом писем (для отправки писем, 
+подтверждающих пароль, например), или же она будет работать, как обычно: 
+принимая тему сообщения, список получателей и тело письма в качестве аргументов.
+<P>
+Однажды создав подобную оболочку, вам необходимо иметь также и систему для 
+создания самих сообщений. Возьмем, например, сообщения, напоминающие 
+пользователю его пароль, если он его случайно забыл. Почти все электронные 
+письма имеют поле для темы сообщения, список получателей и тело письма. Когда 
+мы посылаем письмо, напоминающее пароль, электронный адрес получателя и сам 
+пароль обычно извлекаются из какого-нибудь хранилища, в котором находится 
+информация о пользовательских аккаунтах. Поле темы и само тело сообщения 
+должны сливаться с данными из базы данных и где-то сохраняться. Одна из 
+основных проблем при проектировании таких приложений - решить, где же все-таки 
+лучше хранить такого рода данные. Во многих случаях эти строки сохраняются в 
+файлах свойств, которые содержатся отдельно от вашего исходного кода и 
+предоставляют удобную возможность локализации, если необходимо. Такой подход 
+используется в очень многих web-приложениях для хранения шаблонов электронных 
+писем для отправки, однако подход этот не совсем правильный.
+<P>
+Вот список основных причин, по которым использование файлов свойств не является 
+оптимальным способом хранения строк, составляющих шаблон электронных писем:
+<ul>
+<li>Файлы свойств отображаются в очень простую структуру данных - пары ключей и 
+их значений. Это совсем не подходит в случае, если нужно привязать множество 
+значений одному и тому же ключу. Например, электронное сообщение может иметь 
+четырех человек в поле To: и троих в поле Cc:. Это невозможно реализовать 
+просто с помощью файлов свойств.
+<li>Файлы свойств имеют очень строгое форматирование своего содержимого. Каждый 
+ключ и его значение должны находиться на одной и той же строке. Таким образом, 
+строки могут доставить много ненужных проблем, связанных с редактированием 
+этого файла. Например, будет очень проблематично поместить все тело 
+электронного сообщения в одном свойстве (пара ключ=значение). И если вам 
+нужно будет включить переносы на другую строку в пределах значения этого 
+свойства, вы будете вынуждены заменять их специальным символом \n.
+</ul>
+<p>Существует альтернативный подход к созданию шаблонов электронных сообщений. 
+Он заключается в использовании XML, и именно этот подход мы и будем 
+рассматривать в данной статье. XML предоставляет возможность конструирования 
+шаблонов электронных сообщений с очень гибкой структурой, и, помимо этого, он 
+не имеет таких ограничений на форматирование, какие имеют место в файлах 
+свойств. Поэтому с его помощью мы можем очень просто сохранять достаточно 
+большие строки. Единственное достоинство файлов свойств в том, что с ними 
+чуть проще работать, чем с XML-документами. В случае с файлами свойств 
+гораздо проще загрузить файл и после этого получить доступ к свойствам, уже 
+не обращаясь к данному файлу. С другой стороны, в случае XML-файла уходит куда 
+больше времени на загрузку и обработку. Для этого также необходимо использовать 
+одну из многочисленных библиотек для работы с XML-файлами, некоторые из которых 
+поставляются вместе с Java.
+<P>
+Эта статья и сопровождающие ее примеры призваны попытаться как можно больше 
+упростить для вас этот процесс, предоставляя общий фреймуорк для создания 
+шаблонов электронных писем с помощью XML-документов и их отправки. В этом 
+фреймуорке мы использовали пакет Common Digester из проекта Jakarta для 
+обработки XML и JavaMail API для отправки фактических сообщений.
+</p>
+
+<H2>Шаблоны электронных сообщений</H2>
+<P>Давайте посмотрим на формат самих шаблонов электронных сообщений. Шаблоны 
+представляют собой обычные XML-файлы, которые содержат корневой элемент и 
+дочерние элементы этого элемента. Корневой элемент - это &lt;email&gt;. 
+Обязательные дочерние элементы - &lt;subject&gt;, &lt;body&gt; и &lt;from&gt;. 
+Опциальные элементы - &lt;to&gt;, &lt;cc&gt; и &lt;bcc&gt;. Если вы когда-либо 
+пользовались почтовым клиентом, то каждый из этих элементов легко сможете 
+сопоставить с полями электронного письма в вашей почтовой программе. В одном 
+шаблоне может быть несколько экземпляров каждого из опциальных элементов. 
+Поэтому вы можете запросто включить множество адресов для каждого из 
+получателей этого сообщения. Позже мы рассмотрим, как это все работает и как 
+будет происходить обработка этого XML-шаблона сообщения. Вот пример 
+файла-шаблона:
+</p>
+<pre>
+  &lt;email&gt;&nbsp;
+    &lt;from&gt;litvinuke@tut.by&lt;/from&gt;&nbsp;
+    &lt;to&gt;someone@mail.ru&lt;/to&gt;&nbsp;
+    &lt;cc&gt;someoneelse@mail.ru&lt;/cc&gt;&nbsp;
+    &lt;bcc&gt;litvinuke@tut.by&lt;/bcc&gt;&nbsp;
+    &lt;subject&gt;Это тема письма&lt;/subject&gt;
+    &lt;body&gt;Это тело нашего электронного сообщения.&lt;/body&gt;&nbsp;
+  &lt;/email&gt;
+</pre>
+
+<H2>Настраиваемые шаблоны</H2>
+<P>Файлы свойств предоставляют одну очень полезную возможность. Она заключается в 
+том, что вы можете использовать класс MessageFormat для замены 
+идентификаторов-заменителей в файле свойств на реальные значения во время 
+работы приложения. Например, если вы храните сообщения об ошибках в файле 
+свойств, и одно из этих сообщений - "файл не найден", можно внести в этот файл 
+следующее свойство:
+</p>
+<pre>
+  file.not.found.error=Ошибка, невозможно найти файл {0}.
+</pre>
+<p>После этого используем класс MessageFormat следующим образом:</p>
+<pre>  
+  ResourceBundle bundle = ResourceBun dle.getBundle("MyProperties", current Locale);&nbsp;
+
+  Object[] arguments = { "some_file. txt" };
+
+  String newString = MessageFormat.format(
+    bundle.getString("file.not.found. error"), arguments);
+</pre>
+<p>В результате переменная newString будет содержать строку "Ошибка, невозможно 
+найти файл some_file.txt.". Подобную же функциональность мы привнесли и в нашу 
+систему. Поскольку класс MessageFormat может работать с любыми строками, вы 
+можете очень просто вставлять такие же идентификаторы-заменители в элементы 
+subject и body XML-шаблона электронного сообщения.
+<P>
+Иногда может возникнуть необходимость вставлять персональную информацию в ваши 
+шаблоны перед посылкой писем. Например, вам может понадобиться включить имя 
+получателя в тело письма или, быть может, даже детальную информацию о 
+произведенном им заказе.
+<P>
+Наша система легко справляется с такой задачей путем обработки содержимого 
+элементов subject и body с помощью MessageFormat. Уловка в том, что этот класс 
+принимает только один массив аргументов, который будет использоваться для 
+обработки как поля subject, так и тела сообщения. Так, в содержимом элемента 
+subject могут иметь место идентификаторы {0}, {2} и {3}, а в содержимом 
+элемента body - {0}, {1} и {4}. Мы выбрали такой подход потому, что очень часто 
+одни и те же аргументы используются в обоих полях, body и subject, и это также 
+упрощает список параметров, передаваемый в EmailSender.
+</p>
+
+<H2>Обработка шаблона</H2>
+<P>Теперь, когда мы уже создали шаблон, можно приступать к его обработке. Как вы 
+уже знаете, существует множество библиотек, предназначенных для работы с 
+XML-документами. Одна из них - Commons Digester, часть проекта Jakarta Commons 
+- создавалась изначально как часть проекта Struts, для того чтобы предоставить 
+быстрый и простой путь к разбору конфигурационного файла Struts. Этот 
+инструмент дает простой подход к отображению элементов XML-файла в структуру 
+данных с использованием синтаксиса, схожего с XPath (http://www.w3.org/TR/xpath). 
+Основное его достоинство в том, что он позволяет выдирать нужные элементы из 
+XML-документов без необходимости в их разборе узел за узлом с помощью SAX или 
+создании древовидной структуры данных, как это делает DOM.
+<br>Ниже приведен метод, который считывает данные из XML-файла и копирует их в 
+объект EmailTemplate:
+<pre>
+  public static EmailTemplate getEmail Template(InputStream aStream)
+  {
+    Digester digester = new Digester();
+    digester.setValidating(false);
+    digester.addObjectCreate("email", EmailTemplate.class);
+
+    digester.addBeanPropertySetter ("email/subject", "subject");
+    digester.addBeanPropertySetter ("email/body", "body");
+    digester.addBeanPropertySetter ("email/from", "from");
+    digester.addCallMethod("email/to", "addTo", 0);
+    digester.addCallMethod("email/cc", "addCc", 0);
+    digester.addCallMethod("email/bcc", "addBcc", 0);
+
+    try
+    {
+        return (EmailTemplate)digester. parse(aStream);
+    }
+    catch (IOException e)
+    {
+        logger.error("Ошибка: ", e);
+        return null;
+    }
+    catch (SAXException e)
+    {
+        logger.error("Ошибка: ", e);
+        return null;
+    }
+  }
+</pre>
+
+<p>Теперь давайте рассмотрим каждую из строк этого примера. Работа с Commons 
+Digester заключается в создании некоторого набора правил, которые впоследствии 
+будут применены к файлу, который будет обрабатываться. Прежде чем приступить к 
+заданию этих правил, мы предварительно установили флаг проверки на валидность 
+XML-документа в false, поскольку не создавали и не привязывали к нашему 
+XML-файлу никаких DTD-файлов для проверки на валидность структуры нашего 
+шаблона. Чтобы начать обработку файла, создаем объект класса Digester и после 
+этого вызываем методы для установки правил отображения данных. Сперва мы
+ вызываем метод addObjectCreate(), который устанавливает правило создания 
+ объекта EmailTemplate, как только нам встретится элемент email. Элемент email 
+ является корневым элементом нашего шаблона, поэтому каждый файл шаблона будет 
+ отображаться в один экземпляр класса EmailTemplate.
+<P>
+Для элементов, которые появляются в нашем шаблоне всего единожды, мы 
+использовали метод addBeanPropertySetter(). Он принимает два аргумента: путь к 
+элементу, который будет обрабатываться, и set-метод, который будет отображать 
+содержимое этого элемента в объект EmailTemplate. В первом вызове мы обозначили, 
+что содержимое элементов, совпадающих с заданным шаблоном ("email/subject"), 
+должно быть передано set-методу поля subject объекта класса EmailTemplate. 
+Заданный шаблон определяет порядок вложенностей элементов, разделяемых 
+символами / и по которому следует искать элемент. В нашем случае заданный 
+шаблон соответствует элементу subject, который является дочерним по отношению 
+к элементам email. При задании подобных шаблонов поиска также можно 
+использовать символы замены (wildcards), которые могут обеспечить более гибкие 
+возможности поиска. Для ознакомления с подробным описанием использования и 
+создания этих шаблонов посмотрите JavaDoc ( <a href="http://r.codenet.ru/?http://jakarta.apache.org/commons/digester/api/index.html"
+ target="_blank">http://jakarta.apache.org/commons/digester/api/index.html</a> ) 
+для Commons Digester.
+<P>
+Что касается элементов, которые могут неоднократно встречаться в шаблоне 
+электронного сообщения, то для этих свойств вызов set-методов не подходит. 
+Вместо этого мы использовали метод addCallMethod(), который принимает 
+содержимое элемента и вызывает специальный метод. Мы использовали версию этого 
+метода, которая принимает три аргумента. Это шаблон на соответствие, метод, 
+который следует вызывать, и количество аргументов, которое будет передано этому 
+методу. Во всех трех случаях мы указали 0 в качестве третьего аргумента, 
+поскольку при этом методу будет передано только лишь содержимое найденного 
+элемента. В классе EmailTemplate мы написали три метода: addTo(), addCc() и 
+addBcc(), которые добавляют список получателей сообщения из файла шаблона в 
+коллекции класса EmailTemplate.
+<P>
+Как только установлены правила для всех шести типов дочерних элементов 
+XML-шаблона электронного сообщения, мы можем приступать непосредственно к 
+разбору нашего файла. Для этого используется InputStream, связанный с файлом 
+XML-документа, который передается в качестве аргумента методу getEmailTemplate(). 
+Метод parse() может принимать в качестве аргумента объект File, InputSource из 
+SAX, InputStream, Reader или строку URI, которая определяет место расположения 
+файла, который нужно обработать. Мы выбрали версию метода parse(), которая 
+принимает объект InputStream в качестве аргумента.
+<P>
+Метод parse() может выбрасывать исключения IOException или SAXException. Если 
+возникает какое-либо из этих исключений, мы его ловим, журналируем с помощью 
+log4j и возвращаем null. Если не возникнет никаких исключений, то метод 
+getEmailTemplate() возвратит новый экземпляр класса EmailTemplate, который 
+будет сгенерирован с помощью класса Digester.
+</p>
+
+<H2>Остальная часть класса EmailTemplate</H2>
+<P>Самой значимой частью класса EmailTemplate, несомненно, является метод 
+getEmailTemplate(). Все остальное - просто различные свойства и методы, 
+предназначенные скорее для того, чтобы всего-навсего сделать работу с классом 
+удобнее. Итак, этот класс имеет три свойства класса String: тема, тело письма, 
+адрес отправителя, - а также другие свойства, которые хранятся в структурном 
+классе ArrayList: списки адресатов, полей CC и BCC. Для каждого из этих свойств 
+в классе EmailTemplate предусмотрены set- и get-методы: getToAddresses(), 
+getCcAddresses() и getBccAddresses(). JavaMail API ожидает, что вы будете 
+передавать ему адреса в старом стиле в виде массива объектов класса 
+InternetAddress. Эти методы заботятся также и о том, чтобы конвертировать 
+объекты ArrayList в массив объектов, которые требует JavaMail API.
+</p>
+
+<H2>EmailSender</H2>
+<P>Теперь, когда мы успешно разобрали файл шаблона и получили готовый объект 
+класса EmailTemplate, следующим шагом приступим к отправке электронного 
+сообщения. Класс EmailSender включает один статический перегруженный метод - 
+sendEmail(). Вот его сигнатура:
+<pre>
+  public static void sendEmail(
+    String aTo,
+    EmailTemplate aTemplate,
+    String[] aArgs)
+</pre>
+<p>Аргументы этого метода наверняка не требуют долгих разъяснений. <br>
+Первый из них - поле To: (Кому) электронного сообщения. В принципе, вы можете задать это 
+поле непосредственно в самом шаблоне сообщения, однако очень часто получатель 
+сообщения определяется на этапе работы приложения. Например, если вы шлете 
+сообщение - напоминание о пароле, то оно должно быть адресовано именно 
+пользователю, сделавшему соответствующий запрос. Адрес получателя выгодно 
+жестко прописывать в шаблоне электронного сообщения, например, тогда, когда 
+системе необходимо послать сообщение для тестирования или для каких-нибудь 
+системных нужд. Например, предположим, системе нужно сгенерировать и послать 
+электронное сообщение, которое переключало бы последовательность выполняемых 
+действий каждый раз, когда послан соответствующий запрос. В этом случае, 
+конечно, адрес получателя лучше жестко прописать в шаблоне сообщения.<br>
+Второй аргумент - это сам объект EmailTemplate.<br>
+А третий - список аргументов, которые будут переданы классу MessageFormat, 
+когда он будет обрабатывать поле темы и тело сообщения. Для этого существует 
+специальная часть кода, создающая массив информации, которая используется для 
+персонализации шаблона электронного сообщения. Там имеется также несколько 
+других объявленных методов, которые служат для того, чтобы упростить вызов 
+этого метода. Таким образом, вы можете вызывать его без указания получателей 
+или вообще без каких-либо аргументов.
+<P>
+Тело метода sendEmail(), в основном, состоит из вызовов методов JavaMail API 
+для настройки необходимых параметров и отправки сообщения. Сначала мы проверяем, 
+не равен ли объект EmailTemplate null. Если равен, то ничего не делаем. В 
+противном случае первым шагом установки параметров создаем объект свойств 
+Properties (улучшенный Hashtable) с установками SMTP-сервера.
+<P>
+После этого создаем объект Session из пакета JavaMail API и передаем его 
+конструктору созданный ранее объект Properties с настройками SMTP-сервера. 
+Объект Session нужен для того, чтобы создать объект MimeMessage, что мы и 
+делаем. Теперь устанавливаем поле адреса From: равным адресу, определенному в 
+объекте EmailTemplate, который мы передаем этому методу в качестве аргумента. 
+Следующим шагом устанавливаем поле To:.
+<P>
+Поскольку все адреса CC: и BCC определены в пределах шаблона, их обработка не 
+будет доставлять никаких проблем. Нужно просто используя подходящие методы 
+класса EmailTemplate добавить дополнительных получателей сообщения в само 
+сообщение.
+<P>
+Как было упомянуто ранее, мы используем MessageFormat для того, чтобы применить 
+все аргументы, переданные методу к теме и телу сообщения.<br>
+После этого нужно просто скопировать полученные тему и тело сообщения в объект 
+сообщения. Теперь все, что осталось сделать, - вызвать метод Transport.send() и 
+передать ему объект класса MimeMessage.<br>
+Использование фреймуорка<br>
+Теперь узнаем, как нужно пользоваться этой системой. Мы рассмотрим вариант 
+работы сервлета, хотя это должно работать и в любой другой нормальной программе. 
+Нижеприведенный код наглядно показывает работу с нашей системой:
+<pre>
+  // Грабим шаблон электронного сообщения
+  InputStream template =
+    getServlet()
+        .getServletConfig()
+        .getServletContext()
+        .getResourceAsStream(
+        "/WEB-INF/email/registration Notification.xml");
+
+  EmailTemplate notification = Email Template.getEmailTemplate(template);
+
+  //Создаем секцию электронного сообщения, содержащую фактические данные о пользователе
+  String[] args = { "Rafe" };
+
+  EmailSender.sendEmail ("rafe@rafe. us", notification, args);
+</pre>
+<p>Сначала используя системные функции получаем InputStream, связанный с файлом 
+шаблона, представленный в виде XML-документа. Поскольку мы используем сервлет, 
+то файл получаем из ServletContext. Существует, конечно, и множество других 
+способов получить Input-Stream, связанный с этим файлом, но в случае со средой 
+сервлета этот вариант подходит как никакой другой. После этого все, что нам 
+нужно сделать, - передать полученный объект класса InputStream методу 
+EmailTemplate. getEmailTemplate(), который мы описывали ранее. Потом мы просто 
+определяем массив с аргументами для настройки электронного сообщения и вызываем 
+метод EmailSender. sendEmail().
+</p>
+<H2>Вместо заключения</H2>
+Существует ряд улучшений, которые можно привнести в данную систему. Два самых 
+очевидных - добавление возможности отправки как HTML, так и обычных электронных 
+сообщений, а также добавление возможности отправки вложенных файлов вместе с 
+сообщением.
+<P>Чтобы создать такого рода сообщения, достаточно воспользоваться сообщениями 
+типа javax.mail.MimeMultipart.
+</p>
+
+<div align="right"><i>По материалам Rafe Colburn<br>
+Подготовил Алексей Литвинюк,<br>
+<a href="mailto:litvinuke@tut.by">litvinuke@tut.by</a><br>
+&copy;<A HREF="http://www.nestor.minsk.by/kg" target="_blank">компьютерная газета</A></i></div>
+
+<noindex>
+<br>
+<SCRIPT language="JavaScript">
+<!--
+function CheckLen3(o) {
+	t=document.getElementById("count");
+	i=4000-o.value.length;
+	t.value="Осталось: "+i;
+	if (i<0) t.style.color="red";
+	else t.style.color="#404040";
+	}
+
+
+function checklen() {
+	t=document.getElementById("textar");
+	if (t.value.length>4000) {alert("Сообщение не должно привышать 4000 символов.");return(false);}
+	else return(true);
+	}
+
+//-->
+</SCRIPT>
+
+
+<br><a name="addcomment"></a>
+<table border=0 cellspacing=1 width=100% cellpadding=5 width=1 align=center>
+<tr bgcolor=#E0E0E0><td nowrap colspan=2 background=/images/linksbg.gif><img src=/images/dots.gif border=0 align=top width=10 height=9>&nbsp;<B>Оставить комментарий</B></td></tr>
+<tr bgcolor=#F0F0F0><td colspan=2 style="font-size:11px;">
+<font color=red>
+С помощью этой формы оставляйте исключительно комментарии. Вопросы вам будет удобнее задать в <a href="http://forum.codenet.ru/">форуме</a>.
+Вероятность того, что на них ответят там, намного выше.
+</font>
+</td></tr>
+<form action="/comments/include.php" method="post" onSubmit="return checklen();">
+<tr bgcolor=#F0F0F0><td nowrap valign=top width="40%">Имя<br></td><td width="60%"><input style='width:100%;border: solid 1px #808080' type=text name="name" value=""></td></tr>
+<tr bgcolor=#F0F0F0><td nowrap valign=top>E-Mail<br><small>не будет виден</small></td><td><input style='width:100%;border: solid 1px #808080' type=text name="email" value=""></td></tr>
+<tr bgcolor=#F0F0F0><td valign=top>
+Введите число, которое вы видите на картинке<br><small>обновите страницу (F5), если не можете прочитать число</small></td><td><img src='/code.php?1120004068.6' width=101 height=26 vspace=5><br><input style='width:100%;border: solid 1px #808080' type=text name=secretcode value=''><br><small><a href='http://forum.codenet.ru/register.php?action=signup' target='_blank'>Зарегистрируйтесь</a>, если не хотите вводить число каждый раз.</small>
+</td></tr>
+<tr bgcolor=#F8F8F8><td nowrap valign=top>Комментарий:<br>
+
+<small>
+можно использовать <a href="http://forum.codenet.ru/misc.php?action=bbcode" target="_blank">bb коды</a>
+</small><br><br>
+<div align="right">
+<input type="text" name="count" id="count" style="border-width:0px;background-color:#F8F8F8;text-align:right;font-family:verdana;color:#404040" value="Осталось: 4000">
+</div>
+
+</td><td>
+<textarea id="textar" onChange="CheckLen3(this)" onFocus="CheckLen3(this)" onKeyDown="CheckLen3(this)" onKeyUp="CheckLen3(this)" style='width:100%;border: solid 1px #808080;height:200px;' name="comment"></textarea></td></tr>
+<tr bgcolor=#F0F0F0><td colspan=2 align=center>
+<input type="submit" value="Добавить" style="font-size:11px;font-family:verdana;">
+<input type="hidden" name="ref" value="%2Fwebmast%2Fxml%2Fxmlmail.php">
+<input type="hidden" name="id" value="-495591980">
+</td></tr></form></table>
+</noindex>
+
+<!-- КОНЕЦ ТЕКСТА -->
+
+<img src="/none.gif" width="1" height="20"><br>
+<SCRIPT Language="JavaScript">
+<!--
+cn=(navigator.appName.substring(0,2)=="Mi")?0:1;
+cw=(cn==1)?screen.availWidth:screen.width
+if (cw>=1024) {
+	document.write("</td><td valign='top' width='1%' align=center>");
+
+	google_ad_client = "pub-3078405597865084";
+	google_ad_width = 120;
+	google_ad_height = 600;
+	google_ad_format = "120x600_as";
+	google_ad_channel ="";
+	google_alternate_ad_url = "http://www.codenet.ru/google.php";
+	google_color_border = "E0E0E0";
+	google_color_bg = "F0F0F0";
+	google_color_link = "0000FF";
+	google_color_url = "008000";
+	google_color_text = "000000";
+	google_language = 'ru';
+
+	document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>');
+	}
+// -->        
+</SCRIPT>
+
+</td></tr></table>
+</td></tr></table>
+<!--Нижняя таблица -->
+<table border="0" cellpadding="3" cellspacing="0">
+<tr><td valign="bottom" align="center"><img src="/none.gif" width="150" height="2" ><br>
+<SCRIPT Language="JavaScript">
+<!--
+Nnv=navigator;Nna=Nnv.appName;Nd=document;Nd.cookie="b=b";Nc=0;if(Nd.cookie)Nc=1;
+Nn=(Nna.substring(0,2)=="Mi")?0:1;Ns=screen;Npx=(Nn==0)?Ns.colorDepth:Ns.pixelDepth;
+str='<img alt="Top.Novgorod.Ru" src="http://top.novgorod.ru:81/49;'+Ns.width+'x'+Ns.height+';'+Npx+';'+Nc+';';
+str=str+escape(Nd.referrer)+';'+Math.random()+'" width="88" height="31" border="0">';
+document.write("<a target='_blank' href=http://top.novgorod.ru/>"+str+"</a>");
+// -->
+</SCRIPT><NOSCRIPT><a href="http://top.novgorod.ru/" target=_blank><img alt="Top.Novgorod.Ru" src="http://top.novgorod.ru:81/49;0x0;0;0;-;0" width="88" height="31" border="0"></a></NOSCRIPT><br>
+<img src="/none.gif" width="1" height="2"><br>
+<a target="_blank" href="http://top.mail.ru/jump?from=127096"><img src="http://top.list.ru/counter?id=127096;t=52;l=1" border="0" height="31" width="88" alt="Рейтинг@Mail.ru"/></a>
+
+
+</td><td width="100%" valign="bottom" align="right">
+<script language="JavaScript">
+var loc=escape(document.location.href);
+var rndnum=Math.round(Math.random() * 999111);
+document.write('<iframe src="http://www.codenet.ru/bb/show.php?t=f&p=2&loc='+loc+'&nocache='+rndnum+'" frameborder=0 vspace=0 hspace=0 width=468 height=60 marginwidth=0 marginheight=0 scrolling=no>');
+document.write('<a href="http://www.codenet.ru/bb/click.php?p=2&nocache='+rndnum+'&loc='+loc+'" target="_blank">');
+document.write('<img src="http://www.codenet.ru/bb/show.php?t=i&p=2&nocache='+rndnum+'&loc='+loc+'" width=468 height=60 border=0></a></iframe>');
+</script>
+
+</td></tr></table>
+
+</BODY>
+</HTML>

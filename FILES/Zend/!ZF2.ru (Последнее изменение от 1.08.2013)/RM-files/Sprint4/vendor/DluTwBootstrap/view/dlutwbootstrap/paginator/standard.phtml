@@ -1,0 +1,176 @@
+<?php
+/**
+ * Pagination control view partial - Standard
+ *
+ * Ex. of use (in a view script):
+ * $pgControl  = $this->paginationControl($paginator,
+ *                                        'sliding',
+ *                                        'dlutwbootstrap/paginator/standard',
+ *                                        array(
+ *                                          'routeName'              => 'teacher-list',
+ *                                          'routeParamName'         => 'pageNumber',
+ *                                          'align'                  => 'right',
+ *                                          'icons'                  => array(
+ *                                              'icon-fast-backward',
+ *                                              'icon-chevron-left',
+ *                                              'icon-chevron-right',
+ *                                              'icon-fast-forward',
+ *                                          ),
+ *                                          'statistics'             => array(
+ *                                              'inline'            => false,
+ *                                              'totalCount'        => true,
+ *                                              'pageNumOfTotal'    => true,
+ *                                              'totalPages'        => false,
+ *                                              'pageSize'          => false,
+ *                                              'pageNum'           => false,
+ *                                          );
+ * ));
+ * echo $pgControl;
+ *
+ * Custom parameters (the fourth argument):
+ *  - routeName (optional): name of route used to create page URLs, if not specified, uses the current route
+ *  - routeParamName (optional): name of route parameter containing the page number (default 'pageNumber')
+ *  - align (optional): alignment of the whole pagination control, default left (possible values: left, right, center)
+ *  - icons (optional): icons used for first, previous, next and last buttons (must be a 4 element indexed array)
+ *  - statistics(optional): array of boolean switches to display various pagination statistics, if inline = true,
+ *                          statistics are displayed inline with the pagination control (unless align = 'center')
+ */
+    if($this->pageCount):
+        //Route name
+        if($this->routeName) {
+            $routeName  = $this->routeName;
+        } else {
+            $routeName  = null;
+        }
+        //Route parameter name
+        if($this->routeParamName) {
+            $routeParamName = $this->routeParamName;
+        } else {
+            $routeParamName = 'pageNumber';
+        }
+        //Statistics
+        $statisticsConfig = array(
+            'inline'            => false,
+            'totalCount'        => true,
+            'pageNumOfTotal'    => true,
+            'totalPages'        => false,
+            'pageSize'          => false,
+            'pageNum'           => false,
+        );
+        if($this->statistics && is_array($this->statistics)) {
+            //Merge the statisticsConfig configuration
+            $statisticsConfig = array_merge($statisticsConfig, $this->statistics);
+        }
+        $statisticsParts    = array();
+        if($statisticsConfig['totalCount']) {
+            $statisticsParts[]  = sprintf('Items: %s', $this->totalItemCount);
+        }
+        if($statisticsConfig['totalPages']) {
+            $statisticsParts[]  = sprintf('Pages: %s', $this->pageCount);
+        }
+        if($statisticsConfig['pageSize']) {
+            $statisticsParts[]  = sprintf('Page size: %s', $this->itemCountPerPage);
+        }
+        if($statisticsConfig['pageNumOfTotal']) {
+            $statisticsParts[]  = sprintf('Page: %s of %s', $this->current, $this->pageCount);
+        }
+        if($statisticsConfig['pageNum']) {
+            $statisticsParts[]  = sprintf('Page: %s', $this->current);
+        }
+        $statistics = implode(', ', $statisticsParts);
+        //Pagination control alignment
+        switch ($this->align) {
+            case 'right':
+                $align      = 'right';
+                $alignClass = ' pagination-right';
+                $floatClass = ($statisticsConfig['inline'] ? ' pagination-float-right' : '');
+                break;
+            case 'center':
+            case 'centre':
+                $align      = 'center';
+                $alignClass = ' pagination-centered';
+                $floatClass = '';
+                break;
+            default:
+                $align      = 'left';
+                $alignClass = '';
+                $floatClass = ($statisticsConfig['inline'] ? ' pagination-float-left' : '');
+                break;
+        }
+        $statsTemplate  = '<div class="%s">' . $statistics . '</div>';
+        //Previous page number - $this->previous is not available when at the beginning
+        $previous   = ($this->previous ?: 1);
+        //Next page number - $this->next is not available when at the end
+        $next       = ($this->next ?: $this->last);
+        //Icons for first, previous, next and last
+        if($this->icons && is_array($this->icons) && count($this->icons) == 4) {
+            //Custom icons
+            $icons   = $this->icons;
+        } else {
+            //Default icons
+            $icons  = array(
+                'icon-step-backward',
+                'icon-arrow-left',
+                'icon-arrow-right',
+                'icon-step-forward',
+            );
+        }
+?>
+<div class="pagination-container clearfix">
+    <div class="pagination<?php echo($alignClass . $floatClass); ?>">
+        <ul>
+            <!-- First page -->
+            <li<?php echo(($this->current == 1) ? ' class="disabled"' : ''); ?>>
+                <a href="<?php echo $this->url($routeName, array($routeParamName => 1)); ?>"
+                   title="<?php echo($this->escapeHtml('First page (1)')); ?>">
+                    <i class="<?php echo($icons[0]) ?>"></i>
+                </a>
+            </li>
+            <!-- Previous page -->
+            <li<?php echo(($this->current == 1) ? ' class="disabled"' : ''); ?>>
+                <a href="<?php echo $this->url($routeName, array($routeParamName => $previous)); ?>"
+                   title="<?php echo(sprintf($this->escapeHtml('Previous page (%s)'), $previous)); ?>">
+                    <i class="<?php echo($icons[1]) ?>"></i>
+                </a>
+            </li>
+            <!-- Page numbers -->
+            <?php
+                foreach($this->pagesInRange as $pageInRange):
+                    $isCurrentPage  = ($pageInRange == $this->current);
+            ?>
+                <li<?php echo($isCurrentPage ? ' class="active"' : ''); ?>>
+                    <a href="<?php echo $this->url($routeName, array($routeParamName => $pageInRange)); ?>">
+                        <?php echo($pageInRange); ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+            <!-- Next page -->
+            <li<?php echo(($this->current == $this->last) ? ' class="disabled"' : ''); ?>>
+                <a href="<?php echo $this->url($routeName, array($routeParamName => $next)); ?>"
+                   title="<?php echo(sprintf($this->escapeHtml('Next page (%s)'), $next)); ?>">
+                    <i class="<?php echo($icons[2]) ?>"></i>
+                </a>
+            </li>
+            <!-- Last page -->
+            <li<?php echo(($this->current == $this->last) ? ' class="disabled"' : ''); ?>>
+                <a href="<?php echo $this->url($routeName, array($routeParamName => $this->last)); ?>"
+                   title="<?php echo(sprintf($this->escapeHtml('Last page (%s)'), $this->last)); ?>">
+                    <i class="<?php echo($icons[3]) ?>"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <?php
+    //Non-inline stats
+    if($statistics && (!$statisticsConfig['inline'] || ($align == 'center'))) {
+        $statsClasses   = 'pagination-stats pagination-stats-' . $align;
+        echo (sprintf($statsTemplate, $statsClasses));
+    }
+    //Inline stats
+    if($statistics && $statisticsConfig['inline'] && ($align != 'center')) {
+        $statsClasses   = 'pagination-stats pagination-stats-' . $align . ' pagination-stats-float-' . $align;
+        echo (sprintf($statsTemplate, $statsClasses));
+    }
+    ?>
+</div>
+<?php endif; ?>

@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>Перенос строк и элементы BR</title>
+<link rel="stylesheet" href="css/xsltbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.59.1">
+<link rel="home" href="xsltbook.html" title="Технология XSLT">
+<link rel="up" href="ch_11.html" title="Глава 11. Готовые решения">
+<link rel="previous" href="ch_11_06.html" title="Операции над множествами">
+<link rel="next" href="ch_11_08.html" title="Данные, разделённые запятыми (CSV)">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="sect1" lang="ru">
+<div class="titlepage"><div><h2 class="title" style="clear: both">
+<a name="ch_11_07"></a>Перенос строк и элементы <tt>BR</tt></h2></div></div>
+<p>Большинству читателей, скорее всего, хорошо знаком такой элемент языка HTML, как <tt>BR</tt>, 
+        который используется для обозначения разрыва строки. 
+        В обычных текстовых файлах для той же самой цели используются символы с кодами 
+        <tt>#xA</tt>, <tt>#xD</tt> или их комбинации в зависимости от платформы. 
+        При совместном использовании неразмеченного текста и HTML 
+        часто возникает задача преобразования символов перевода строки в элементы <tt>BR</tt> и наоборот.</p>
+<p>Замену элемента <tt>BR</tt> на текстовый узел, содержащий перевод строки можно проиллюстрировать 
+        следующим тривиальным шаблоном:</p>
+<div class="example">
+<a name="LIST_11_16"></a><p class="title"><b>Пример 11.16. Шаблон замены элементов BR на перенос строки</b></p>
+<pre class="programlisting">&lt;xsl:template match=&quot;BR&quot;&gt;
+  &lt;xsl:text&gt;&amp;#xA;&lt;/xsl:text&gt;
+&lt;/xsl:template&gt;</pre>
+</div>
+<p>Гораздо сложнее написать шаблон, делающий обратную операцию — 
+           замену символов переноса строки на элементы <tt>BR</tt>. 
+           В XSLT нет встроенного механизма для замены подстроки в строке (тем более на элемент), 
+           поэтому нам придётся создать для этой цели собственный шаблон.</p>
+<p>Для этой цели мы можем воспользоваться функциями <tt>substring-before</tt> и <tt>substring-after</tt>. 
+           Функция <tt>substring-before($str, $search-for)</tt> возвратит часть строки <tt>str</tt>, 
+           которая предшествует первому вхождению в неё подстроки <tt>search-for</tt>, 
+           а функция <tt>substring-after($str, $search-for)</tt> — последующую часть. 
+           То есть заменить первое вхождение можно шаблоном вида</p>
+<pre class="programlisting">&lt;!-- ... --&gt;
+&lt;xsl:value-of select = &quot;substring-before($str, $search-for)&quot;/&gt;
+&lt;xsl:copy-of select = &quot;$replace-with&quot;/&gt;
+&lt;xsl:value-of select = &quot;substring-after($str, $search-for)&quot;/&gt;
+&lt;!-- ... --&gt;</pre>
+<p>Для того же, чтобы заменить <span class="emphasis"><em>все</em></span> вхождения, 
+           достаточно рекурсивно повторить операцию замены первого вхождения 
+           с той частью строки, которая следует за ним. Приведём шаблон, который выполняет эту операцию:</p>
+<div class="example">
+<a name="LIST_11_17"></a><p class="title"><b>Пример 11.17. Шаблон для замены подстроки в строке</b></p>
+<pre class="programlisting">&lt;xsl:template name=&quot;replace&quot; match=&quot;text()&quot; mode=&quot;replace&quot;&gt;
+
+  &lt;xsl:param name=&quot;str&quot; select=&quot;.&quot;/&gt;
+  &lt;xsl:param name=&quot;search-for&quot; select=&quot;'&amp;#xA;'&quot;/&gt;
+  &lt;xsl:param name=&quot;replace-with&quot;&gt;
+    &lt;xsl:element name=&quot;BR&quot;/&gt;
+    &lt;xsl:text&gt;&amp;#xA;&lt;/xsl:text&gt;
+  &lt;/xsl:param&gt;
+
+  &lt;xsl:choose&gt;
+
+    &lt;xsl:when test=&quot;contains($str, $search-for)&quot;&gt;
+      &lt;xsl:value-of select=&quot;substring-before($str, $search-for)&quot;/&gt;
+      &lt;xsl:copy-of select=&quot;$replace-with&quot;/&gt;
+      &lt;xsl:call-template name=&quot;replace&quot;&gt;
+        &lt;xsl:with-param name=&quot;str&quot;
+          select=&quot;substring-after($str, $search-for)&quot;/&gt;
+        &lt;xsl:with-param name=&quot;search-for&quot; select=&quot;$search-for&quot;/&gt;
+        &lt;xsl:with-param name=&quot;replace-with &quot; select=&quot;$replace-with &quot;/&gt;
+      &lt;/xsl:call-template&gt;
+    &lt;/xsl:when&gt;
+
+    &lt;xsl:otherwise&gt;
+      &lt;xsl:value-of select=&quot;$str&quot;/&gt;
+    &lt;/xsl:otherwise&gt;
+
+  &lt;/xsl:choose&gt;
+
+&lt;/xsl:template&gt;</pre>
+</div>
+<p>Шаблон, приведённый в этом листинге, может быть вызван двумя способами: 
+         элементом <tt>xsl:apply-templates</tt> в режиме <tt>replace</tt> 
+         (в этом случае он будет обрабатывать текстовые узлы выбранного множества), 
+         или при помощи именного вызова элементом <tt>xsl:call-template</tt>. 
+         Шаблон принимает на вход три параметра:</p>
+<div class="itemizedlist"><ul type="disc">
+<li><p>Параметр <tt>str</tt>, содержащий строку, в которой нужно произвести замену. 
+          По умолчанию этому параметру присваивается текстовое значение текущего узла.</p></li>
+<li><p>Параметр <tt>search-for</tt>, содержащий подстроку, 
+          которую требуется найти и заменить в строке <tt>str</tt>. 
+					По умолчанию замене будут подлежать символы переноса строки, «<tt>&amp;#xA;</tt>».</p></li>
+<li><p>Параметр <tt>replace-with</tt>, содержащий объект, 
+          на который следует заменять подстроки <tt>search-for</tt>. 
+          По умолчанию эти подстроки будут заменяться на элемент <tt>BR</tt> 
+          и следующий за ним перенос строки, добавленный для лучшей читаемости.</p></li>
+</ul></div>
+<p>В качестве примера отформатируем содержание следующего элемента:</p>
+<pre class="programlisting">&lt;pre&gt;One little rabbit
+Two little rabbits
+Three little rabbits&lt;/pre&gt;</pre>
+<p>Запишем шаблон для обработки элемента pre:</p>
+<pre class="programlisting">&lt;xsl:template match=&quot;pre&quot;&gt;
+  &lt;xsl:copy&gt;
+    &lt;xsl:apply-templates mode=&quot;replace&quot;/&gt;
+  &lt;/xsl:copy&gt;
+&lt;/xsl:template&gt;</pre>
+<p>Результат его выполнения будет иметь следующий вид:</p>
+<pre class="programlisting">&lt;pre&gt;One little rabbit&lt;BR/&gt;
+Two little rabbits&lt;BR/&gt;
+Three little rabbits&lt;/pre&gt;</pre>
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="ch_11_06.html"><img src="images/db/prev.gif" alt="Пред."></a> </td>
+<td width="20%" align="center"><a accesskey="u" href="ch_11.html"><img src="images/db/up.gif" alt="Уровень выше"></a></td>
+<td width="40%" align="right"> <a accesskey="n" href="ch_11_08.html"><img src="images/db/next.gif" alt="След."></a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Операции над множествами </td>
+<td width="20%" align="center"><a accesskey="h" href="xsltbook.html"><img src="images/db/home.gif" alt="Начало"></a></td>
+<td width="40%" align="right" valign="top"> Данные, разделённые запятыми (CSV)</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

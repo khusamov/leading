@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>Данные, разделённые запятыми (CSV)</title>
+<link rel="stylesheet" href="css/xsltbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.59.1">
+<link rel="home" href="xsltbook.html" title="Технология XSLT">
+<link rel="up" href="ch_11.html" title="Глава 11. Готовые решения">
+<link rel="previous" href="ch_11_07.html" title="Перенос строк и элементы BR">
+<link rel="next" href="xsltproc.html" title="Приложение П1. Обзор XSLT-процессоров">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="sect1" lang="ru">
+<div class="titlepage"><div><h2 class="title" style="clear: both">
+<a name="ch_11_08"></a>Данные, разделённые запятыми (CSV)</h2></div></div>
+<p>Рекурсивную методику замены, которую мы представили выше, 
+           можно использовать для того, чтобы разметить данные, 
+           разделённые запятыми (или CSV, comma-separated values). 
+					 CSV — это старый простой формат представления данных, 
+           в котором они просто перечисляются через запятую, например:</p>
+<pre class="programlisting">a, b, c, d, e, f, g</pre>
+<p>и так далее. Формат CSV был одним из первых шагов к созданию языков разметки: 
+					данные в нём уже размечались запятыми.</p>
+<p>Покажем на простом примере, как можно преобразовать 
+           CSV-данные в XML документ. Пусть входящий документ выглядит как:</p>
+<pre class="programlisting">&lt;data&gt;a, b, c, d, e, f&lt;/data&gt;</pre>
+<p>Для того чтобы решение было как можно более общим, 
+           вынесем создание XML-разметки для каждого из элементов этой последовательности 
+           в отдельный шаблон:</p>
+<pre class="programlisting">&lt;xsl:template name=&quot;item&quot;&gt;
+  &lt;xsl:param name=&quot;item&quot;/&gt;
+  &lt;item&gt;&lt;xsl:copy-of select=&quot;$item&quot;/&gt;&lt;/item&gt;
+&lt;/xsl:template&gt;</pre>
+<p>Тогда головной размечающий шаблон запишется в виде:</p>
+<div class="example">
+<a name="LIST_11_18"></a><p class="title"><b>Пример 11.18. Шаблон, размечающие данные в строковом формате</b></p>
+<pre class="programlisting">&lt;xsl:template name=&quot;markup&quot; match=&quot;text()&quot; mode=&quot;CSV&quot;&gt;
+
+  &lt;xsl:param name=&quot;str&quot; select=&quot;.&quot;/&gt;
+  &lt;xsl:param name=&quot;delimiter&quot; select=&quot;','&quot;/&gt;
+
+  &lt;xsl:choose&gt;
+
+    &lt;xsl:when test=&quot;contains($str,$delimiter)&quot;&gt;
+      &lt;xsl:call-template name=&quot;item&quot;&gt;
+        &lt;xsl:with-param name=&quot;item&quot;
+          select=&quot;substring-before($str, $delimiter)&quot;/&gt;
+      &lt;/xsl:call-template&gt;
+
+    &lt;xsl:call-template name=&quot;markup&quot;&gt;
+      &lt;xsl:with-param name=&quot;str&quot;
+        select=&quot;substring-after($str, $delimiter)&quot;/&gt;
+      &lt;/xsl:call-template&gt;
+      &lt;xsl:with-param name=&quot;delimiter&quot; select=&quot;$delimiter&quot;/&gt;
+    &lt;/xsl:when&gt;
+    &lt;xsl:otherwise&gt;
+      &lt;xsl:call-template name=&quot;item&quot;&gt;
+        &lt;xsl:with-param name=&quot;item&quot; select=&quot;$str&quot;/&gt;
+      &lt;/xsl:call-template&gt;
+    &lt;/xsl:otherwise&gt;
+
+  &lt;/xsl:choose&gt;
+
+&lt;/xsl:template&gt;</pre>
+</div>
+<p>На вход шаблон <tt>markup</tt> принимает два параметра — 
+         <tt>str</tt>, строка, которую нужно разметить 
+         (по умолчанию — значение текущего узла) и <tt>delimiter</tt> — строка, 
+				 разделяющая отдельные значения в <tt>str</tt> (по умолчанию — запятая, «,»).</p>
+<p>Шаблон, форматирующий содержимое элемента <tt>data</tt>, 
+         будет в таком случае выглядеть следующим образом:</p>
+<pre class="programlisting">&lt;xsl:template match=&quot;data&quot;&gt;
+  &lt;xsl:copy&gt;
+    &lt;xsl:apply-templates mode=&quot;CSV&quot;/&gt;
+  &lt;/xsl:copy&gt;
+&lt;/xsl:template&gt;</pre>
+<p>Результат этого преобразования будет иметь следующий вид:</p>
+<pre class="programlisting">&lt;data&gt;
+  &lt;item&gt;a&lt;/item&gt;
+  &lt;item&gt; b&lt;/item&gt;
+  &lt;item&gt; c&lt;/item&gt;
+  &lt;item&gt; d&lt;/item&gt;
+  &lt;item&gt; e&lt;/item&gt;
+  &lt;item&gt; f&lt;/item&gt;
+&lt;/data&gt;</pre>
+<p>Обратим внимание на то, что в элементах <tt>item</tt> присутствуют лишние пробелы, 
+         которые в начальной последовательности шли за запятыми. 
+				 Избавиться от них можно, указав в качестве разделяющей строки «<tt>, </tt>»:</p>
+<pre class="programlisting">&lt;xsl:template match=&quot;data&quot;&gt;
+  &lt;xsl:copy&gt;
+    &lt;xsl:apply-templates mode=&quot;CSV&quot;&gt;
+      &lt;xsl:with-param name=&quot;delimiter&quot; select=&quot;', '&quot;/&gt;
+    &lt;/xsl:apply-templates&gt;
+  &lt;/xsl:copy&gt;
+&lt;/xsl:template&gt;</pre>
+<p>Результатом, как и следовало ожидать, будет:</p>
+<pre class="programlisting">&lt;data&gt;
+  &lt;item&gt;a&lt;/item&gt;
+  &lt;item&gt;b&lt;/item&gt;
+  &lt;item&gt;c&lt;/item&gt;
+  &lt;item&gt;d&lt;/item&gt;
+  &lt;item&gt;e&lt;/item&gt;
+  &lt;item&gt;f&lt;/item&gt;
+&lt;/data&gt;</pre>
+<p>Кстати сказать, того же эффекта можно было добиться, 
+        изменив шаблон <tt>item</tt>, который отвечает 
+        за XML-представление каждого из элементов последовательности.</p>
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="ch_11_07.html"><img src="images/db/prev.gif" alt="Пред."></a> </td>
+<td width="20%" align="center"><a accesskey="u" href="ch_11.html"><img src="images/db/up.gif" alt="Уровень выше"></a></td>
+<td width="40%" align="right"> <a accesskey="n" href="xsltproc.html"><img src="images/db/next.gif" alt="След."></a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Перенос строк и элементы BR </td>
+<td width="20%" align="center"><a accesskey="h" href="xsltbook.html"><img src="images/db/home.gif" alt="Начало"></a></td>
+<td width="40%" align="right" valign="top"> Приложение П1. Обзор XSLT-процессоров</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

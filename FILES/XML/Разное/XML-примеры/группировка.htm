@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>Глава 11. Готовые решения</title>
+<link rel="stylesheet" href="css/xsltbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.59.1">
+<link rel="home" href="xsltbook.html" title="Технология XSLT">
+<link rel="up" href="xsltbook.html" title="Технология XSLT">
+<link rel="previous" href="ch_09_10.html" title="Краткие выводы">
+<link rel="next" href="ch_11_02.html" title="Перечисление узлов">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="chapter" lang="ru">
+<div class="titlepage"><div><h2 class="title">
+<a name="ch_11"></a>Глава 11. Готовые решения</h2></div></div>
+<div class="sect1" lang="ru">
+<div class="titlepage"><div><h2 class="title" style="clear: both">
+<a name="ch_11_01"></a>Группировка</h2></div></div>
+<p>Мы уже рассматривали задачу группировки, 
+         когда разбирали устройство и функционирование ключей — 
+         это была та самая задача, в которой из документа вида:</p>
+<div class="example">
+<a name="LIST_11_01"></a><p class="title"><b>Пример 11.1. Входящий документ</b></p>
+<pre class="programlisting">&lt;items&gt;
+  &lt;item source=&quot;a&quot; name=&quot;A&quot;/&gt;
+  &lt;item source=&quot;b&quot; name=&quot;B&quot;/&gt;
+  &lt;item source=&quot;a&quot; name=&quot;C&quot;/&gt;
+  &lt;item source=&quot;c&quot; name=&quot;D&quot;/&gt;
+  &lt;item source=&quot;b&quot; name=&quot;E&quot;/&gt;
+  &lt;item source=&quot;b&quot; name=&quot;F&quot;/&gt;
+  &lt;item source=&quot;c&quot; name=&quot;G&quot;/&gt;
+  &lt;item source=&quot;a&quot; name=&quot;H&quot;/&gt;
+&lt;/items&gt;</pre>
+</div>
+<p>нужно было получить документ вида:</p>
+<div class="example">
+<a name="LIST_11_02"></a><p class="title"><b>Пример 11.2. Требуемый результат</b></p>
+<pre class="programlisting">&lt;sources&gt;
+  &lt;source name=&quot;a&quot;&gt;
+    &lt;item source=&quot;a&quot; name=&quot;A&quot;/&gt;
+    &lt;item source=&quot;a&quot; name=&quot;C&quot;/&gt;
+    &lt;item source=&quot;a&quot; name=&quot;H&quot;/&gt;
+  &lt;/source&gt;
+  &lt;source name=&quot;b&quot;&gt;
+    &lt;item source=&quot;b&quot; name=&quot;B&quot;/&gt;
+    &lt;item source=&quot;b&quot; name=&quot;E&quot;/&gt;
+    &lt;item source=&quot;b&quot; name=&quot;F&quot;/&gt;
+  &lt;/source&gt;
+  &lt;source name=&quot;c&quot;&gt;
+    &lt;item source=&quot;c&quot; name=&quot;D&quot;/&gt;
+    &lt;item source=&quot;c&quot; name=&quot;G&quot;/&gt;
+  &lt;/source&gt;
+&lt;/sources&gt;</pre>
+</div>
+<p>Легко понять, почему такая задача называется задачей группировки: 
+				требуется сгруппировать элементы <tt>item</tt> по значениям одного из своих атрибутов.</p>
+<p>Напомним вкратце решение, которое было тогда предложено. 
+         При обработке первого объекта каждой группы мы создавали элемент <tt>source</tt>, 
+         в который включали все элементы <tt>item</tt>, принадлежащие этой группе. 
+         Для определения первого элемента мы использовали выражение</p>
+<pre class="programlisting">preceding-sibling::item[@source=current()/@source]</pre>
+<p>которое возвращало непустое множество только тогда, 
+         когда элемент не был первым в группе.</p>
+<p>В этом разделе мы приведём гораздо более эффективное 
+         и остроумное решение  задачи группировки, впервые предложенное 
+         Стивом Мюнхом (Steve Muench), техническим гуру из Oracle Corporation. Оно основывается на двух посылках:</p>
+<div class="itemizedlist"><ul type="disc">
+<li><p>Мы можем выбрать множество узлов по их свойствам при помощи ключей.</p></li>
+<li><p>Мы можем установить, является ли узел первым узлом множества 
+         в порядке просмотра документа при помощи функции <tt>generate-id</tt>.</p></li>
+</ul></div>
+<p>С первым пунктом всё, пожалуй, ясно — выбор множества узлов по определённому критерию — 
+        это самое прямое предназначение ключей. 
+        Второй же пункт оставляет лёгкое недоумение: 
+        функция <tt>generate-id</tt> вроде бы предназначена только 
+        для генерации уникальных значений.</p>
+<p>Для того чтобы развеять все сомнения, 
+        напомним, как ведёт себя эта функция, если аргументом является множество узлов. 
+        В этом случае <tt>generate-id</tt> возвращает уникальный идентификатор 
+				<span class="emphasis"><em>первого</em></span> в порядке просмотра документа узла переданного ей множества. 
+        Значит для того, чтобы проверить, является ли некий узел первым узлом группы, 
+        достаточно сравнить его уникальный идентификатор со значением выражения <tt>generate-id(<i><tt>$group</tt></i>)</tt>, 
+        где <tt><i><tt>$group</tt></i></tt> — множество узлов этой группы.</p>
+<p>С учётом приведённых выше возможностей 
+			 группирующее преобразование переписывается удивительно элегантным образом.</p>
+<div class="example">
+<a name="LIST_11_03"></a><p class="title"><b>Пример 11.3. Группирующее преобразование</b></p>
+<pre class="programlisting">&lt;xsl:stylesheet 
+  version=&quot;1.0&quot;
+  xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
+
+  &lt;xsl:key name=&quot;src&quot; match=&quot;item&quot; use=&quot;@source&quot;/&gt;
+
+  &lt;xsl:template match=&quot;items&quot;&gt;
+    &lt;sources&gt;
+      &lt;xsl:apply-templates
+        select=&quot;item[generate-id(.)=generate-id(key('src',@source))]&quot;/&gt;
+    &lt;/sources&gt;
+  &lt;/xsl:template&gt;
+
+  &lt;xsl:template match=&quot;item&quot;&gt;
+    &lt;source name=&quot;{@source}&quot;&gt;
+      &lt;xsl:copy-of select=&quot;key('src',@source)&quot;/&gt;
+    &lt;/source&gt;
+  &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;</pre>
+</div>
+<p>Результат выполнения этого преобразования уже был приведён <a href="ch_11.html#LIST_11_02" title="Пример 11.2. Требуемый результат">в листинге 11.2</a>.</p>
+</div>
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="ch_09_10.html"><img src="images/db/prev.gif" alt="Пред."></a> </td>
+<td width="20%" align="center"><a accesskey="u" href="xsltbook.html"><img src="images/db/up.gif" alt="Уровень выше"></a></td>
+<td width="40%" align="right"> <a accesskey="n" href="ch_11_02.html"><img src="images/db/next.gif" alt="След."></a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Краткие выводы </td>
+<td width="20%" align="center"><a accesskey="h" href="xsltbook.html"><img src="images/db/home.gif" alt="Начало"></a></td>
+<td width="40%" align="right" valign="top"> Перечисление узлов</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

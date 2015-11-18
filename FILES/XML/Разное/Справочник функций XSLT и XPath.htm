@@ -1,0 +1,466 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>Приложение П3. Краткий справочник функций XSLT и XPath</title>
+<link rel="stylesheet" href="css/xsltbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.59.1">
+<link rel="home" href="xsltbook.html" title="Технология XSLT">
+<link rel="up" href="xsltbook.html" title="Технология XSLT">
+<link rel="previous" href="xsltref.html" title="Приложение П2. Краткий справочник элементов и атрибутов XSLT">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="appendix" lang="ru">
+<div class="titlepage"><div><h2 class="title">
+<a name="xpathref"></a>Приложение П3. Краткий справочник функций XSLT и XPath</h2></div></div>
+<nobr>[<a href="#boolean">boolean</a>]</nobr>
+<nobr>[<a href="#not">not</a>]</nobr>
+<nobr>[<a href="#true">true</a>]</nobr>
+<nobr>[<a href="#false">false</a>]</nobr>
+<nobr>[<a href="#lang">lang</a>]</nobr>
+<nobr>[<a href="#number">number</a>]</nobr>
+<nobr>[<a href="#sum">sum</a>]</nobr>
+<nobr>[<a href="#floor">floor</a>]</nobr>
+<nobr>[<a href="#ceiling">ceiling</a>]</nobr>
+<nobr>[<a href="#round">round</a>]</nobr>
+<nobr>[<a href="#string">string</a>]</nobr>
+<nobr>[<a href="#concat">concat</a>]</nobr>
+<nobr>[<a href="#startswith">starts-with</a>]</nobr>
+<nobr>[<a href="#contains">contains</a>]</nobr>
+<nobr>[<a href="#substringbefore">substring-before</a>]</nobr>
+<nobr>[<a href="#substringafter">substring-after</a>]</nobr>
+<nobr>[<a href="#substring">substring</a>]</nobr>
+<nobr>[<a href="#stringlength">string-length</a>]</nobr>
+<nobr>[<a href="#normalizespace">normalize-space</a>]</nobr>
+<nobr>[<a href="#translate">translate</a>]</nobr>
+<nobr>[<a href="#last">last</a>]</nobr>
+<nobr>[<a href="#position">position</a>]</nobr>
+<nobr>[<a href="#count">count</a>]</nobr>
+<nobr>[<a href="#localname">local-name</a>]</nobr>
+<nobr>[<a href="#namespaceuri">namespace-uri</a>]</nobr>
+<nobr>[<a href="#name">name</a>]</nobr>
+<nobr>[<a href="#id">id</a>]</nobr>
+<nobr>[<a href="#key">key</a>]</nobr>
+<nobr>[<a href="#document">document</a>]</nobr>
+<nobr>[<a href="#current">current</a>]</nobr>
+<nobr>[<a href="#unparsedentityuri">unparsed-entity-uri</a>]</nobr>
+<nobr>[<a href="#generateid">generate-id</a>]</nobr>
+<nobr>[<a href="#systemproperty">system-property</a>]</nobr>
+<nobr>[<a href="#legend">Обозначения</a>]</nobr>
+
+    <h2>Булевые функции</h2>
+    <div class="textwide">
+<a name="boolean"></a>
+      <div class="proto"><p>
+        <code>boolean</code> <b><code>boolean</code></b>
+        (<code>object</code>)
+      </p></div>
+      <div class="ref">
+        <p>Явным образом преобразует объект, который ей передаётся в булевый тип.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="not"></a>
+      <div class="proto"><p>
+        <code>boolean</code> <b><code>not</code></b>
+        (<code>boolean</code>)
+      </p></div>
+      <div class="ref">
+        <p>Выполняет логическое отрицание.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="true"></a>
+      <div class="proto"><p>
+        <code>boolean</code> <b><code>true</code></b>
+      <tt>()</tt>
+</p></div>
+      <div class="ref">
+				<p>Возвращает <code>true</code>, «истину».</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="false"></a>
+      <div class="proto"><p>
+        <code>boolean</code> <b><code>false</code></b>
+      <tt>()</tt>
+</p></div>
+      <div class="ref">
+				<p>Возвращает <code>false</code>, «ложь».</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="lang"></a>
+      <div class="proto"><p>
+        <code>boolean</code> <b><code>lang</code></b>
+        (<code>string</code>)
+      </p></div>
+      <div class="ref">
+        <p>Возвращает истину, если идентификатор языка, который передан ей в виде строкового параметра, соответствует языковому контексту контекстного узла.</p>
+      </div>
+<br clear="both">
+    </div>
+  
+    <h2>Числовые функции</h2>
+    <div class="textwide">
+<a name="number"></a>
+      <div class="proto"><p>
+        <code>number</code> <b><code>number</code></b>
+        (<code>object</code>?)
+      </p></div>
+      <div class="ref">
+        <p>Явным образом конвертирует свой аргумент в числовой тип. Если аргумент опущен, то выполняется с множеством, состоящим из контекстного узла.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="sum"></a>
+      <div class="proto"><p>
+        <code>number</code> <b><code>sum</code></b>
+        (<code>node-set</code>)
+      </p></div>
+      <div class="ref">
+        <p>Суммирует значения узлов из переданного ей множества.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="floor"></a>
+      <div class="proto"><p>
+        <code>number</code> <b><code>floor</code></b>
+        (<code>number</code>)
+      </p></div>
+      <div class="ref">
+        <p>Округляет аргумент до ближайшего не большего целого.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="ceiling"></a>
+      <div class="proto"><p>
+        <code>number</code> <b><code>ceiling</code></b>
+        (<code>number</code>)
+      </p></div>
+      <div class="ref">
+        <p>Округляет аргумент до ближайшего не меньшего целого.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="round"></a>
+      <div class="proto"><p>
+        <code>number</code> <b><code>round</code></b>
+        (<code>number</code>)
+      </p></div>
+      <div class="ref">
+        <p>Округляет аргумент до ближайшего целого значения.</p>
+      </div>
+<br clear="both">
+    </div>
+  
+    <h2>Строковые функции</h2>
+    <div class="textwide">
+<a name="string"></a>
+      <div class="proto"><p>
+        <code>string</code> <b><code>string</code></b>
+        (<code>object</code>?)
+      </p></div>
+      <div class="ref">
+        <p>Преобразует свой аргумент к строковому типу явным образом. Если аргумент опущен, то выполняется с множеством, состоящим из контекстного узла.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="concat"></a>
+      <div class="proto"><p>
+        <code>string</code> <b><code>concat</code></b>
+        (<code>string</code>,
+        <code>string</code>,
+        <code>string</code>*)
+      </p></div>
+      <div class="ref">
+        <p>Возвращает конкатенацию (строковое сложение) своих аргументов.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="startswith"></a>
+      <div class="proto"><p>
+        <code>boolean</code> <b><code>starts-with</code></b>
+        (<code>string</code>,
+        <code>string</code>)
+      </p></div>
+      <div class="ref">
+        <p>Принимает на вход два строковых аргумента и возвращает <code>true</code>, если первая строка начинается со второй и <code>false</code> в противном случае.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="contains"></a>
+      <div class="proto"><p>
+        <code>boolean</code> <b><code>contains</code></b>
+        (<code>string</code>,
+        <code>string</code>)
+      </p></div>
+      <div class="ref">
+        <p>Принимает на вход два строковых аргумента и возвращает <code>true</code>, если первая строка содержит вторую и <code>false</code> в противном случае.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="substringbefore"></a>
+      <div class="proto"><p>
+        <code>string</code> <b><code>substring-before</code></b>
+        (<code>string</code>,
+        <code>string</code>)
+      </p></div>
+      <div class="ref">
+        <p>Принимает на вход два строковых аргумента, находит в первой строке вторую и возвращает подстроку, которая ей предшествует.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="substringafter"></a>
+      <div class="proto"><p>
+        <code>string</code> <b><code>substring-after</code></b>
+        (<code>string</code>,
+        <code>string</code>)
+      </p></div>
+      <div class="ref">
+        <p>Принимает на вход два строковых аргумента, находит в первой строке вторую и возвращает подстроку, которая за ней следует.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="substring"></a>
+      <div class="proto"><p>
+        <code>string</code> <b><code>substring</code></b>
+        (<code>string</code>,
+        <code>number</code>,
+        <code>number</code>?)
+      </p></div>
+      <div class="ref">
+        <p>Возвращает подстроку переданного ей строкового аргумента, которая начинается с позиции, указанной вторым аргументом и длиной, указанной третьим аргументом. Если третий аргумент не указан, то подстрока продолжается до конца строки.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="stringlength"></a>
+      <div class="proto"><p>
+        <code>number</code> <b><code>string-length</code></b>
+        (<code>string</code>?)
+      </p></div>
+      <div class="ref">
+        <p>Возвращает число символов строкового аргумента.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="normalizespace"></a>
+      <div class="proto"><p>
+        <code>string</code> <b><code>normalize-space</code></b>
+        (<code>string</code>?)
+      </p></div>
+      <div class="ref">
+        <p>Производит со строковым аргументом нормализацию пробельного пространства. Если аргумент опущен, выполняется со строковым значением контекстного узла.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="translate"></a>
+      <div class="proto"><p>
+        <code>string</code> <b><code>translate</code></b>
+        (<code>string</code>,
+        <code>string</code>,
+        <code>string</code>)
+      </p></div>
+      <div class="ref">
+        <p>Производит замену символов первого своего строкового аргумента, которые присутствуют во втором аргументе на соответствующие символы третьего аргумента.</p>
+      </div>
+<br clear="both">
+    </div>
+  
+    <h2>Функции множеств узлов</h2>
+    <div class="textwide">
+<a name="last"></a>
+      <div class="proto"><p>
+        <code>number</code> <b><code>last</code></b>
+      <tt>()</tt>
+</p></div>
+      <div class="ref">
+        <p>Возвращает размер контекста вычисления выражения.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="position"></a>
+      <div class="proto"><p>
+        <code>number</code> <b><code>position</code></b>
+      <tt>()</tt>
+</p></div>
+      <div class="ref">
+        <p>Возвращает позицию контекста вычисления выражения.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="count"></a>
+      <div class="proto"><p>
+        <code>number</code> <b><code>count</code></b>
+        (<code>node-set</code>)
+      </p></div>
+      <div class="ref">
+        <p>Возвращает число узлов, которое входит во множество, переданное ей в качестве аргумента.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="localname"></a>
+      <div class="proto"><p>
+        <code>string</code> <b><code>local-name</code></b>
+        (<code>node-set</code>?)
+      </p></div>
+      <div class="ref">
+        <p>Возвращает локальную часть имени первого в порядке просмотра документа узла множества, переданного в качестве аргумента или локальную часть имени контекстного узла, если аргумент отсутствует. Если аргумент опущен, то выполняется с множеством, состоящим из контекстного узла.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="namespaceuri"></a>
+      <div class="proto"><p>
+        <code>string</code> <b><code>namespace-uri</code></b>
+        (<code>node-set</code>?)
+      </p></div>
+      <div class="ref">
+        <p>Возвращает URI пространства имён первого в порядке просмотра документа узла множества, переданного в качестве аргумента или локальную часть имени контекстного узла, если аргумент отсутствует. Если аргумент опущен, то выполняется с множеством, состоящим из контекстного узла.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="name"></a>
+      <div class="proto"><p>
+        <code>string</code> <b><code>name</code></b>
+        (<code>node-set</code>?)
+      </p></div>
+      <div class="ref">
+        <p>Возвращает в виде <i>префикс:имя</i> расширенное имя локальную часть имени первого в порядке просмотра документа узла множества, переданного в качестве аргумента или локальную часть имени контекстного узла, если аргумент отсутствует. Если аргумент опущен, то выполняется с множеством, состоящим из контекстного узла.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="id"></a>
+      <div class="proto"><p>
+        <code>node-set</code> <b><code>id</code></b>
+        (<code>object</code>)
+      </p></div>
+      <div class="ref">
+        <p>Возвращает множество узлов по уникальным идентификаторам.</p>
+      </div>
+<br clear="both">
+    </div>
+  
+    <h2>Другие функции</h2>
+    <div class="textwide">
+<a name="key"></a>
+      <div class="proto"><p>
+        <code>node-set</code> <b><code>key</code></b>
+        (<code>string</code>,
+        <code>object</code>)
+      </p></div>
+      <div class="ref">
+        <p>По данному имени и значению ключа возвращает множество узлов, которые им обладают.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="document"></a>
+      <div class="proto"><p>
+        <code>node-set</code> <b><code>document</code></b>
+        (<code>object</code>,
+        <code>node-set</code>?)
+      </p></div>
+      <div class="ref">
+        <p>Позволяет обращаться к внешним документам по заданным URI. Первый узел необязательного параметра node-set принимается за точку отсчёта для относительных URI.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="current"></a>
+      <div class="proto"><p>
+        <code>node-set</code> <b><code>current</code></b>
+      <tt>()</tt>
+</p></div>
+      <div class="ref">
+        <p>Возвращает текущий узел преобразования.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="unparsedentityuri"></a>
+      <div class="proto"><p>
+        <code>string</code> <b><code>unparsed-entity-uri</code></b>
+        (<code>string</code>)
+      </p></div>
+      <div class="ref">
+        <p>Возвращает URI неразбираемой сущности по её имени.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="generateid"></a>
+      <div class="proto"><p>
+        <code>string</code> <b><code>generate-id</code></b>
+        (<code>node-set</code>?)
+      </p></div>
+      <div class="ref">
+        <p>Возвращает уникальный строковый идентификатор первого узла переданного множества или контекстного узла, если аргумент опущен.</p>
+      </div>
+<br clear="both">
+    </div>
+    <div class="textwide">
+<a name="systemproperty"></a>
+      <div class="proto"><p>
+        <code>object</code> <b><code>system-property</code></b>
+        (<code>string</code>)
+      </p></div>
+      <div class="ref">
+        <p>Возвращает значение свойства, имя которого передано как аргумент.</p>
+      </div>
+<br clear="both">
+    </div>
+  <a name="legend"></a>
+    <h2>Обозначения</h2>
+    <p>
+      
+        <code>тип1</code> <b><code>функция</code></b>
+        (<code>тип2</code>,
+        <code>тип3</code>,
+        <code>тип4</code>?)
+      
+    </p>
+		<p>Прототип функции. <i>Тип1</i> — тип возвращаемого значения, <i>тип2</i>, <i>тип3</i>, <i>тип4</i> — типы передаваемых параметров.</p>
+		<p>Символ «<tt>?</tt>» обозначает аргумент, который может быть опущен.</p>
+    <p>Символ <tt>*</tt> для обозначения аргумента, который может повторяться несколько раз.</p>
+  </div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="xsltref.html"><img src="images/db/prev.gif" alt="Пред."></a> </td>
+<td width="20%" align="center"><a accesskey="u" href="xsltbook.html"><img src="images/db/up.gif" alt="Уровень выше"></a></td>
+<td width="40%" align="right"> </td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Приложение П2. Краткий справочник элементов и атрибутов XSLT </td>
+<td width="20%" align="center"><a accesskey="h" href="xsltbook.html"><img src="images/db/home.gif" alt="Начало"></a></td>
+<td width="40%" align="right" valign="top"> </td>
+</tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,861 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<TITLE>Язык XML - Documents Type Definitions (DTD)</TITLE>
+<LINK REL="SHORTCUT ICON" HREF="http://www.codenet.ru/favicon.ico">
+<META NAME="title" CONTENT="Язык XML - Documents Type Definitions (DTD)">
+<META NAME="content" CONTENT="CodeNet - все для программиста. Начиная от программирования для Web, заканчивая системным программированием. Большое количество документации по программированию видеоадаптеров, звуковых карт. Описане форматов файлов. Все с очень хорошими - понятными примерами. И многое другое.">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<LINK rel="stylesheet" type="text/css" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="Новости CodeNet.Ru" href="http://www.codenet.ru/export/read.xml"></HEAD>
+</HEAD>
+
+<BODY bgcolor="white" class="m0" background="/images/bg.gif" topmargin="0" leftmargin="0">
+
+<table cellspacing="0" cellpadding="0" border="0" bgcolor="#E6E6E6" width="100%" style="background-image:url(/images/up_bg.gif);">
+<tr><td width="1%" bgcolor="black"><img src="/images/pshop.gif" alt="Enter" width="99" height="26"></td>
+<td>
+<table cellspacing="0" cellpadding="0" border="0" width="640" id="itbl">
+<tr><td valign="top"><img src="/none.gif" width="3" height="1" alt=""><img src="/images/dots.gif" width="10" height="9" alt=""></td>
+
+<td class="m"><a class="b" href="http://www.codenet.ru/progr/">Программирование</a></td>
+<td><img src="/images/up_dot.gif" alt="" width="4" height="19"></td>
+<td class="m"><a class="b" href="http://www.codenet.ru/webmast/">Web&nbsp;Devel</a></td>
+<td><img src="/images/up_dot.gif" alt="" width="4" height="19"></td>
+<td class="m"><a class="b" href="http://www.codenet.ru/db/">Базы&nbsp;данных</a></td>
+<td><img src="/images/up_dot.gif" alt="" width="4" height="19"></td>
+<td class="m"><a class="b" href="http://www.codenet.ru/pshop/">Photoshop</a></td>
+<td><img src="/images/up_dot.gif" alt="" width="4" height="19"></td>
+<td class="m"><a class="b" href="http://sources.codenet.ru/">Исходники</a></td>
+<td><img src="/images/up_dot.gif" alt="" width="4" height="19"></td>
+<td class="m"><a class="b" href="http://www.codenet.ru/hosting/">Хостинг</a></td>
+<td><img src="/images/up_dot.gif" alt="" width="4" height="19"></td>
+<td class="m" width="100%" nowrap><a class="b" href="http://forum.codenet.ru/"><B><font color=red>Форум</font></B></a>
+<SCRIPT language="JavaScript">
+cnsd=document;cnsd.cookie='b=b';cnsc=cnsd.cookie?1:0;
+cnst=escape(cnsd.title);cnst=cnst.replace(/\+/g,'%2B');
+cnsa=navigator.appName;
+cnsn=(cnsa.substring(0,2)=='Mi')?0:1;cnss=screen;cnspx=(cnsn==0)?cnss.colorDepth:cnss.pixelDepth;
+document.write('<img src="http://www.codenet.ru/cnstats/cntc.php?i=16439631&c='+cnsc+'&e='+cnss.width+'.'+cnss.height+'&d='+cnspx+'&r='+escape(cnsd.referrer)+'&p='+escape(cnsd.location)+'&t='+cnst+'" width="1" height="1" border="0">');
+</SCRIPT>                                                                                                                                                    
+
+</td>
+</table>
+</td><td>
+
+</td><td align="right">
+<a href="/"><img src="/images/home.gif" width="28" height="26" border="0" alt="На главную"></a></td>
+<td bgcolor="white"><img src="/none.gif" width="2" height="1" alt=""></td></tr>
+</table><table bgcolor="white" cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr><td>
+
+<table cellspacing="10"><tr><td>
+<a href="/" style="font-size:11px;text-decoration:none;"><img src="/images/logo.gif" alt="CodeNet" width="83" height="23" border="0">
+<img height=1 width=1 src="http://top.list.ru/counter?id=127096" border=0>
+<img height=1 width=1 src="http://warlog.info:8081/2484;0x0;0;0;-;0" border=0>
+
+<br>
+<font color="darkorange">Все для программиста!</font><br>
+</a>
+</td></tr></table>
+
+</td>
+<td><img src="/none.gif" alt="" width="1" height="64"></td><td align="right"><table><tr><td valign=top>
+<script language="JavaScript">
+var loc=escape(document.location.href);
+var rndnum=Math.round(Math.random() * 999111);
+document.write('<iframe src="http://www.codenet.ru/bb/show.php?t=f&p=1&loc='+loc+'&nocache='+rndnum+'" frameborder=0 vspace=0 hspace=0 width=468 height=60 marginwidth=0 marginheight=0 scrolling=no>');
+document.write('<a href="http://www.codenet.ru/bb/click.php?p=1&nocache='+rndnum+'&loc='+loc+'" target="_blank">');
+document.write('<img src="http://www.codenet.ru/bb/show.php?t=i&p=1&nocache='+rndnum+'&loc='+loc+'" width=468 height=60 border=0></a></iframe>');
+</script>
+</td></tr></table></td></tr>
+<tr bgcolor="#737373"><td colspan="2"><img src="/none.gif" width="200" height="1" alt=""></td><td><img src="/none.gif" alt="" width="470" height="1"></td>
+</tr>
+</table><table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr><td width="150" valign="top" align="center"><!-- ЛЕВАЯ ЯЧЕЙКА -->
+
+<img src="/none.gif" width="1" height="6"><br>
+
+<!--LOGIN-->
+
+<noindex>
+<table width="92%" cellspacing="1" cellpadding="0" border="0" bgcolor="#C0C0C0">
+<form action="http://forum.codenet.ru/www.php" method="post">
+<tr><td bgcolor="white" style="padding:3px 0 3px 0">
+<div align="left">&nbsp;&nbsp;<font class="orange">Войти в систему</font><br>
+<img width="118" height="1" src="/images/pp1.gif" hspace="8" vspace="2"></div>
+
+<table cellspacing=0 cellpadding=0 border=0 align="center">
+<tr><td colspan="2"><table width="118" style="border:1px solid #BFBFBF;" cellspacing="0" cellpadding="0" border="0"><tr><td><img src="/images/sl_login.gif" width="15" height="16"></td><td width="100%"><input id="loginfield" type="text" name="username" accesskey="l" value="" title="логин (Alt-L)" style='margin:0px;font-family:verdana;font-size:11px;border:0;width:100%;height:15px;'></td></tr></table></td></tr>
+<tr height="2"><td colspan="2"></td></tr>
+<tr><td colspan="2"><table width="118" style="border:1px solid #BFBFBF;" cellspacing="0" cellpadding="0" border="0"><tr><td><img src="/images/sl_password.gif" width="15" height="16"></td><td width="100%"><input type="password" name="password" accesskey="p" title="пароль (Alt-P)" value="" style='margin:0px;font-family:verdana;font-size:11px;border:0;width:100%;height:15px;'></td></tr></table></td></tr>
+<tr height="2"><td colspan="2"></td></tr>
+<tr><td valign="top" style="font-size:9px;line-height:10px;">
+<a tabindex="-1" class="mn" href="http://forum.codenet.ru/register.php?action=signup" style="color:red;"><B>регистрация</B></a><br>
+<a tabindex="-1" class="mn" href="http://forum.codenet.ru/member.php?action=lostpw">забыли пароль ?</a>
+</td>
+<td align="right"><input alt="войти!" title="войти!" type="image" style="border:0;width:20px;height:20px" src="/images/action.gif"></td>
+</tr></table>
+
+
+<img src="/none.gif" width="1" height="3"><br>
+</td></tr>
+<input type="hidden" name="codenet_referer" value="http%3A%2F%2Fwww.codenet.ru%2Fwebmast%2Fxml%2Fpart5.php">
+<input type="hidden" name="action" value="login">
+</form>
+</table>
+
+</noindex>
+
+<!--/LOGIN-->
+
+<img src="/images/line.gif" width="137" height="9" vspace="4"><br>
+<table width="92%" cellspacing="1" cellpadding="0" border="0" bgcolor="#C0C0C0"><tr><td bgcolor="white" style="padding:3px 0 3px 0">
+<UL class="lm">
+<LI><a href=/webmast/html.php><B>HTML</B></a>
+<LI><a href=/webmast/xml/>XML</a>
+<LI><a href=/webmast/wml/>WAP (WML)</a>
+<LI class="last"><a href=/webmast/cookies.php>Cookies</a>
+<LI><a href=/webmast/php/><B>PHP</B></a>
+<LI><a href=/webmast/iis/asp.php><B>ASP</B> Manual</a>
+<LI><a href=/webmast/perl/>Perl</a>
+<LI class="last"><a href=/webmast/awk.php>AWK</a>
+<LI><a href=/webmast/apache/>Apache Server</a>
+<LI><a href=/webmast/apache/rapache.php>Russian Apache</a>
+<LI class="last"><a href=/webmast/iis/iis.php>Microsft IIS</a>
+<LI><a href=/webmast/vrml20.php>VRML 1.0</a>
+<LI><a href=/webmast/vrml97/>VRML'97</a>
+<LI><a href=/webmast/curl.php>CURL</a>
+<LI><a href=/webmast/java/>Java</a>
+<LI><a href=/webmast/js/>JavaScript</a>
+<LI><a href=/webmast/vbscript/>VB Script</a>
+<LI><a href=/webmast/wincgi.php>CGI интерфрейс</a>
+<LI><a href=/webmast/ssi/>SSI</a>
+<LI><a href=/webmast/http/>HTTP протокол</a>
+<LI><a href=/webmast/http/rfc2068/>HTTP/1.1 (RFC 2068)</a>
+<LI><a href=/webmast/socks51.php>Socks 5 (RFC 1928)</a>
+<LI><a href=/webmast/snmp/>SNMP</a>
+<LI><a href=/webmast/smtp.php>SMTP</a>
+<LI><a href=/webmast/pop3.php>POP3</a>
+<LI><a href=/webmast/ppp.php>PPP</a>
+<LI><a href=/webmast/udp.php>UDP</a>
+<LI><a href=/webmast/dns.php>Что такое DNS</a>
+<LI class="last"><a href=/webmast/tcpip.php>TCP/IP</a>
+<LI><a href=/webmast/search/>Поисковые системы</a>
+<LI><a href=/webmast/favicon.php>Иконка в URL'е</a>
+<LI><a href=/webmast/cnsearch/>CNSearch</a>
+</UL>
+</td></tr></table>
+
+<img src="/images/line.gif" width="137" height="9" vspace="4"><br>
+<table width="92%" cellspacing="1" cellpadding="0" border="0" bgcolor="#C0C0C0"><tr><td bgcolor="white" style="font-size:11px;padding:3px 0 3px 0;">
+<div align="left">&nbsp;&nbsp;<font class="orange">Почтовая рассылка</font><br>
+<img width="118" height="1" src="/images/pp1.gif" hspace="8" vspace="2"></div>
+<div align="center">
+<form action="http://www.codenet.ru/mail/subs.php" method="post" class="m0">
+<input accesskey="e" type="text" name="email" value="ваш@email.ru" size="13" maxlength="100" style='font-family:verdana;font-size:11px;border: solid 1px #BFBFBF;height:20px;width:118px;background-image: url(/images/l_email.gif);padding-left:17px;padding-top:2px;' onfocus='if (this.value=="ваш@email.ru") this.value=""' onblur='if (this.value=="") this.value="ваш@email.ru"'><br>
+
+<table cellspacing=0 cellpadding=0 border=0 width="118"><tr><td>
+<SCRIPT language="JavaScript">
+<!--
+document.write('<input type=hidden name=res value="'+screen.width+'x'+screen.height+'">');
+// -->
+</SCRIPT>
+<TR>
+<TD><img width="1" height="6" src="/none.gif"><br><INPUT name="sub" style="margin:0;width:10px;height:13px;background-color:white;" type=radio value=1 CHECKED></TD>
+<TD valign="bottom" style="font-size:11px;" width="100%">&nbsp;Подписаться</TD>
+<td rowspan="2" valign="top"><input alt="Подписаться!" title="Подписаться!" type="image" style="border:0;width:20px;height:20px" src="/images/action.gif"></td>
+</tr>
+<tr>
+<TD><INPUT name="sub" style="margin:0;width:10px;height:13px;background-color:white;" type=radio value=0></TD>
+<TD style="font-size:11px;">&nbsp;Отписаться</TD>
+</TR></TABLE>
+</form>
+</div>
+<img width=118 height=1 src="/images/pp1.gif" hspace=6 vspace=6>
+<div style="padding-left:5px">Подписчиков: 11571<br>
+<a href="http://www.codenet.ru/mail/" style="color:#404040;">Выпуск</a>: 15.06.2005<br></div>
+</td></tr></table>
+
+<img src="/images/line.gif" width="137" height="9" vspace="4"><br>
+<table width="92%" cellspacing="1" cellpadding="0" border="0" bgcolor="#C0C0C0"><tr><td bgcolor="white" style="font-size:11px;padding:3px 0 3px 0;">
+<div align=left>&nbsp;&nbsp;<font class="orange">Стоит бывать</font><br>
+<img width=118 height=1 src=/images/pp1.gif hspace=8 vspace=2></div>
+<UL class="lm">
+<LI><a target="_blank" href=http://seo-matik.ru>оптимизация сайтов</a><br>
+<LI><a target="_blank" href=http://matik.ru>разработка сайтов</a><br>
+<br>
+<LI><a target="_blank" href="http://www.wosoft.ru/">WoSoft.ru</a>
+<LI><a target="_blank" href="http://www.tumin.net" title="Ежедневные обзоры компьютерных программ и железа. Статьи">Tumin.Net</a>
+<LI><a target="_blank" href=http://r.codenet.ru/?13>RusDoc.ru</a>
+<LI><a target="_blank" href=http://r.codenet.ru/?28>WinSov.ru</a>
+</UL>
+<img width=118 height=1 src=/images/pp1.gif hspace=8 vspace=2><br>
+<table width=100%><tr><td></td><td>
+<div align=right class="mn">
+<a href=http://www.codenet.ru/contacts.php?s=3 class="mn">добавить</a> | <a class="mn" href=http://www.codenet.ru/links.php>остальные...</a>&nbsp;
+</div>
+</td></tr></table>
+</td></tr></table>
+
+<!--SEARCH-->
+
+<noindex>
+<img src="/images/line.gif" width="137" height="9" vspace="4"><br>
+<table width="92%" cellspacing="1" cellpadding="0" border="0" bgcolor="#C0C0C0">
+<form action="http://www.codenet.ru/search.php" method="get" class="m0">
+<tr><td bgcolor="white" style="padding:3px 0 3px 0">
+<div align="left">&nbsp;&nbsp;<font class="orange">Поиск</font><br>
+<img width="118" height="1" src="/images/pp1.gif" hspace="8" vspace="2"></div>
+<div align="center">
+<input type="text" name="q" accesskey="s" value="" title="поисковая фраза (Alt-S)" style='font-family:verdana;font-size:11px;border: solid 1px #BFBFBF;width:118px;height:20px;background-image: url(/images/l_search.gif);padding-left:17px;padding-top:2px;'><br>
+
+<table cellspacing=0 cellpadding=0 border=0 width="118"><tr><td>&nbsp;</td>
+<td align="right"><input alt="искать!" type="image" style="border:0;width:20px;height:20px" src="/images/action.gif"></td>
+</tr></table>
+</div>
+<img src="/none.gif" width="1" height="3"><br>
+
+</td></tr>
+</form>
+</table>
+</noindex>
+
+<!--/SEARCH-->
+
+
+<img src="/none.gif" width="150" height="4">
+<a href="http://www.codenet.ru/export/"><img src="http://www.codenet.ru/export/rss.gif" width=35 height=11 border=0 alt="Экспорт RSS"></a><br>
+<img src="/none.gif" width="1" height="3">
+</td>
+<td width="100%" valign="top"><!-- ПРАВАЯ ЯЧЕЙКА -->
+
+
+<table border="0" cellspacing=3 cellpadding=0 width="100%"><tr><td valign="top" width="100%" style="padding:3px;">
+<table cellspacing=1 cellpadding=5 bgcolor=#E0E0E0 width=98% align=center>
+<tr><td bgcolor=#F0F0F0 align=center style="font-size:11px;">
+
+<B>Свои:</B> <a style='color:gray' href="http://www.codenet.ru/valuehost.php">Хостинг от Valuehost со скидкой 50% !!!</a>
+
+</td></tr></table><table width="90%" cellspacing="7" border="0" align="center"><tr><td align="center" width="33%"><table cellspacing="1" cellpadding="0" border="0"><tr><td rowspan="2" valign="bottom"><img src="/images/views.gif" hspace="2" width="17" height="18" alt="просмотров"></td><td style="font-size:11px;">Просмотров: 3482</td></tr><tr><td><img src="/images/green/0.gif" width="43" height="7"></td></tr></table></td><td align="center" width="33%"><table cellspacing="1" cellpadding="0" border="0"><tr><td rowspan="2" valign="bottom"><img src="/images/comments.gif" hspace="2" width="17" height="18" alt="комментариев"></td><td style="font-size:11px;"><a href="#addcomment">Комментариев</a>: <font color="#AAAAAA">нет</font></td></tr><tr><td><img src="/images/blue/0.gif" width="43" height="7"></td></tr></table></td></tr></table>
+
+<h3 align="center">5. Documents Type Definitions (DTD)</H1>
+
+<p>В XML- документах DTD определяет
+набор действительных элементов,
+идентифицирует элементы, которые
+могут находиться в других
+элементах, и определяет
+действительные атрибуты для
+каждого из них. Синтаксис DTD весьма
+своеобразен и от
+автора-разработчика требуются
+дополнительные усилия при создании
+таких документов(сложность DTD
+является одной из причин того, что
+использование SGML, требующего
+определение DTD для любого
+документа, не получило столь
+широкого распространения как,
+например, HTML). Как уже отмечалось, в
+XML использовать DTD не обязательно -
+документы, созданные без этих
+правил, будут правильно
+обрабатываться
+программой-анализатором, если они
+удовлетворяют основным
+требованиям синтаксиса XML. Однако
+контроль за типами элементов и
+корректностью отношений между ними
+в этом случае будет полностью
+возлагаться на автора документа. До
+тех пор, пока грамматика нашего
+нового языка не описана, его сможем
+использовать только мы, и для этого
+мы будем вынуждены применять
+специально разработанное
+программное обеспечение, а не
+универсальные
+программы-анализаторы.. </p>
+
+<p>В DTD для XML используются следующие
+типы правил: правила для элементов
+и их атрибутов, описания
+категорий(макроопределений),
+описание форматов бинарных данных.
+Все они описывают основные
+конструкции языка - элементы,
+атрибуты, символьные константы
+внешние файлы бинарных данных. </p>
+
+<p>Для того, чтобы использовать DTD в
+нашем документе, мы можем или
+описать его во внешнем файле и при
+описании DTD просто указать ссылку
+на этот файл или же непосредственно
+внутри самого документа выделить
+область, в которой определить
+нужные правила. В первом случае в
+документе указывается имя файла,
+содержащего DTD- описания: </p>
+
+<pre>&lt;?xml version=&quot;1.0&quot; standalone=&quot;yes&quot; ?&gt;
+&lt;! DOCTYPE journal SYSTEM &quot;journal.dtd&quot;&gt;
+...</pre>
+
+<p>Внутри же документа DTD- декларации
+включаются следующим образом: </p>
+
+<pre>...
+&lt;! DOCTYPE journal [
+&lt;!ELEMENT journal (contacts, issues, authors)&gt;
+...
+]&gt;
+...</pre>
+
+<p>В том случае, если используются
+одновременно внутренние и внешние
+описания, то
+программой-анализатором будут
+сначала рассматриваться
+внутренние, т.е. их приоритет выше.
+При проверке документа XML-
+процессор в первую очередь ищет DTD
+внутри документа. Если правила
+внутри документа не определены и не
+задан атрибут <i>standalone =&quot;yes&quot; </i>,
+то программа загрузит указанный
+внешний файл и правила, находящиеся
+в нем, будут считаны оттуда. Если же
+атрибут <i>standalone </i>имеет значение <i>&quot;yes</i>&quot;,
+то использование внешних DTD
+описаний будет запрещено. </p>
+
+<H2>Определение элемента </H2>
+
+<p>Элемент в DTD определяется с
+помощью дескриптора !<b>ELEMENT</b>, в
+котором указывается название
+элемента и структура его
+содержимого. </p>
+
+<p>Например, для элемента &lt;flower&gt;
+можно определить следующее
+правило: </p>
+
+<pre>&lt;!ELEMENT flower  PCDATA&gt;</pre>
+
+<p>Ключевое слово ELEMENT указывает, что
+данной инструкцией будет
+описываться элемент XML. Внутри этой
+инструкции задается название
+элемента(flower) и тип его содержимого.
+</p>
+
+<p>В определении элемента мы
+указываем сначала название
+элемента(flower), а затем его модель
+содержимого - определяем, какие
+другие элементы или типы данных
+могут встречаться внутри него. В
+данном случае содержимое элемента
+flower будет определяться при помощи
+специального маркера PCDATA( что
+означает parseable character data - любая
+информация, с которой может
+работать программа-анализатор).
+Существует еще две инструкции,
+определяющие тип содержимого:
+EMPTY,ANY. Первая указывает на то, что
+элемент должен быть
+пустым(например, &lt;red/&gt;), вторая - на
+то, что содержимое элемента
+специально не описывается. </p>
+
+<p>Последовательность дочерних для
+текущего элемента объектов
+задается в виде списка разделенных
+запятыми названий элементов. При
+этом для того, чтобы указать
+количество повторений включений
+этих элементов могут
+использоваться символы +,*, ? : </p>
+
+<pre>&lt;!ELEMENT issue (title, author+, table-of-contents?)&gt;</pre>
+
+<p>В этом примере указывается, что
+внутри элемента &lt;issue&gt; должны быть
+определены элементы title, author и
+table-of-contents, причем элемент title
+является обязательным элементом и
+может встречаться лишь однажды,
+элемент author может встречаться
+несколько раз, а элемент table-of-contents
+является опциональным, т.е. может
+отсутствовать. В том случае, если
+существует несколько возможных
+вариантов содержимого
+определяемого элемента, их следует
+разделять при помощи символа
+&quot;|&quot; : </p>
+
+<pre>&lt;!ELEMENT flower (PCDATA | title )*&gt;</pre>
+
+<p>Символ * в этом примере указывает
+на то, что определяемая
+последовательность внутренних
+элементов может быть повторена
+несколько раз или же совсем не
+использоваться. </p>
+
+<p>Если в определении элемента
+указывается &quot;смешанное&quot;
+содержимое, т.е. текстовые данные
+или набор элементов, то необходимо
+сначала указать PCDATA, а затем
+разделенный символом &quot;|&quot;
+список элементов. </p>
+
+<p>Пример корректного XML- документа: </p>
+
+<pre>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;! DOCTYPE journal [
+&lt;!ELEMENT contacts (address, tel+, email?)&gt;
+&lt;!ELEMENT address (street, appt)&gt;
+&lt;!ELEMENT street PCDATA&gt;
+&lt;!ELEMENT appt (PCDATA | EMPTY)*&gt;
+&lt;!ELEMENT tel PCDATA&gt;
+&lt;!ELEMENT email PCDATA&gt;
+]&gt;
+...
+&lt;contacts&gt;
+&lt;address&gt;
+&lt;street&gt;Marks avenue&lt;/street&gt;
+&lt;appt id=&quot;4&quot;&gt;
+&lt;/address&gt;
+&lt;tel&gt;12-12-12&lt;/tel&gt;
+&lt;tel&gt;46-23-62&lt;/tel&gt;
+&lt;email&gt;info@j.com&lt;/email&gt;
+&lt;/contacts&gt;</pre>
+
+<H2>Определение атрибутов</H2>
+
+<p>Списки атрибутов элемента
+определяются с помощью ключевого
+слова !<b>ATTLIST</b>. Внутри него
+задаются названия атрибутов, типы
+их значений и дополнительные
+параметры. Например, для элемента
+&lt;article&gt; могут быть определены
+следующие атрибуты: </p>
+
+<pre>&lt;!ATTLIST article
+id ID #REQUIRED
+about CDATA #IMPLIED
+type (actual | review | teach )  'actual' ''
+&gt;</pre>
+
+<p>В данном примере для элемента <i>article
+</i>определяются три атрибута: <i>id,
+about </i>и <i>type</i>, которые имеют типы
+ID(идентификатор), CDATA и список
+возможных значений соответственно.
+Всего существует шесть возможных
+типов значений атрибута: </p>
+
+<ul>
+    <li>CDATA - содержимым документа
+        могут быть любые символьные
+        данные </li>
+    <li>ID - определяет уникальный
+        идентификатор элемента в
+        документе </li>
+    <li>IDREF( IDREFS )- указывает, что
+        значением атрибута должно
+        выступать название(или
+        несколько таких названий,
+        разделенных пробелами во
+        втором случае) уникального
+        идентификатора определенного
+        в этом документе элемента </li>
+    <li>ENTITY( ENTITIES) - значение атрибута
+        должно быть названием(или
+        списком названий, если
+        используется ENTITIES) компонента
+        (макроопределения),
+        определенного в документе </li>
+    <li>NMTOKEN (NMTOKENS) - содержимым
+        элемента может быть только
+        одно отдельное слово(т.е. этот
+        параметр является
+        ограниченным вариантом CDATA) </li>
+    <li>Список допустимых значений -
+        определяется список значений,
+        которые может иметь данный
+        атрибут. </li>
+</ul>
+
+<p>Также в определении атрибута
+можно использовать следующие
+параметры: </p>
+
+<ul>
+    <li>#REQUIRED - определяет обязательный
+        атрибут, который должен быть
+        задан во всех элементах
+        данного типа </li>
+    <li>#IMPLIED - атрибут не является
+        обязательным </li>
+    <li>#FIXED &quot;значение&quot; - указывает,
+        что атрибут должен иметь
+        только указанное значение,
+        однако само определение
+        атрибута не является
+        обязательным, но в процессе
+        разбора его значение в любом
+        случае будет передано
+        программе-анализатору </li>
+    <li>Значение - задает значение
+        атрибута по умолчанию </li>
+</ul>
+
+<H2>Определение компонентов(макроопределений)</H2>
+
+<p>Компонент (entity) представляет
+собой определения, содержимое
+которых может быть повтор&#31;но
+использовано в документе . В других
+языках программирования подобные
+элементы называются
+макроопределениями. Создаются DTD-
+компоненты при помощи инструкции
+!ENTITY: </p>
+
+<pre>&lt;!ENTITY hello ' Мы рады приветствовать Вас!' &gt;</pre>
+
+<p>Программа-анализатор,
+просматривая в первую очередь
+содержимое области DTD- определений,
+обработает эту инструкцию и при
+дальнейшем разборе документа будет
+использовать содержимое DTD-
+компонента в том месте, где будет
+встречаться его название. Т.е.
+теперь в документе мы можем
+использовать выражение &amp;hello; ,
+которое будет заменено на строчку <i>&quot;Мы
+рады приветствовать Вас&quot;</i> </p>
+
+<p>В общем случае, внутри DTD можно
+задать три типа макроопределений: </p>
+
+<p><b>Внутренние макроопределения </b>-
+предназначены для определения
+строковой константы, с их помощью
+можно организовывать ссылки на
+часто изменяемую информацию, делая
+документ более читабельным.
+Внутренние компоненты включаются в
+документ при помощи амперсанта &amp; </p>
+
+<p>В XML существует пять
+предустановленных внутренних
+символьных констант: </p>
+
+<ul>
+    <li>&amp;lt; - символ &quot;&lt;&quot; </li>
+    <li>&amp;gt; - символ &quot;&gt;&quot; </li>
+    <li>&amp;amp; - символ &quot;&amp;&quot; </li>
+    <li>&amp;apos; - символ апострофа
+        &quot;&amp;apos;&quot; </li>
+    <li>&amp;quot; - символ двойной кавычки
+        &quot;&quot;&quot; </li>
+</ul>
+
+<p><b>Внешние макроопределения </b>-
+указывают на содержимое внешнего
+файла, причем этим содержимым могут
+быть как текстовые, так и двоичные
+данные. В первом случае в месте
+использования макроса будут
+вставлены текстовые строки, во
+втором - бинарные данные, которые
+анализатором не рассматриваются и
+используются внешними программами </p>
+
+<pre>&lt;!ENTITY logotype SYSTEM &quot;/image.gif&quot; NDATA GIF87A&gt;</pre>
+
+<p><b>Макроопределения правил </b>-
+макроопределения параметров могут
+использоваться только внутри
+области DTD и обозначаются
+специальным символом %, вставляемым
+перед названием макроса. При этом
+содержимое компонента будет
+помещено непосредственно в текст
+DTD- правила </p>
+
+<p>Например, для следующего
+фрагмента документа: </p>
+
+<pre>&lt;!ELEMENT name (PCDATA)&gt;
+&lt;!ELEMENT title (PCDATA | name)*&gt;
+&lt;!ELEMENT author (PCDATA | name)*&gt;
+&lt;!ELEMENT article (title, author)*&gt;
+&lt;!ELEMENT book (title, author)*&gt;
+&lt;!ELEMENT bookstore (book | article)*&gt;
+&lt;!ELEMENT bookshelf (book | article)*&gt;</pre>
+
+<p>можно использовать более
+короткую форму записи: </p>
+
+<pre>&lt;!ELEMENT name (PCDATA)&gt;
+&lt;! ENTITY %names 'PCDATA | name'&gt;
+&lt;!ELEMENT article (%names;)*&gt;
+&lt;!ELEMENT book (%names;)*&gt;
+&lt;!ENTITY %content 'book | article'&gt;
+&lt;!ELEMENT bookstore (%content;)*&gt;
+&lt;!ELEMENT bookshelf (%content;)*&gt;</pre>
+
+<p>Макроопределения часто
+используются для описания
+параметров в правилах атрибутов. В
+этом случае появляется возможность
+использовать одинаковые
+определения атрибутов для
+различных элементов: </p>
+
+<pre>&lt;!ENTITY %itemattr 'id ID #IMPLIED src CDATA'&gt;
+&lt;!ENTITY %bookattr &quot;ISDN ID #IMPLIED type CDATA'&gt;
+&lt;!ENTITY %artattr &quot; size CDATA'&gt;
+&lt;!ELEMENT book (title, author,content)*&gt;
+&lt;!ATTLIST book %itemattr  %bookattr;&gt;
+&lt;!ELEMENT article (title, author, content)*&gt;
+&lt;!ATTLIST article %itemattr  %artattr;&gt;</pre>
+
+<H2>Типизация данных</H2>
+
+<p>Довольно часто при создании XML-
+элемента разработчику требуется
+определить, данные какого типа
+могут использоваться в качестве
+его содержимого. Т.е. если мы
+определяем элемент
+&lt;last-modified&gt;10.10.98&lt;/last-modified&gt;, то
+хотим быть уверенными, что в
+документе в этом месте будет
+находиться строка, представляющая
+собой дату, а не число или
+произвольную последовательность
+символов. Используя типизацию
+данных, можно создавать элементы,
+значения которых могут
+использоваться, например, в
+качестве параметров SQL- запросов.
+Программа клиент в этом случае
+должна знать, к какому типу данных
+относится текущее значение
+элемента и в случае соответствия
+формирует SQL-запрос. </p>
+
+<p>Если в качестве программы на
+стороне клиента используется
+верифицирующий XML-процессор, то
+информацию о типе можно передавать
+при помощи специально созданного
+для этого атрибута элемента,
+имеющего соответствующее DTD-
+определение. В процессе разбора
+программа-анализатор передаст
+значение этого атрибута
+клиентскому приложению, которое
+сможет использовать эту информацию
+должным образом. Например, чтобы
+указать, что содержимое элемента
+должно быть длинным целым, можно
+использовать следующее DTD-
+определение: </p>
+
+<pre>&lt;!ELEMENT counter (PCDATA)&gt;
+&lt;!ATTLIST counter data_long CDATA #FIXED &quot;LONG&quot;&gt;</pre>
+
+<p>Задав атрибуту значение по
+умолчанию LONG и определив его как
+FIXED, мы позволили тем самым
+программе-клиенту получить
+необходимую информацию о типе
+содержимого данного элемента, и
+теперь она может самостоятельно
+определить соответствие типа этого
+содержимого указанному в DTD-
+определении . </p>
+
+<p>Вот пример XML- документа, в котором
+определяются и используются
+несколько элементов с различными
+типами данных: </p>
+
+<pre>&lt;!ELEMENT price (PCDATA)&gt;
+&lt;!ATTLIST price data_currency CDATA #FIXED &quot;CURRENCY&quot;&gt;
+&lt;!ELEMENT rooms_num (PCDATA)&gt;
+&lt;!ATTLIST rooms_num data_byte CDATA #FIXED &quot;BYTE&quot;&gt;
+&lt;!ELEMENT floor (PCDATA)&gt;
+&lt;!ATTLIST floor data_byte CDATA #FIXED &quot;INTEGER&quot;&gt;
+&lt;!ELEMENT living_space (PCDATA)&gt;
+&lt;!ATTLIST living_space data_float CDATA #FIXED &quot;FLOAT&quot;&gt;
+&lt;!ELEMENT counter (PCDATA)&gt;
+&lt;!ATTLIST counter data_long CDATA #FIXED &quot;LONG&quot;&gt;
+&lt;!ELEMENT is_tel (PCDATA)&gt;
+&lt;!ATTLIST is_tel data_bool CDATA #FIXED &quot;BOOL&quot;&gt;
+&lt;!ELEMENT house (rooms_num, floor,living_space, is_tel, counter, price)&gt;
+&lt;!ATTLIST house id ID  #REQUIED&gt;
+...
+&lt;house id=&quot;0&quot;&gt;
+&lt;rooms_num&gt;5&lt;/rooms_num&gt;
+&lt;floor&gt;2&lt;/floor&gt;
+&lt;living_space&gt;32.5&lt;/living_space&gt;
+&lt;is_tel&gt;true&lt;/is_tel&gt;
+&lt;counter&gt;18346&lt;/counter&gt;
+&lt;price&gt;34 р. 28 к.&lt;/price&gt;
+&lt;/house&gt;
+...</pre>
+
+<p>Как видно из примера, механизм
+создания элементов документа при
+этом нисколько не изменился. Все
+необходимая для проверки типов
+данных информация заложена в
+определения элементов внутри блока
+DTD. </p>
+
+<p>В заключении хотелось бы
+отметить, что DTD предоставляет нам
+весьма удобный механизм
+осуществления контроля за
+содержимым документа. На
+сегодняшний день, практически все
+программы просмотра документов
+Интернет используют DTD-правила.
+Однако это далеко не единственный
+способ проверки корректности
+документа. В настоящий момент в W3
+консорциуме находится на
+рассмотрении новый стандарт языка
+описания структуры документов,
+называемый схемами данных.
+Следующий раздел посвящен работе с
+ними. </p>
+<noindex>
+<br>
+<SCRIPT language="JavaScript">
+<!--
+function CheckLen3(o) {
+	t=document.getElementById("count");
+	i=4000-o.value.length;
+	t.value="Осталось: "+i;
+	if (i<0) t.style.color="red";
+	else t.style.color="#404040";
+	}
+
+
+function checklen() {
+	t=document.getElementById("textar");
+	if (t.value.length>4000) {alert("Сообщение не должно привышать 4000 символов.");return(false);}
+	else return(true);
+	}
+
+//-->
+</SCRIPT>
+
+
+<br><a name="addcomment"></a>
+<table border=0 cellspacing=1 width=100% cellpadding=5 width=1 align=center>
+<tr bgcolor=#E0E0E0><td nowrap colspan=2 background=/images/linksbg.gif><img src=/images/dots.gif border=0 align=top width=10 height=9>&nbsp;<B>Оставить комментарий</B></td></tr>
+<tr bgcolor=#F0F0F0><td colspan=2 style="font-size:11px;">
+<font color=red>
+С помощью этой формы оставляйте исключительно комментарии. Вопросы вам будет удобнее задать в <a href="http://forum.codenet.ru/">форуме</a>.
+Вероятность того, что на них ответят там, намного выше.
+</font>
+</td></tr>
+<form action="/comments/include.php" method="post" onSubmit="return checklen();">
+<tr bgcolor=#F0F0F0><td nowrap valign=top width="40%">Имя<br></td><td width="60%"><input style='width:100%;border: solid 1px #808080' type=text name="name" value=""></td></tr>
+<tr bgcolor=#F0F0F0><td nowrap valign=top>E-Mail<br><small>не будет виден</small></td><td><input style='width:100%;border: solid 1px #808080' type=text name="email" value=""></td></tr>
+<tr bgcolor=#F0F0F0><td valign=top>
+Введите число, которое вы видите на картинке<br><small>обновите страницу (F5), если не можете прочитать число</small></td><td><img src='/code.php?1120053078.9' width=101 height=26 vspace=5><br><input style='width:100%;border: solid 1px #808080' type=text name=secretcode value=''><br><small><a href='http://forum.codenet.ru/register.php?action=signup' target='_blank'>Зарегистрируйтесь</a>, если не хотите вводить число каждый раз.</small>
+</td></tr>
+<tr bgcolor=#F8F8F8><td nowrap valign=top>Комментарий:<br>
+
+<small>
+можно использовать <a href="http://forum.codenet.ru/misc.php?action=bbcode" target="_blank">bb коды</a>
+</small><br><br>
+<div align="right">
+<input type="text" name="count" id="count" style="border-width:0px;background-color:#F8F8F8;text-align:right;font-family:verdana;color:#404040" value="Осталось: 4000">
+</div>
+
+</td><td>
+<textarea id="textar" onChange="CheckLen3(this)" onFocus="CheckLen3(this)" onKeyDown="CheckLen3(this)" onKeyUp="CheckLen3(this)" style='width:100%;border: solid 1px #808080;height:200px;' name="comment"></textarea></td></tr>
+<tr bgcolor=#F0F0F0><td colspan=2 align=center>
+<input type="submit" value="Добавить" style="font-size:11px;font-family:verdana;">
+<input type="hidden" name="ref" value="%2Fwebmast%2Fxml%2Fpart5.php">
+<input type="hidden" name="id" value="-1843007363">
+</td></tr></form></table>
+</noindex>
+
+<!-- КОНЕЦ ТЕКСТА -->
+
+<img src="/none.gif" width="1" height="20"><br>
+<SCRIPT Language="JavaScript">
+<!--
+cn=(navigator.appName.substring(0,2)=="Mi")?0:1;
+cw=(cn==1)?screen.availWidth:screen.width
+if (cw>=1024) {
+	document.write("</td><td valign='top' width='1%' align=center>");
+
+	google_ad_client = "pub-3078405597865084";
+	google_ad_width = 120;
+	google_ad_height = 600;
+	google_ad_format = "120x600_as";
+	google_ad_channel ="";
+	google_alternate_ad_url = "http://www.codenet.ru/google.php";
+	google_color_border = "E0E0E0";
+	google_color_bg = "F0F0F0";
+	google_color_link = "0000FF";
+	google_color_url = "008000";
+	google_color_text = "000000";
+	google_language = 'ru';
+
+	document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>');
+	}
+// -->        
+</SCRIPT>
+
+</td></tr></table>
+</td></tr></table>
+<!--Нижняя таблица -->
+<table border="0" cellpadding="3" cellspacing="0">
+<tr><td valign="bottom" align="center"><img src="/none.gif" width="150" height="2" ><br>
+<SCRIPT Language="JavaScript">
+<!--
+Nnv=navigator;Nna=Nnv.appName;Nd=document;Nd.cookie="b=b";Nc=0;if(Nd.cookie)Nc=1;
+Nn=(Nna.substring(0,2)=="Mi")?0:1;Ns=screen;Npx=(Nn==0)?Ns.colorDepth:Ns.pixelDepth;
+str='<img alt="Top.Novgorod.Ru" src="http://top.novgorod.ru:81/49;'+Ns.width+'x'+Ns.height+';'+Npx+';'+Nc+';';
+str=str+escape(Nd.referrer)+';'+Math.random()+'" width="88" height="31" border="0">';
+document.write("<a target='_blank' href=http://top.novgorod.ru/>"+str+"</a>");
+// -->
+</SCRIPT><NOSCRIPT><a href="http://top.novgorod.ru/" target=_blank><img alt="Top.Novgorod.Ru" src="http://top.novgorod.ru:81/49;0x0;0;0;-;0" width="88" height="31" border="0"></a></NOSCRIPT><br>
+<img src="/none.gif" width="1" height="2"><br>
+<a target="_blank" href="http://top.mail.ru/jump?from=127096"><img src="http://top.list.ru/counter?id=127096;t=52;l=1" border="0" height="31" width="88" alt="Рейтинг@Mail.ru"/></a>
+
+
+</td><td width="100%" valign="bottom" align="right">
+<script language="JavaScript">
+var loc=escape(document.location.href);
+var rndnum=Math.round(Math.random() * 999111);
+document.write('<iframe src="http://www.codenet.ru/bb/show.php?t=f&p=2&loc='+loc+'&nocache='+rndnum+'" frameborder=0 vspace=0 hspace=0 width=468 height=60 marginwidth=0 marginheight=0 scrolling=no>');
+document.write('<a href="http://www.codenet.ru/bb/click.php?p=2&nocache='+rndnum+'&loc='+loc+'" target="_blank">');
+document.write('<img src="http://www.codenet.ru/bb/show.php?t=i&p=2&nocache='+rndnum+'&loc='+loc+'" width=468 height=60 border=0></a></iframe>');
+</script>
+
+</td></tr></table>
+
+</BODY>
+</HTML>

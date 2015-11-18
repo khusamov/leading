@@ -1,0 +1,22 @@
+<table class="table table-striped">
+    <tr>
+        <th><?php echo $this->translate('ID Заказа');?></th>
+        <th><?php echo $this->translate('ID Акции');?></th>
+        <th><?php echo $this->translate('Имя');?></th>
+        <th><?php echo $this->translate('Фамилия');?></th>
+        <th><?php echo $this->translate('Улица');?></th>
+        <th><?php echo $this->translate('Почтовый индекс');?></th>
+        <th><?php echo $this->translate('Город');?></th>
+    </tr>
+    <?php foreach($this->orders as $order) { ?>
+    <tr>
+        <td><?php echo $order->orderId; ?></td>
+        <td><?php echo $order->deal; ?></td>
+        <td><?php echo $order->firstname; ?></td>
+        <td><?php echo $order->lastname; ?></td>
+        <td><?php echo $order->street; ?></td>
+        <td><?php echo $order->zip; ?></td>
+        <td><?php echo $order->city; ?></td>
+    </tr>
+    <?php } ?>
+</table>

@@ -1,0 +1,294 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>Raleigh.ru - Школа XPath</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../stdtheme.css" TITLE="Style"><LINK REL="stylesheet" TYPE="text/css" HREF="http://www.raleigh.ru/sdv.css" TITLE="Style">
+
+</head>
+
+<body background="http://www.raleigh.ru/Images/back.gif" topmargin="0" leftmargin="0">
+<div align="center">
+
+<table border="0" cellpadding="0" cellspacing="0" width="780"><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+	<td colspan="2"><img src="http://www.raleigh.ru/Images/1_10.gif"
+	width="1" height="10"></td></tr><FORM method=GET action=http://www.google.com/custom>
+	<tr><td background="http://www.raleigh.ru/Images/t_back.gif"><img
+	src="http://www.raleigh.ru/Images/t_logo.gif"
+		width="131" height="44"><a href="mailto:yarosh@au.ru"
+		onfocus="blur()"><img src="http://www.raleigh.ru/Images/t_text.gif"
+		width="393" height="44" border="0"></a></td><td width=100% background="http://www.raleigh.ru/Images/t_back.gif" align=right valign=center>
+          <!-- Search Google -->
+<INPUT TYPE=text name=q size=20 maxlength=255 value="">
+<INPUT type=submit name=sa VALUE="Поиск">
+<INPUT type=hidden name=cof VALUE="AH:center;AWFID:1f2d8e2f2b6c57b0;">
+<INPUT type=hidden name=sitesearch value="www.raleigh.ru">
+<!-- Search Google -->&nbsp;</td><td background="http://www.raleigh.ru/Images/t_back.gif" align="right"><img
+	        src="http://www.raleigh.ru/Images/t_right.gif" width="6" height="44"></td>
+	</tr></form>
+</table><!----><table cellpadding="0" cellspacing="0" width="100%" border="0">
+	<tr><td><img src="http://www.raleigh.ru/Images/menu_left.gif" width="17"
+		height="45"></td><td width="100%" valign="bottom"
+		background="http://www.raleigh.ru/Images/menu_grey.gif"><span
+		style="background:url(http://www.raleigh.ru/Images/back.gif);
+		color:#ffffff;font-family:courier">
+		&nbsp;<a href="http://www.raleigh.ru" style="color:#ffffff;text-decoration:none;" onFocus=blur();>Главная</a> -> <a href="../../" style="color:#ffffff;text-decoration:none;" onFocus=blur();>XML&...</a> -> <a href="../" style="color:#ffffff;text-decoration:none;" onFocus=blur();>Школы W3C</a>&nbsp;</span>
+		</td><td><img
+		src="http://www.raleigh.ru/Images/menu_right.gif" width="29" height="45"></td>
+	</tr>
+</table><table border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
+	<tr><td><img src="http://www.raleigh.ru/Images/t_leftline.gif" width="12"
+		height="16"></td><td style="font-size:10pt;" width="573">&nbsp;</td><td><img
+		src="http://www.raleigh.ru/Images/t_rightline.gif" width="195" height="16"></td>
+	</tr>
+</table><table border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" width="100%">
+	<tr>
+		<td valign="top" background="http://www.raleigh.ru/Images/l_back.gif"><img
+		src="http://www.raleigh.ru/Images/l_line.gif" width="11" height="75"></td>
+	        <td width="100%" valign="bottom" rowspan="2"
+	        style="padding-left: 10px; padding-right: 10px"><table class=w3s border="0" width="100%"><tr><td width=150 valign="top" class="content">
+<br />
+<a class="left" href="../"><b>Школы W3C</b></a><br />
+<br />
+<b>Школа XPath</b><br />
+<a class="left" href="./" >Начало</a><br />
+<a class="left" href="intro.php" >Введение в XPath</a><br />
+<a class="left" target="_top" href="location.php" style='font-weight:bold;color:#000000;background-color:transparent;'>Пути адресации XPath</a><br />
+<a class="left" href="expressions.php">Выражения XPath</a><br />
+<a class="left" href="functions.php">Функции XPath</a><br />
+<a class="left" href="examples.php">Примеры XPath</a><br />
+</td><td>
+<h1>Пути адресации XPath</h1>
+<a href="intro.php"><img border="0" src="../images/btn_previous.gif" width="100" height="20" alt="Назад" /></a>
+<a href="expressions.php"><img border="0" src="../images/btn_next.gif" width="100" height="20" alt="Вперед" /></a>
+
+<hr />
+
+<p class="intro">XPath - это набор синтаксических правил для адресации частей XML-документа.</p>
+
+<hr />
+
+<h2>Выражения для Путей Адресации</h2>
+<table class="ex" cellspacing="0" border="1" width="100%">
+  <tr>
+    <td width="15%" valign="top"><b>Имя</b></td>
+    <td width="30%" valign="top"><b>Описание</b></td>
+    <td width="30%" valign="top"><b>Пример</b></td>
+    <td width="25%" valign="top"><b>Результат</b></td>
+  </tr>
+  <tr>
+    <td valign="top">/</td>
+    <td valign="top">Дочерний элемент узла</td>
+    <td valign="top">/price</td>
+    <td valign="top">элемент price</td>
+  </tr>
+  <tr>
+    <td valign="top">//</td>
+    <td valign="top">Узел и его дочерние элементы</td>
+    <td valign="top">//cd</td>
+    <td valign="top">элемент cd и его подэлементы</td>
+  </tr>
+  <tr>
+    <td valign="top">|</td>
+    <td valign="top">список дочерних элементов</td>
+    <td valign="top"><p>price | title</p></td>
+    <td valign="top">элемент price и title</td>
+  </tr>
+  </table>
+<br />
+<hr />
+
+<h2>Оси</h2>
+
+<p>Оси служат для определения набора узлов относительно данного узла.</p>
+<table class="ex" cellspacing="0" border="1" width="100%">
+  <tr>
+    <td width="20%" valign="top"><b>Имя</b></td>
+    <td width="40%" valign="top"><b>Описание</b></td>
+    <td width="40%" valign="top"><b>Узел</b></td>
+  </tr>
+  <tr>
+    <td valign="top">self</td>
+    <td valign="top">сам узел</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">child</td>
+    <td valign="top">Дочерние узлы</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">parent</td>
+    <td valign="top">Родительский узел</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">descendant</td>
+    <td valign="top">Потомки узла</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">descendant-or-self</td>
+    <td valign="top">Узел и его потомки</td>
+    <td valign="top">
+      &nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">ancestor</td>
+    <td valign="top">Предки узла</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">ancestor-or-self</td>
+    <td valign="top">Сам узел и его предки</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">following</td>
+    <td valign="top">Все узлы после данного</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">following-sibling</td>
+    <td valign="top">Все узлы этого же уровня после данного</td>
+    <td valign="top">
+      &nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">preceding</td>
+    <td valign="top">Все узлы перед данным</td>
+    <td valign="top">&nbsp;</td></tr>
+  <tr>
+    <td valign="top">preceding-sibling</td>
+    <td valign="top">Все узлы этого же уровня перед данным</td>
+    <td valign="top">
+      &nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">attribute</td>
+    <td valign="top">Узлы аттрибутов</td>
+    <td valign="top">&nbsp;</td></tr>
+  <tr>
+    <td valign="top">namespace</td>
+    <td valign="top">Узлы пространства имен</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  </table>
+<br />
+<hr />
+
+<h2>Предикаты Путей Адресации</h2>
+
+<p>Предикаты - это выражения, использующиеся для построения конкретных подмножеств узлов на основе данного.</p>
+
+<p>Предикаты записываются внутри квадратных скобок.</p>
+
+<p>Например, child::price[price=9.90] возвращает множество узлов, где элемент price имеет значение 9.90.</p>
+
+<p>Новое множество узлов содержит все узлы, для которых значение предиката верно.</p>
+
+<hr />
+
+<h2>Сокращения для Путей Адресации</h2>
+
+<p>При описании путей адресации могут использоваться сокращения.</p>
+<table class="ex" cellspacing="0" border="1" width="100%">
+  <tr>
+    <td width="30%" valign="top"><b>Сокращение</b></td>
+    <td width="70%" valign="top"><b>Значение</b></td>
+  </tr>
+  <tr>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">child::</td>
+  </tr>
+  <tr>
+    <td valign="top">@</td>
+    <td valign="top">attribute::</td>
+  </tr>
+  <tr>
+    <td valign="top">.</td>
+    <td valign="top">self::</td>
+  </tr>
+  <tr>
+    <td valign="top">..</td>
+    <td valign="top">parent::</td>
+  </tr>
+  <tr>
+    <td valign="top">//</td>
+    <td valign="top">/descendant-or-self/</td>
+  </tr>
+  <tr>
+    <td valign="top">число</td>
+    <td valign="top">[position()='значение']</td>
+  </tr>
+  </table>
+<br />
+<hr />
+
+<a href="intro.php"><img border="0" src="../images/btn_previous.gif" width="100" height="20" alt="Назад" /></a>
+<a href="expressions.php"><img border="0" src="../images/btn_next.gif" width="100" height="20" alt="Вперед" /></a>
+
+</td></tr></table>
+        </td>
+		<td valign="top"
+		background="http://www.raleigh.ru/Images/r_back.gif" rowspan="2"><img
+		src="http://www.raleigh.ru/Images/r_line.gif" width="25" height="128"></td>
+	</tr><tr>
+		<td valign="bottom" background="http://www.raleigh.ru/Images/l_back.gif"><img
+		src="http://www.raleigh.ru/Images/l_bottom.gif" width="11" height="21"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" width="100%">
+	<tr><td background="http://www.raleigh.ru/Images/b_back.gif"><a href="mailto:yarosh@au.ru"
+		onfocus="blur();"><img src="http://www.raleigh.ru/Images/b_yarosh.gif"
+		width="94" height="115"	border="0"></a><img
+		src="http://www.raleigh.ru/Images/1.gif" width="89" height="1"></td>
+		<td background="http://www.raleigh.ru/Images/b_back.gif"
+		align="center" valign="bottom">
+<!-- SpyLOG f:0111 --> 
+<script language="javascript"> 
+u="u681.47.spylog.com";d=document;nv=navigator;na=nv.appName;p=1; 
+bv=Math.round(parseFloat(nv.appVersion)*100); 
+n=(na.substring(0,2)=="Mi")?0:1;rn=Math.random();z="p="+p+"&rn="+rn;y=""; 
+y+="<a href='http://"+u+"/cnt?f=3&p="+p+"&rn="+rn+"' target=_blank>"; 
+y+="<img src='http://"+u+"/cnt?"+z+ 
+"&r="+escape(d.referrer)+"&pg="+escape(window.location.href)+"' border=0 width=88 height=31 alt='SpyLOG'>"; 
+y+="</a>"; d.write(y);if(!n) { d.write("<"+"!--"); }//--></script><noscript> 
+<a href="http://u681.47.spylog.com/cnt?f=3&p=1" target=_blank> 
+<img src="http://u681.47.spylog.com/cnt?p=1" alt='SpyLOG' border='0' width=88 height=31 > 
+</a></noscript><script language="javascript1.2"><!-- 
+if(!n) { d.write("--"+">"); }//--></script>&nbsp;
+<!-- SpyLOG -->
+<!--Rating@Mail.ru COUNTER--><script language="JavaScript"><!--
+d=document;a='';a+=';r='+escape(d.referrer)
+js=10//--></script><script language="JavaScript1.1"><!--
+a+=';j='+navigator.javaEnabled()
+js=11//--></script><script language="JavaScript1.2"><!--
+s=screen;a+=';s='+s.width+'*'+s.height
+a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth)
+js=12//--></script><script language="JavaScript1.3"><!--
+js=13//--></script><script language="JavaScript"><!--
+d.write('<a href="http://top.mail.ru/jump?from=321106"'+
+' target=_top><img src="http://top.list.ru/counter'+
+'?id=321106;t=211;js='+js+a+';rand='+Math.random()+
+'" alt="Рейтинг@Mail.ru"'+' border=0 height=31 width=88></a>')
+if(js>11)d.write('<'+'!-- ')//--></script><noscript><a
+target=_top href="http://top.mail.ru/jump?from=321106"><img
+src="http://top.list.ru/counter?js=na;id=321106;t=211"
+border=0 height=31 width=88
+alt="Рейтинг@Mail.ru"></a></noscript><script language="JavaScript"><!--
+if(js>11)d.write('--'+'>')//--></script><!--/COUNTER-->
+
+<div style="font-size:8pt">&copy;&nbsp;2001, Vasil I. Yaroshevich<br>&nbsp;</div>
+		</td>		
+        	<td background="http://www.raleigh.ru/Images/b_back.gif" align="right"><img
+        	src="http://www.raleigh.ru/Images/b_corner.gif"	width="183" height="115"></td>
+	</tr><tr>
+		<td background="http://www.raleigh.ru/Images/back.gif" colspan="3"><img
+		src="http://www.raleigh.ru/Images/1_10.gif" width="1" height="10"></td>
+	</tr>
+</table></td></tr></table>
+</div></body>
+</html>

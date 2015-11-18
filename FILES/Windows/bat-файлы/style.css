@@ -1,0 +1,283 @@
+
+ a {TEXT-DECORATION: none;}
+ a:visited {TEXT-DECORATION: none;}
+ a:active {TEXT-DECORATION: none;}
+ a:hover {  TEXT-DECORATION: underline;} 
+.menu { BACKGROUND: #0E4E5F; TEXT-DECORATION: none; FONT-WEIGHT: bold; COLOR: white; TEXT-ALIGN: left; TEXT-INDENT: 0; MARGIN: 2pt;}
+ .menu:hover {TEXT-DECORATION: underline;}
+ H1.menu {TEXT-ALIGN: center;} 
+img {margin-top: 5px; margin-bottom: 5px;}
+
+
+
+.Topmenu {  COLOR: white;  MARGIN: 0pt;
+background: #0E4E5F url(BluePanel.gif)  repeat-x;}
+
+.Leftmenu  { COLOR: white;   MARGIN: 0pt;
+background: #6CA6AE url(BluePanelLeft.gif)  }
+
+.Leftmenu1 { TEXT-DECORATION: none; FONT-WEIGHT: bold; COLOR: white; TEXT-ALIGN: left; TEXT-INDENT: 0; MARGIN: 6pt;}
+
+
+
+.menu1 { 
+  margin-left: -6px;
+  margin-right: -6px;
+  overflow: hidden;
+  height: 28px;
+
+  background: #0E4E5F url(BluePanel.gif) 0px 0px repeat-x;
+  border: 1px solid #0E4E5F;
+
+  font-size: 14pt;
+  font-weight: bold;
+  color: white;
+  padding: 0px 0px 0px 0px;
+}
+
+BODY
+ {
+    
+    FONT-FAMILY: Arial Cyr, Geneva;
+    FONT-SIZE: 10pt;
+    TEXT-ALIGN: justify;
+    BACKGROUND: #6CA6AE;
+	SCROLLBAR-BASE-COLOR: #0E4E5F;	
+	SCROLLBAR-FACE-COLOR: #ADCBCD; 
+	SCROLLBAR-HIGHLIGHT-COLOR: #c7e4e6; 
+	SCROLLBAR-SHADOW-COLOR: #7ca2ac; 
+	SCROLLBAR-3DLIGHT-COLOR: #7ca2ac; 
+	SCROLLBAR-ARROW-COLOR: #0E4E5F; 
+	SCROLLBAR-TRACK-COLOR: #0E4E5F; 
+	SCROLLBAR-DARKSHADOW-COLOR: #c7e4e6; 
+  }
+
+
+
+
+H1
+  {
+    font-weight: bold;
+    font-size: 16pt; 
+    TEXT-ALIGN: center
+  }
+
+H2
+  {
+    font-weight: bold;
+    font-size: 13pt;
+    TEXT-ALIGN: left 
+  }
+
+H3
+  {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 11pt; 
+    TEXT-ALIGN: left
+  }
+
+H4
+  {
+    font-weight: bold;
+    font-size: 11pt;
+    TEXT-ALIGN: left 
+  }
+
+H5
+  {
+    font-weight: bold;
+    font-style: italic;
+    TEXT-ALIGN: left
+  }
+
+H6 
+  { 
+    FONT-WEIGHT: bold;
+    COLOR: Yellow;
+    TEXT-ALIGN: left; 
+    TEXT-INDENT: 0;     MARGIN: 2pt;
+    font-size: 10pt;
+  }
+
+P
+ {
+    TEXT-INDENT: 2em;
+    margin-top: 0pt;
+    margin-bottom: 0pt;
+ }
+
+TT, PRE
+ {
+    font-weight: bold;
+ }
+
+UL
+ {
+    margin-top: 0px; margin-bottom: 0px;
+ }
+
+OL
+ {  
+    margin-top: 0px; margin-bottom: 0px;
+ }
+
+
+TABLE
+ {
+    margin-bottom: 10pt;
+ }
+
+TD, TD P
+ {
+    TEXT-INDENT: 0em;  
+    FONT-SIZE: 10pt;
+ }
+
+TH, TH P
+ {
+    TEXT-ALIGN: left;
+    TEXT-INDENT: 0em;  
+    BACKGROUND: silver;
+    FONT-SIZE: 10pt;
+ }
+
+/* Жёлтый */.Yellow
+  { 
+    COLOR: Yellow;
+  }
+
+/* Зелёный */.green
+  { 
+    COLOR: #00ff00;
+FONT-WEIGHT: bold;TEXT-ALIGN: left; TEXT-INDENT: 0; MARGIN: 6pt;
+  }
+
+/* Розовый */.red
+  { 
+    COLOR: #ff7777;
+FONT-WEIGHT: bold;TEXT-ALIGN: left; TEXT-INDENT: 0; MARGIN: 6pt;
+  }
+
+/* Бордовый */.bor
+  { 
+    COLOR: #aa0000;
+  }
+
+/* Тём зел */.grtem
+  { 
+    COLOR: #20006D;
+  }
+
+
+/* подзаголовок */.sub 
+ {
+    font-size: 13pt;
+    font-style: italic;
+ }
+
+
+
+/* автор */.author
+ { 
+    FONT-WEIGHT: bold;
+    FONT-STYLE: italic;
+    TEXT-INDENT: 0em;
+    TEXT-ALIGN: center;  
+    margin-top: 10pt;
+    margin-bottom: 10pt;
+ }
+
+
+
+/*  эпиграф  */.epigraf
+ {
+    TEXT-ALIGN: right;
+    TEXT-INDENT: 0em; 
+    margin-bottom: 10pt;
+ }
+
+
+
+/* «предисловие» */.extension
+ { 
+    FONT-STYLE: italic;
+    TEXT-INDENT: 0em;
+    TEXT-ALIGN: left;  
+    margin-bottom: 10pt;
+ }
+
+
+
+/* оглавление */.contents
+ {
+    COLOR: gray; 
+    TEXT-DECORATION: none;
+    FONT-WEIGHT: bold 
+ }
+
+.contents:hover
+ {
+  text-decoration : underline;
+ }
+
+
+
+/* внешние ссылки */.white
+ {
+    color: white;
+    TEXT-DECORATION: none;
+    FONT-WEIGHT: bold 
+ }
+
+/* внешние ссылки */.inst
+ {
+    color: white;
+    TEXT-DECORATION: none;
+    FONT-WEIGHT: bold 
+ }
+
+ .extra:hover
+ {
+  color: white;
+  text-decoration : underline;
+ }
+
+
+/* сноски */.sup
+ {
+    FONT-SIZE: 8pt;
+    VERTICAL-ALIGN: super    
+ }
+
+
+
+/* оформление рисунков */.pic
+ {
+    TEXT-INDENT: 0em;  
+    TEXT-ALIGN: center;  
+    margin-bottom: 10pt;
+ }
+
+
+
+/* заголовок таблицы  */.tablesign
+ {
+    FONT-SIZE: 10pt;
+    TEXT-ALIGN: left;
+    TEXT-INDENT: 0em; 
+    FONT-WEIGHT: bold;  
+    margin-top: 10pt;
+ }
+
+
+
+/* инфо */.source
+ { 
+    FONT-WEIGHT: bold;
+    FONT-STYLE: italic;
+    TEXT-INDENT: 0em;
+    TEXT-ALIGN: right;  
+    margin-top: 10pt;
+    margin-bottom: 10pt;
+ }

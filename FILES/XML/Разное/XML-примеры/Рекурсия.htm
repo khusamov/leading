@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>Рекурсия</title>
+<link rel="stylesheet" href="css/xsltbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.59.1">
+<link rel="home" href="xsltbook.html" title="Технология XSLT">
+<link rel="up" href="ch_11.html" title="Глава 11. Готовые решения">
+<link rel="previous" href="ch_11_03.html" title="Именованный шаблон как функция">
+<link rel="next" href="ch_11_05.html" title="Циклы">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="sect1" lang="ru">
+<div class="titlepage"><div><h2 class="title" style="clear: both">
+<a name="ch_11_04"></a>Рекурсия</h2></div></div>
+<p>Отсутствие в XSLT <span class="emphasis"><em>изменяемых</em></span> переменных 
+         (оценим красоту этой тавтологии) как, впрочем, и многое другое, 
+         делает этот язык совершенно непохожим на многие классические языки программирования. 
+         В этом разделе мы опишем рекурсию [Кормен и др. 2000, Кнут 2000] — 
+         чрезвычайно простую, но в то же время исключительно мощную технику, 
+         которая в большинстве случаев компенсирует нехватку в XSLT 
+         переменных и других процедурных конструкций.</p>
+<p>Не вдаваясь в строгие определения дискретной математики, 
+         можно сказать, что рекурсия — это всего лишь описание объекта 
+         или вычисления в терминах самого себя. 
+         Пожалуй, самым простым примером рекурсии является факториал, функция, которая математически определяется как:</p>
+<pre class="programlisting">0!=1
+n!=n*(n-1)!</pre>
+<p>Программа на процедурном языке (например, таком, как Java), 
+         вычисляющая факториал совершенно тривиальна:</p>
+<pre class="programlisting">int factorial(int n)
+{
+  if (n == 0) return 1;
+  else return n * factorial(n-1);
+}</pre>
+<p>Попробуем запрограммировать факториал на XSLT. 
+         Мы уже научились создавать собственные функции 
+         (вернее, конструкции, похожие на них) с помощью одних только именованных шаблонов, 
+         значит написать функцию, которая бы вызывала сама себя, будет не так уж и сложно:</p>
+<div class="example">
+<a name="LIST_11_09"></a><p class="title"><b>Пример 11.9. Именованный шаблон, вычисляющий факториал</b></p>
+<pre class="programlisting">&lt;xsl:template name=&quot;factorial&quot;&gt;
+  &lt;xsl:param name=&quot;n&quot;/&gt;
+  &lt;xsl:choose&gt;
+    &lt;xsl:when test=&quot;$n=0&quot;&gt;1&lt;/xsl:when&gt;
+    &lt;xsl:otherwise&gt;
+      &lt;xsl:variable name=&quot;n-1&quot;&gt;
+        &lt;xsl:call-template name=&quot;factorial&quot;&gt;
+          &lt;xsl:with-param name=&quot;n&quot; select=&quot;$n - 1&quot;/&gt;
+        &lt;/xsl:call-template&gt;
+      &lt;/xsl:variable&gt;
+      &lt;xsl:value-of select=&quot;$n * number($n-1)&quot;/&gt;
+    &lt;/xsl:otherwise&gt;
+  &lt;/xsl:choose&gt;
+&lt;/xsl:template&gt;</pre>
+</div>
+<p>Вызвав этот шаблон с параметром <tt>n</tt> равным <tt>6</tt> следующим образом:</p>
+<pre class="programlisting">&lt;xsl:call-template name=&quot;factorial&quot;&gt;
+  &lt;xsl:with-param name=&quot;n&quot; select=&quot;number(6)&quot;/&gt;
+&lt;/xsl:call-template&gt;</pre>
+<p>мы получим текстовый узел, значение которого будет равно «720».</p>
+<p>Очевидным требованием к рекурсивным функциям 
+         является возможность выхода из рекурсии. 
+				 Если бы в определении факториала не было указано, что <tt>0!=1</tt>, 
+         вычисления так бы и продолжались без конца.</p>
+<p>Главным минусом рекурсии является требовательность к ресурсам. 
+         Каждый раз, при вызове именованного шаблона, 
+         процессор должен будет каким-то образом сохранять 
+         в памяти передаваемые ему формальные параметры. 
+				 Например, если мы попробуем сосчитать факториал от <tt>170</tt>, 
+         процессору понадобится держать в памяти сразу 170 чисел. 
+         Безусловно, в случае с факториалом это не является большой проблемой — 
+         точность 64-битных чисел исчерпается гораздо раньше, 
+         чем закончится память, но в случае хранения в переменных 
+         действительно больших объёмов информации (например, частей деревьев) такая угроза существует. 
+         Кроме того, рекурсивные решения как правило работают медленнее, 
+         чем решения, не использующие рекурсию.</p>
+<p>Так в чем же смысл использования рекурсии? 
+         Дело в том, что вследствие определённых ограничений 
+         (связанных, в частности с неизменяемыми переменными) в XSLT существуют задачи, 
+         которые не могут быть реализованы иначе кроме как через рекурсию. 
+         Самым характерным примером такой задачи являются циклы.</p>
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="ch_11_03.html"><img src="images/db/prev.gif" alt="Пред."></a> </td>
+<td width="20%" align="center"><a accesskey="u" href="ch_11.html"><img src="images/db/up.gif" alt="Уровень выше"></a></td>
+<td width="40%" align="right"> <a accesskey="n" href="ch_11_05.html"><img src="images/db/next.gif" alt="След."></a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Именованный шаблон как функция </td>
+<td width="20%" align="center"><a accesskey="h" href="xsltbook.html"><img src="images/db/home.gif" alt="Начало"></a></td>
+<td width="40%" align="right" valign="top"> Циклы</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

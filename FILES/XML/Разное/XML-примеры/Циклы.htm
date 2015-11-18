@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>Циклы</title>
+<link rel="stylesheet" href="css/xsltbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL Stylesheets V1.59.1">
+<link rel="home" href="xsltbook.html" title="Технология XSLT">
+<link rel="up" href="ch_11.html" title="Глава 11. Готовые решения">
+<link rel="previous" href="ch_11_04.html" title="Рекурсия">
+<link rel="next" href="ch_11_05_02.html" title="Цикл for">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="sect1" lang="ru">
+<div class="titlepage"><div><h2 class="title" style="clear: both">
+<a name="ch_11_05"></a>Циклы</h2></div></div>
+<div class="toc"><dl>
+<dt><a href="ch_11_05.html#ch_11_05_01">Цикл while</a></dt>
+<dt><a href="ch_11_05_02.html">Цикл for</a></dt>
+<dt><a href="ch_11_05_03.html">Метод Пиза для for-цикла</a></dt>
+</dl></div>
+<p>Цикл в общем смысле слова — это повторение одних и тех же действий несколько раз. 
+			 Если говорить об XSLT, 
+			 то цикл — это многократное выполнение одного и того же шаблона. 
+        Для подавляющего большинства случаев в преобразованиях 
+        достаточно бывает использовать такие элементы, 
+				как <tt>xsl:apply-templates</tt> и <tt>xsl:for-each</tt>, 
+        которые заставляют процессор выполнять одни и те же действия 
+        несколько раз в контексте каждого из узлов определённого множества.</p>
+<p>Весомым ограничением такого рода циклической обработки является 
+        невозможность генерировать множества узлов. 
+        В текущей версии языка никакой другой тип не может быть приведён ко множеству узлов, 
+        значит, в любое из них могут входить только те узлы, 
+        которые изначально присутствуют в одном из обрабатываемых  документов. 
+        Это означает, что ни <tt>xsl:apply-templates</tt>, ни 
+        <tt>xsl:for-each</tt> не могут быть использованы для того, 
+				чтобы реализовать простые <tt>while</tt>- или <tt>for</tt>-циклы для <span class="emphasis"><em>произвольных</em></span> множеств.</p>
+<div class="sect2" lang="ru">
+<div class="titlepage"><div><h3 class="title">
+<a name="ch_11_05_01"></a>Цикл <tt>while</tt></h3></div></div>
+<p>Наиболее примитивной циклической конструкцией 
+              во многих языках программирования является цикл <tt>while</tt> (англ. пока). 
+              Цикл <tt>while</tt>, как правило, имеет следующий вид:</p>
+<pre class="programlisting">пока
+  верно условие
+выполнять
+  действия</pre>
+<p>В качестве примера <tt>while</tt>-цикла напишем 
+              на языке Java программу вычисления факториала в итеративном стиле:</p>
+<pre class="programlisting">int factorial(int n)
+{
+  int i = n;
+  int result = 1;
+  while (i != 0)
+  {
+    result = result * i;
+    i--;
+  }
+  return result;
+}</pre>
+<p>В этой функции <i><tt>условием</tt></i> является отличие значения 
+               переменной <tt>i</tt> от <tt>0</tt>, 
+							 а <i><tt>действиями</tt></i> — умножение значения переменной <tt>result</tt> 
+               на значение переменной <tt>i</tt>, 
+							 и уменьшение значения этой переменной на <tt>1</tt>.</p>
+<p>Цикл <tt>while</tt> не может быть запрограммирован в XSLT итеративно 
+							потому как <i><tt>действия</tt></i>, как правило, изменяют значения переменных, 
+               в контексте которых вычисляется условие, определяющее, 
+               продолжать выполнение цикла или нет. Дадим другую общую запись 
+               цикла <tt>while</tt>, выделив изменение переменных:</p>
+<pre class="programlisting">пока
+  верно <i><tt>условие</tt></i>(x<sub>1</sub>,x<sub>2</sub>,...,x<sub>n</sub>)
+выполнить
+  x<sub>1</sub>' := <i><tt>функция<sub>1</sub></tt></i>(x<sub>1</sub>,x<sub>2</sub>,...,x<sub>n</sub>)
+  x<sub>2</sub>' := <i><tt>функция<sub>2</sub></tt></i>(x<sub>1</sub>,x<sub>2</sub>,...,x<sub>n</sub>)
+  ...
+  x<sub>n</sub>' := <i><tt>функция<sub>n</sub></tt></i>(x<sub>1</sub>,x<sub>2</sub>,...,x<sub>n</sub>)
+  <i><tt>действия</tt></i>(x<sub>1</sub>,x<sub>2</sub>,...,x<sub>n</sub>)
+  x<sub>1</sub> := x<sub>1</sub>'
+  x<sub>2</sub> := x<sub>2</sub>'
+  ...
+  x<sub>n</sub> := x<sub>n</sub>'
+иначе
+  вернуть <i><tt>результат</tt></i>(x<sub>1</sub>,...,x<sub>n</sub>)</pre>
+<p>Переопределение значений переменных <tt>x<sub>1</sub></tt>,<tt>...</tt>,<tt>x<sub>n</sub></tt> в этом случае выполняют <tt>n</tt> функций: 
+	<tt>функция<sub>1</sub>,...,функция<sub>n</sub></tt>. 
+               И если изменить значение переменной мы не могли, 
+               переопределить связанное с ней в значение мы вполне в состоянии, 
+               добавив в контекст новый параметр или переменную с тем же именем.</p>
+<p>Теперь мы можем записать весь цикл <tt>while</tt> как одну рекурсию:</p>
+<pre class="programlisting">while(x<sub>1</sub>,...,x<sub>n</sub>) ::=
+  если
+    выполняется <i><tt>условие</tt></i>(x<sub>1</sub>,...,x<sub>n</sub>)
+  то
+    <i><tt>действия</tt></i>(x<sub>1</sub>,...,x<sub>n</sub>)
+    while(<i><tt>функция<sub>1</sub></tt></i>(x<sub>1</sub>,...,x<sub>n</sub>),
+          <i><tt>функция<sub>2</sub></tt></i>(x<sub>1</sub>,...,x<sub>n</sub>),
+          ...,
+          <i><tt>функция<sub>n</sub></tt></i>(x<sub>1</sub>,...,x<sub>n</sub>))
+  иначе
+    <i><tt>результат</tt></i>(x<sub>1</sub>,...,x<sub>n</sub>)</pre>
+<p>Теперь уже совершенно очевидно, 
+               как <tt>while</tt>-цикл должен выглядеть в преобразовании:</p>
+<div class="example">
+<a name="LIST_11_10"></a><p class="title"><b>Пример 11.10. Шаблон цикла while в общем виде</b></p>
+<pre class="programlisting">&lt;xsl:template name=&quot;while&quot;&gt;
+  &lt;xsl:param name=&quot;x1&quot;/&gt;
+  &lt;!-- ... --&gt;
+  &lt;xsl:param name=&quot;xn&quot;/&gt;
+  &lt;xsl:choose&gt;
+    &lt;xsl:when test=&quot;<i><tt>условие</tt></i>($x1,...,$xn)&quot;&gt;
+      &lt;!-- Действия --&gt;
+      &lt;xsl:call-template name=&quot;while&quot;&gt;
+        &lt;xsl:with-param name=&quot;x1&quot; select=&quot;<i><tt>функция<sub>1</sub></tt></i>($x1,...$xn)&quot;/&gt;
+        &lt;!-- ... --&gt;
+        &lt;xsl:with-param name=&quot;xn&quot; select=&quot;<i><tt>функция<sub>n</sub></tt></i>($x1,...$xn)&quot;/&gt;
+      &lt;/xsl:call-template&gt;
+    &lt;/xsl:when&gt;
+    &lt;xsl:otherwise&gt;
+      &lt;xsl:value-of select=&quot;<i><tt>результат</tt></i>($x1,...,$xn)&quot;/&gt;
+    &lt;/xsl:otherwise&gt;
+  &lt;/xsl:choose&gt;
+&lt;/xsl:template&gt;</pre>
+</div>
+<p>В качестве примера приведём <tt>while</tt>-цикл для программы, 
+               вычисляющей факториал. Java-код был следующим:</p>
+<pre class="programlisting">while (i != 0)
+{
+  result = result * i;
+  i--;
+}</pre>
+<p>В этом цикле участвуют две переменные — <tt>i</tt> и <tt>result</tt>. 
+               Функции, использующиеся в этом цикле, запишутся следующим образом:</p>
+<pre class="programlisting"><i><tt>условие</tt></i>($i, $result)        ::=    ($i != 0)
+<i><tt>функция<sub>i</sub></tt></i>($i, $result)       ::=    ($i - 1)
+<i><tt>функция<sub>result</sub></tt></i>($i, $result)  ::=    ($i * $result)
+<i><tt>результат</tt></i>($I, $result)      ::=    ($result)</pre>
+<p>Именованный шаблон для этого случая будет иметь вид:</p>
+<div class="example">
+<a name="LIST_11_11"></a><p class="title"><b>Пример 11.11. Пример шаблона цикла while</b></p>
+<pre class="programlisting">&lt;xsl:template name=&quot;while&quot;&gt;
+  &lt;xsl:param name=&quot;i&quot;/&gt;
+  &lt;xsl:param name=&quot;result&quot;/&gt;
+  &lt;xsl:choose&gt;
+    &lt;xsl:when test=&quot;$i != 0&quot;&gt;
+      &lt;xsl:call-template name=&quot;while&quot;&gt;
+        &lt;xsl:with-param name=&quot;i&quot; select=&quot;$i - 1&quot;/&gt;
+        &lt;xsl:with-param name=&quot;result&quot; select=&quot;$result * $i&quot;/&gt;
+      &lt;/xsl:call-template&gt;
+    &lt;/xsl:when&gt;
+    &lt;xsl:otherwise&gt;
+      &lt;xsl:value-of select=&quot;$result&quot;/&gt;
+    &lt;/xsl:otherwise&gt;
+  &lt;/xsl:choose&gt;
+&lt;/xsl:template&gt;</pre>
+</div>
+<p>Вызвать этот шаблон можно следующим образом:</p>
+<pre class="programlisting">&lt;xsl:template match=&quot;/&quot;&gt;
+  &lt;xsl:call-template name=&quot;while&quot;&gt;
+    &lt;xsl:with-param name=&quot;i&quot; select=&quot;6&quot;/&gt;
+    &lt;xsl:with-param name=&quot;result&quot; select=&quot;1&quot;/&gt;
+  &lt;/xsl:call-template&gt;
+&lt;/xsl:template&gt;</pre>
+<p>Результатом будет, естественно, число <tt>720</tt>.</p>
+</div>
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="ch_11_04.html"><img src="images/db/prev.gif" alt="Пред."></a> </td>
+<td width="20%" align="center"><a accesskey="u" href="ch_11.html"><img src="images/db/up.gif" alt="Уровень выше"></a></td>
+<td width="40%" align="right"> <a accesskey="n" href="ch_11_05_02.html"><img src="images/db/next.gif" alt="След."></a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Рекурсия </td>
+<td width="20%" align="center"><a accesskey="h" href="xsltbook.html"><img src="images/db/home.gif" alt="Начало"></a></td>
+<td width="40%" align="right" valign="top"> Цикл for</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
