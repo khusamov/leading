@@ -1,5 +1,8 @@
-Установка Sencha Cmd 6.x.x на Линукс
-==========================
+Установка Sencha Cmd 6
+======================
+
+Linux
+------
 
 ```bash
 wget http://cdn.sencha.com/cmd/6.0.2/no-jre/SenchaCmd-6.0.2-linux-amd64.sh.zip
@@ -15,7 +18,7 @@ rm SenchaCmd-6.0.2.14-linux-amd64.sh
 rm SenchaCmd-6.0.2-linux-amd64.sh.zip
 ```
 
-Установка на Mac OS
+Windows или Mac OS
 -------------------
 
 https://www.sencha.com/products/extjs/cmd-download/
