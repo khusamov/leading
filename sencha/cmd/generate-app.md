@@ -17,6 +17,6 @@ sencha -sdk ext generate app -classic MyApp myapp
 Вместо `-sdk ext` можно задать `-ext` после `generate app` чтобы библиотека была скачана из Интернета, например так:
 
 ```bash
-sencha generate app -ext MyAppName ./MyAppPath
+sencha generate app -ext -classic MyAppName ./MyAppPath
 ```
 
