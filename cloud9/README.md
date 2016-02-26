@@ -24,4 +24,4 @@ https://github.com/c9/core/blob/master/settings/standalone.js#L19
 
 =====================
 Источник: 
-https://github.com/c9/core/issues/205#issuecomment-15..
+https://github.com/c9/core/issues/205#issuecomment-154317949
