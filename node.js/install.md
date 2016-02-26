@@ -7,8 +7,8 @@
 ## Установка NVM:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 ```
 
 Последнюю версию ссылки можно взять с сайта NVM: https://github.com/creationix/nvm
