@@ -1,7 +1,8 @@
 Установка Node.js
 =================
 
-Пока самое удобное это установка посредством NVM.
+В Windows можно воспользоваться официальным инсталятором.  
+В Linux удобнее устанавливать посредством NVM.
 
 ## Установка NVM:
 
@@ -12,9 +13,17 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | b
 
 Последнюю версию ссылки можно взять с сайта NVM: https://github.com/creationix/nvm
 
+## Установка NVM под Windows:
+
 Версия NVM под Windows: https://github.com/coreybutler/nvm-windows
 
-## Установка Node.js:
+## Установка Node.js под Windows:
+
+NVM для Windows не требуется. На официальном сайте Node.js имеется инсталятор, который установит как сам Node.js так и менеджер пакетов NPM.
+
+https://nodejs.org/
+
+## Установка Node.js под Linux:
 
 ```bash
 nvm ls-remote
