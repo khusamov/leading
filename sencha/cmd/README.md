@@ -25,6 +25,19 @@ sencha -sdk c:/sencha/6.0.1 generate workspace ./
 sencha -sdk ext generate app -classic MyApp myapp
 ```
 
+Создание пакета
+---------------
+
+Краткая инструкция как создать пакет.
+Внутри папки под рабочего простраства подаем команду:
+
+```bash
+sencha generate package my-package
+```
+
+Дополнительные действия
+-----------------------
+
 Для экономии места каталог `ext` заменяем на ссылку Junction-связь на каталог `c:/sencha/6.0.1`.
 
 Также при необходимости добавляем файл `.gitignore` со следующим содержимым:
@@ -50,14 +63,4 @@ bootstrap-specs.js
 bootstrap-modern-data.js
 bootstrap-modern-files.js
 bootstrap-modern-manifest.js
-```
-
-Создание пакета
----------------
-
-Краткая инструкция как создать пакет.
-Внутри папки под рабочего простраства подаем команду:
-
-```bash
-sencha generate package my-package
 ```
