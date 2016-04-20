@@ -23,10 +23,24 @@ sencha -sdk ext generate app -classic MyApp myapp
 ```
 ext
 build
-packages/remote
 temp
+packages/remote
 node_modules
 bower_components
+
+.sass-cache
+.sass-cache/*
+sencha-error*.log
+bootstrap.js
+bootstrap.json
+bootstrap.css
+bootstrap-data.js
+bootstrap-files.js
+bootstrap-manifest.js
+bootstrap-specs.js
+bootstrap-modern-data.js
+bootstrap-modern-files.js
+bootstrap-modern-manifest.js
 ```
 
 Создание пакета
