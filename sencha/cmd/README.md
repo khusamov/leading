@@ -12,7 +12,7 @@ Sencha Cmd
 Создаем папку под рабочее простраства, переходим в нее.
 
 ```bash
-sencha -sdk c:/sencha/6.0.0 generate workspace ./
+sencha -sdk c:/sencha/6.0.1 generate workspace ./
 sencha -sdk ext generate app -classic MyApp myapp
 ```
 
@@ -22,6 +22,6 @@ sencha -sdk ext generate app -classic MyApp myapp
 Краткая инструкция как создать рабочее пространство и пакет:
 
 ```bash
-sencha -sdk c:/sencha/6.0.0 generate workspace ./
+sencha -sdk c:/sencha/6.0.1 generate workspace ./
 sencha generate package my-package
 ```
