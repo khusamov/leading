@@ -16,6 +16,19 @@ sencha -sdk c:/sencha/6.0.1 generate workspace ./
 sencha -sdk ext generate app -classic MyApp myapp
 ```
 
+Для экономии места каталог `ext` заменяем на ссылку Junction-связь на каталог `c:/sencha/6.0.1`.
+
+Также при необходимости добавляем файл `.gitignore`
+
+```
+ext
+build
+packages/remote
+temp
+node_modules
+bower_components
+```
+
 Создание пакета
 ---------------
 
