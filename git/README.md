@@ -4,7 +4,7 @@
 Инсталяция
 ----------
 
-Windows: http://msysgit.github.com/  
+Windows: http://msysgit.github.com/, https://git-for-windows.github.io/  
 Mac OS: не требуется, предустановлен.  
 Linux: `apt-get install git`.  
 
