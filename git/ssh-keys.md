@@ -2,7 +2,7 @@
 ======================
 
 ```bash
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ssh-keygen -t rsa -b 4096 -C "khusamov@yandex.ru"
 ```
 
 Копировать в буфер обмена:
