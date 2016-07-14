@@ -26,9 +26,14 @@ https://nodejs.org/
 ## Установка Node.js под Linux:
 
 ```bash
-nvm ls-remote
 nvm install v6.3.0
 nvm use v6.3.0
 nvm alias default v6.3.0
 node -v
+```
+
+Чтобы узнать доступные версии Node.js выполните следующую команду:
+
+```
+nvm ls-remote
 ```
