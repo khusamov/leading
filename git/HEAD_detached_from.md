@@ -1,4 +1,4 @@
-Git: Как исправить HEAD detached from
+Как исправить HEAD detached from <commit>
 =====================================
 
 ```bash
