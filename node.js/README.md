@@ -2,9 +2,9 @@
 =====================================
 ```bash
 npm update npm -g
-nvm install v6.3.0
-nvm use v6.3.0
-nvm alias default v6.3.0
+nvm install v6.3.1
+nvm use v6.3.1
+nvm alias default v6.3.1
 ```
 
 Как обновить NPM до последней версии?
