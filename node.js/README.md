@@ -12,3 +12,14 @@ nvm alias default v6.3.1
 ```bash
 npm update npm -g
 ```
+
+Есть еще команда для апгрейда NPM:
+
+```bash
+npm install npm@latest -g
+```
+
+Как узнать какая последняя версия?
+=================================
+
+В конце страницы https://docs.npmjs.com/
