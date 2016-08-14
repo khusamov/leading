@@ -15,3 +15,14 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | N
 export NVM_DIR="/usr/local/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 ```
+
+Установка на боевом сервере
+---------------------------
+
+Для Убунты инструкция тут:
+https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
+
+```
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
