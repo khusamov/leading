@@ -37,3 +37,7 @@ node -v
 ```
 nvm ls-remote
 ```
+
+##  Установка Node.js под Linux (без NVM):
+
+https://nodejs.org/en/download/package-manager/#enterprise-linux-and-fedora
