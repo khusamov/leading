@@ -12,4 +12,5 @@ pbcopy < ~/.ssh/id_rsa.pub
 ```
 
 Подробности:  
-https://help.github.com/articles/generating-ssh-keys/#platform-linux
+https://help.github.com/articles/generating-an-ssh-key/  
+https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#platform-windows
