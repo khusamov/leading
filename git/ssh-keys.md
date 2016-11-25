@@ -12,7 +12,7 @@
 --------
 
 ```bash
-ssh-keygen -t rsa -b 4096 -C "khusamov@yandex.ru"
+ssh-keygen -t rsa -b 4096 -C "khusamov@yandex.ru" -f ~/.ssh/id_rsa_github
 ```
 
 Добавление ключа SSH в SSH-агент
@@ -26,7 +26,7 @@ eval "$(ssh-agent -s)"
 Добавьте ваш ключ SSH в SSH-агент:
 
 ```bash
-ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_rsa_github
 ```
 
 Проверка отпечатка (Fingerprint) ключа
