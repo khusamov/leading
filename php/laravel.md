@@ -29,3 +29,27 @@ https://freshnotes.ru/obnovlenie-php-5-5-do-php-5-6-v-ubuntu-14-04-upgrade-php-v
 http://stackoverflow.com/questions/40567133/cannot-add-ppa-ppaondrej-php5-5-6
 
 
+Установка Laravel
+----------------
+
+https://laravel.com/docs/5.3
+
+```bash
+composer global require "laravel/installer"
+```
+
+Если после установки не будет доступна команда laravel, то ее нужно прописать в PATH системы.
+Для этого в файл `~/.bashrc` или `~/.bash_profile` следует добавить строку:
+
+```
+export PATH="~/.composer/vendor/bin:$PATH" 
+```
+
+Затем выполнить
+
+```bash
+source ~/.bashrc
+echo $PATH
+```
+
+
