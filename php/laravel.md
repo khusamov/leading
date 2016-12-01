@@ -1,8 +1,3 @@
-
-
-
-
-
 Обновление PHP до версии 5.6
 ----------------------------
 
@@ -25,5 +20,12 @@ Please check that the PPA name or format is correct.
 ```bash
 sudo add-apt-repository ppa:ondrej/php
 sudo apt-get update
-sudo apt-get -y install php5.6 php5.6-mcrypt php5.6-mbstring php5.6-curl php5.6-cli php5.6-mysql php5.6-gd php5.6-intl php5.6-xsl php5.6-zip
+sudo apt-get -y install php5.6 php5.6-mcrypt php5.6-mbstring php5.6-curl libapache2-mod-php5.6 
+sudo apt-get -y install php5.6-cli php5.6-mysql php5.6-gd php5.6-intl php5.6-xsl php5.6-zip
 ```
+
+Инструкция составлена на основе следующих страниц:  
+https://freshnotes.ru/obnovlenie-php-5-5-do-php-5-6-v-ubuntu-14-04-upgrade-php-version/  
+http://stackoverflow.com/questions/40567133/cannot-add-ppa-ppaondrej-php5-5-6
+
+
