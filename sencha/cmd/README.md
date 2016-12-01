@@ -61,16 +61,18 @@ sencha generate package my-package
 Также при необходимости добавляем файл `.gitignore` со следующим содержимым:
 
 ```
+temp
 ext
 build
-temp
 packages/remote
+
 node_modules
 bower_components
 
+.architect
 .sass-cache
 .sass-cache/*
-sencha-error*.log
+
 bootstrap.js
 bootstrap.json
 bootstrap.css
@@ -81,4 +83,11 @@ bootstrap-specs.js
 bootstrap-modern-data.js
 bootstrap-modern-files.js
 bootstrap-modern-manifest.js
+
+modern.json
+classic.json
+native.json
+
+sencha-error*.log
+*.log
 ```
