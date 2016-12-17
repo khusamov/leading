@@ -26,7 +26,7 @@ sencha -sdk c:/sencha/6.2.0 generate workspace ./
 Чтобы он не занимал лишнее место, нужно вместо него поставить ссылку на `c:/sencha/6.2.0`.
 
 ```bash
-del ext
+rmdir ext
 mklink /j ext "c:/sencha/6.2.0"
 ```
 
