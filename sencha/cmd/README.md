@@ -75,6 +75,7 @@ bower_components
 
 bootstrap.js
 bootstrap.json
+bootstrap.jsonp
 bootstrap.css
 bootstrap-data.js
 bootstrap-files.js
