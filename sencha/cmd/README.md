@@ -53,6 +53,16 @@ sencha -sdk ext generate app -classic MyApp myapp
 sencha generate package my-package
 ```
 
+Создание темы
+---------------
+
+Краткая инструкция как создать пакет.
+Внутри папки приложения (почему пока не ясно) подаем команду:
+
+```bash
+sencha generate theme my-classic-theme
+```
+
 Дополнительные действия
 -----------------------
 
