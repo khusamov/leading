@@ -53,6 +53,8 @@ sencha -sdk ext generate app -classic MyApp myapp
 sencha generate package my-package
 ```
 
+Подробности смотрите в файле [generate-package.md](generate-package.md).
+
 Создание темы
 ---------------
 
