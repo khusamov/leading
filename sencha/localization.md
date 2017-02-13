@@ -8,43 +8,47 @@
 
 Предлагаю следующую методику.
 
-Создаем пакет myapp-locate
+Создаем пакет, где будет хранится локализация, например `myapp-locate`.
 
-В пакете прописываем настройки
+В пакете (файл `package.json`) прописываем настройки:
 
 ```json
 "overrides": [
     "${package.dir}/overrides/locale-${package.locale}.js"
-    //"${package.dir}/overrides",
-    //"${package.dir}/${toolkit.name}/overrides"
 ],
 ```
+
+вместо того, что там было:
+
+```json
+"overrides": [
+    "${package.dir}/overrides",
+    "${package.dir}/${toolkit.name}/overrides"
+],
+```
+
+Таким способом мы описываем как CMD будет добираться до файла локализации `packages/local/ext-locale/overrides/locale-ru.js` в зависимости от выставленной locale в конфиге приложения `app.json`.
 
 Тексты компонент следует описывать внутри моделей вида, например:
 
 ```javascript
 Ext.define("Ews.office.view.element.workstationList.WorkstationListModel", {
 	extend: "Ext.app.ViewModel",
-	alias: "viewmodel.element-workstationlist",
 	
 	//<locale type="object"> 
 	data: {
-		selection: null,
-		
 		columnText: {
 			PARAMS: "EWS Params",
 			WORKSTATION_TYPE: "Workstation Type",
 			DESCRIPTION: "Description",
 			TITLE: "Workstation Title"
 		},
-		
 		tbarText: {
 			Add: "Add Workstation",
 			Edit: "Edit",
 			Remove: "Remove",
 			Open: "Open"
 		}
-		
 	}
 	//</locale> 
 		
@@ -57,9 +61,6 @@ Ext.define("Ews.office.view.element.workstationList.WorkstationListModel", {
 ```javascript
 Ext.define("Ews.office.view.element.workstationList.WorkstationList", {
 	extend: "Ext.grid.Panel",
-	xtype: "element-workstationlist",
-	controller: "element-workstationlist",
-	viewModel: "element-workstationlist",
 	
 	//<locale> 
 	title: "Element Workstation List (EWSL)",
@@ -89,11 +90,6 @@ Ext.define("Ews.office.view.element.workstationList.WorkstationList", {
 			disabled: "{!selection}"
 		}
 	}],
-	
-	bbar: {
-		xtype: "pagingtoolbar",
-		displayInfo: true
-	},
 	
 	columns: [{
 		dataIndex: "TITLE",
@@ -125,22 +121,20 @@ Ext.define("Ews.office.view.element.workstationList.WorkstationList", {
 
 ```
 
-И напоследок пример локализации:
+И напоследок пример локализации (файл `packages/local/ext-locale/overrides/locale-ru.js`):
 
 ```javascript
 
 Ext.define("Element.locale.ru.office.view.element.workstationList.WorkstationList", {
 	override: "Ews.office.view.element.workstationList.WorkstationList",
-	
 	config: {
+		// Пример локализации заголовка таблицы.
 		title: "Список рабочих мест"
 	}
-	
 });
 
 Ext.define("Element.locale.ru.office.view.element.workstationList.WorkstationListModel", {
 	override: "Ews.office.view.element.workstationList.WorkstationListModel",
-	
 	config: {
 		data: {
 			columnText: {
@@ -157,9 +151,19 @@ Ext.define("Element.locale.ru.office.view.element.workstationList.WorkstationLis
 			}
 		}
 	}
-	
 });
 ```
 
 
+Теперь в приложении (файл `app.json`) достаточно прописать:
+
+```json
+    "requires": [
+        "ext-locale",
+        "myapp-locate"
+    ],
+    "locale": "ru",
+```
+
+Далее нужно будет лишь переключать параметр locale, либо вообще его убрать. Этого будет достаточно, чтобы быстро делать сборки на разные языки.
 
