@@ -15,6 +15,8 @@ npm i @angular/cli -g
 ng init --style=sass
 ```
 
+You can use the --routing option with ng new to create a app-routing.module.ts file when you create or initialize a project.
+
 Для c9.io файл package.json подправляем следующим образом:
 
 ```json
