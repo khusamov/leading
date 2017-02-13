@@ -15,5 +15,8 @@ npm i @angular/cli -g
 ng init --style=sass
 ```
 
+Для c9.io файл package.json подправляем следующим образом:
 
-
+```json
+"start": "ng serve --host 0.0.0.0",
+```
