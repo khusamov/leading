@@ -12,7 +12,7 @@ npm i @angular/cli -g
 Далее создаем папку под проект и в ней запускаем команду:
 
 ```bash
-ng init --style=sass
+ng new NAME --style=scss
 ```
 
 You can use the --routing option with ng new to create a app-routing.module.ts file when you create or initialize a project.
