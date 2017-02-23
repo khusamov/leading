@@ -22,3 +22,12 @@ You can use the --routing option with ng new to create a app-routing.module.ts f
 ```json
 "start": "ng serve --host 0.0.0.0",
 ```
+
+Обновление cli
+--------------
+
+```bash
+npm uninstall -g @angular/cli
+npm cache clean
+npm install -g @angular/cli@latest
+```
