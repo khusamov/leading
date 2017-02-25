@@ -1,7 +1,7 @@
 Подключение сторонних JS-библиотек
 ==================================
 
-```json
+```json5
 
     /**
      * List of all JavaScript assets in the right execution order.
