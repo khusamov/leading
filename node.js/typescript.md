@@ -34,4 +34,4 @@ You can even use other node modules written in TypeScript. As a module author, o
 
 - you might want to have a typings field (e.g. src/index) in your package.json similar to the main field to point to the default TypeScript definition export. For an example look at [package.json for csx](https://github.com/typestyle/csx/blob/master/package.json).
 
-Example package: npm install csx for csx, usage: import csx = require('csx');.
+Example package: npm install csx [for csx](https://www.npmjs.com/package/csx), usage: import csx = require('csx');.
