@@ -30,7 +30,7 @@ const routes: Routes = [{
 	path: '',
 	data: {
 		meta: {
-			title: "Юлия Туржова",
+			title: "Название страницы",
 			titleSuffix: ''
 		}
 	},
