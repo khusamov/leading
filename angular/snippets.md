@@ -47,3 +47,20 @@
     </button>
 </md-toolbar>
 ```
+Пример открытия окна на МатериалДизайн (надо бы для бутстрапа такое же сделать):
+
+```javascript
+import { MdDialog, MdDialogRef } from '@angular/material';
+import { EnrollDialogComponent } from './enroll-dialog/enroll-dialog.component';
+
+  constructor(public dialog: MdDialog) {}
+  
+  openDialog() {
+    let dialogRef = this.dialog.open(EnrollDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      this.selectedOption = result;
+    });
+  }
+ ```
+ 
+ 
