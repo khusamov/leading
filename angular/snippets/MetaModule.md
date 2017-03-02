@@ -9,8 +9,8 @@ import { MetaModule, MetaConfig } from 'ng2-meta';
 const metaConfig: MetaConfig = {
 	useTitleSuffix: true,
 	defaults: {
-		title: 'Юлия Туржова',
-		titleSuffix: ' — Юлия Туржова'
+		title: 'Название сайта',
+		titleSuffix: ' — Название сайта'
 	}
 };
 
