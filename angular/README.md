@@ -1,7 +1,7 @@
 Установка среды разработки под Ангуляр 2
 =========================================
 
-Для начала установить последнюю версию Ноды.
+Для начала установить последнюю версию Node.js.
 
 Затем следует установить глобально [командную строку Ангуляра](https://www.npmjs.com/package/@angular/cli):
 
@@ -15,7 +15,9 @@ npm i @angular/cli -g
 ng new <папка проекта> --style=scss
 ```
 
-You can use the `--routing` option with ng new to create a `app-routing.module.ts` file when you create or initialize a project.
+Вы можете добавить опцию `--routing` в команду `ng new` чтобы появился 
+файл `app-routing.module.ts` где будут хранится отдельно маршрутизация 
+вашего проекта.
 
 Для c9.io файл package.json подправляем следующим образом:
 
