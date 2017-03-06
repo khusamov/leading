@@ -3,7 +3,7 @@
 
 Для начала установить последнюю версию Ноды.
 
-Затем следует установить [командную строку Ангуляра](https://www.npmjs.com/package/@angular/cli):
+Затем следует установить глобально [командную строку Ангуляра](https://www.npmjs.com/package/@angular/cli):
 
 ```bash
 npm i @angular/cli -g
@@ -12,15 +12,22 @@ npm i @angular/cli -g
 Далее создаем папку под проект и в ней запускаем команду:
 
 ```bash
-ng new NAME --style=scss
+ng new <папка проекта> --style=scss
 ```
 
-You can use the --routing option with ng new to create a app-routing.module.ts file when you create or initialize a project.
+You can use the `--routing` option with ng new to create a `app-routing.module.ts` file when you create or initialize a project.
 
 Для c9.io файл package.json подправляем следующим образом:
 
 ```json
 "start": "ng serve --host 0.0.0.0",
+```
+
+И под конец запускаем установку модулей проекта:
+
+```bash
+cd <папка проекта>
+npm install
 ```
 
 Обновление cli
