@@ -1,0 +1,39 @@
+"*":
+  "atom-material-ui":
+    tabs:
+      compactTabs: true
+      tintedTabBar: true
+    treeView:
+      blendTabs: true
+      compactList: true
+    ui:
+      panelShadows: true
+  core:
+    allowPendingPaneItems: false
+    disabledPackages: [
+      "spell-check"
+    ]
+    openEmptyEditorOnStart: false
+    telemetryConsent: "no"
+    themes: [
+      "atom-material-ui"
+      "atom-light-syntax"
+    ]
+  editor:
+    fontFamily: "Monaco, Menlo, Ubuntu Mono, Consolas, source-code-pro, monospace"
+    fontSize: 16
+    invisibles: {}
+    softTabs: false
+    tabLength: 4
+  "exception-reporting":
+    userId: "836bd8db-3441-7597-df42-1ab535328ed5"
+  "git-log": {}
+  minimap:
+    displayMinimapOnLeft: true
+  "spell-check":
+    locales: [
+      "en-US"
+      "ru-RU"
+    ]
+  welcome:
+    showOnStartup: false
