@@ -1,0 +1,15 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontSize": 16,
+    "editor.fontFamily": "Monaco, Menlo, Ubuntu Mono, Consolas, source-code-pro, monospace",
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": false,
+	"terminal.integrated.fontSize": 16,
+	"editor.renderLineHighlight": "gutter",
+	"window.zoomLevel": 0,
+	"workbench.colorTheme": "Visual Studio Light",
+	"workbench.iconTheme": "vs-seti",
+	"editor.minimap.enabled": true,
+	"editor.minimap.renderCharacters": true,
+	"editor.dragAndDrop": true
+}
