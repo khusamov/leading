@@ -3,10 +3,11 @@
 
 ```bash
 nvm install v6.10.0
-nvm use v6.10.0
 nvm alias default v6.10.0
 npm update npm -g
 ```
+
+Или то же самое, но одной строкой:
 
 ```bash
 nvm install v6.10.0 && nvm alias default v6.10.0 && npm update npm -g
@@ -25,7 +26,7 @@ npm update npm -g
 npm install npm@latest -g
 ```
 
-Как узнать какая последняя версия?
+Как узнать какая последняя версия NPM?
 =================================
 
 В конце страницы https://docs.npmjs.com/
