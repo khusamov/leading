@@ -9,7 +9,7 @@ npm update npm -g
 ```
 
 ```bash
-nvm install v6.10.0 && nvm use v6.10.0 && nvm alias default v6.10.0 && npm update npm -g && 
+nvm install v6.10.0 && nvm use v6.10.0 && nvm alias default v6.10.0 && npm update npm -g
 ```
 
 Как обновить NPM до последней версии?
