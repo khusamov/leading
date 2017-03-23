@@ -12,7 +12,13 @@ package.json
 ```json
 {
   "main": "dist/index.js",
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "nodemon dist/test"
+  },
+  "files": [
+    "dist"
+  ]
 }
 ```
 
@@ -42,8 +48,15 @@ tsconfig.json
 }
 ```
 
+.gitignore
+----------
 
-
+```
+/node_modules
+/dist
+/temp
+npm-debug.log
+```
 
 Перевод официальной документации Typescript на русский  
 http://typescript-lang.ru/docs/index.html
