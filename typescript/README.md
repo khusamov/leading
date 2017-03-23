@@ -12,7 +12,7 @@ package.json
 ```json
 {
   "main": "dist/index.js",
-  "types": "./dist/index.d.ts"
+  "types": "dist/index.d.ts"
 }
 ```
 
@@ -37,7 +37,7 @@ tsconfig.json
   "exclude": [
     "node_modules",
     "temp",
-    "modules"
+    "dist"
   ]
 }
 ```
