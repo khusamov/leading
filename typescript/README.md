@@ -3,7 +3,7 @@ Typescript
 
 ```
 npm install -g typescript
-tsc –init
+tsc --init
 ```
 
 
