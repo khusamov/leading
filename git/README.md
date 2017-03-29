@@ -13,8 +13,8 @@ Linux: `apt-get install git`.
 передаваемые вами, и не может быть далее изменена:
 
 ```bash
-git config --global user.name "John Doe"
-git config --global user.email johndoe@example.com
+git config --global user.name "Khusamov Sukhrob"
+git config --global user.email khusamov@yandex.ru
 ```
 
 Подробнее по ссылке: http://git-scm.com/book/ru/ch1-5.html
