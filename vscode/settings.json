@@ -1,6 +1,4 @@
-// Place your settings in this file to overwrite the default settings
 {
-	"workbench.colorTheme": "Visual Studio Light",
 	"editor.fontSize": 16,
 	"editor.fontFamily": "Monaco, Menlo, Ubuntu Mono, Consolas, source-code-pro, monospace",
 	"editor.insertSpaces": false,
@@ -11,5 +9,11 @@
 	"workbench.iconTheme": "vs-seti",
 	"editor.minimap.enabled": true,
 	"editor.minimap.renderCharacters": true,
-	"editor.dragAndDrop": true
+	"editor.dragAndDrop": true,
+	"window.reopenFolders": "all",
+	"window.title": "${dirty}${activeEditorShort} — ${rootName} — ${appName}",
+	"explorer.openEditors.visible": 0,
+	"explorer.autoReveal": false,
+	"editor.cursorStyle": "line-thin",
+	"editor.cursorBlinking": "phase"
 }
