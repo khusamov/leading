@@ -25,3 +25,5 @@ C:\Users\khusamov\AppData\Local\atom\bin\atom !.!
 ```
 
 ![](https://cloud.githubusercontent.com/assets/4146998/23996126/5ca7c414-0a5d-11e7-97cb-cd966d400f13.png)
+
+[Скачать китти с гугл диска](https://drive.google.com/drive/folders/0BzxnxE_EM8nlc0hCY3pZYXJid1E)
