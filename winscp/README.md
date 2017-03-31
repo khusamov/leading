@@ -17,7 +17,7 @@ C:\Users\khusamov\AppData\Local\atom\bin\atom !.!
 
 Чтобы сделать его редактором по умолчанию, то в окне настроек прогоните вверх.
 
-Kitty (Putty)
+[Kitty](http://www.9bis.net/kitty/?zone=ru) (Putty)
 -------------
 
 ```
