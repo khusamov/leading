@@ -1,5 +1,7 @@
 "*":
   "atom-material-ui":
+    colors: {}
+    fonts: {}
     tabs:
       compactTabs: true
       tintedTabBar: true
@@ -12,16 +14,17 @@
     allowPendingPaneItems: false
     disabledPackages: [
       "spell-check"
+      "language-json"
     ]
     openEmptyEditorOnStart: false
     telemetryConsent: "no"
     themes: [
       "atom-material-ui"
-      "atom-light-syntax"
+      "atom-material-syntax-dark"
     ]
   editor:
-    fontFamily: "Monaco, Menlo, Ubuntu Mono, Consolas, source-code-pro, monospace"
-    fontSize: 16
+    fontFamily: "Courier New, Monaco, Menlo, Ubuntu Mono, Consolas, source-code-pro, monospace"
+    fontSize: 20
     invisibles: {}
     softTabs: false
     tabLength: 4
@@ -29,7 +32,7 @@
     userId: "836bd8db-3441-7597-df42-1ab535328ed5"
   "git-log": {}
   minimap:
-    displayMinimapOnLeft: true
+    scrollAnimation: true
   "spell-check":
     locales: [
       "en-US"
@@ -37,3 +40,6 @@
     ]
   welcome:
     showOnStartup: false
+".json5.source":
+  editor:
+    showIndentGuide: false
