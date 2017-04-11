@@ -6,14 +6,17 @@
 Затем следует установить глобально [командную строку Ангуляра](https://www.npmjs.com/package/@angular/cli):
 
 ```bash
-npm i @angular/cli -g
+npm i -g @angular/cli
 ```
 
 Далее создаем папку под проект и в ней запускаем команду:
 
 ```bash
-ng new <папка проекта> --style=scss
+ng new --style=scss --skip-git --routing --skip-install <папка проекта>
 ```
+
+Опция `--skip-install` позволяет процесс установки NPM-модулей.
+Без этой опции в конце создания проекта будет запущена команда `npm i`.
 
 Вы можете добавить опцию `--routing` в команду `ng new` чтобы появился 
 файл `app-routing.module.ts` где будут хранится отдельно маршрутизация 
