@@ -4,6 +4,7 @@ Typescript
 ```
 npm install -g typescript
 tsc --init
+npm init
 ```
 
 package.json
@@ -11,14 +12,33 @@ package.json
 
 ```json
 {
+  "name": "pir-model-preparer",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Khusamov Sukhrob <khusamov@yandex.ru>",
+  "license": "ISC",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "scripts": {
-    "start": "nodemon dist/test"
-  },
+  "bin": "dist/bin",
   "files": [
     "dist"
-  ]
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test1": "nodemon dist/test/test1",
+    "start": "concurrently \"npm run tsc\" \"npm run test1\""
+  },
+  "devDependencies": {
+    "@types/express": "^4.0.35",
+    "@types/node": "^7.0.12",
+    "concurrently": "^3.4.0",
+    "pug": "^2.0.0-rc.1"
+  },
+  "dependencies": {
+    "express": "4.14.0",
+    "lodash": "^4.17.4",
+    "lodash-decorators": "^4.3.1"
+  }
 }
 ```
 
@@ -28,17 +48,21 @@ tsconfig.json
 ```json
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "outDir": "dist",
     "module": "commonjs",
     "target": "es6",
     "sourceMap": false,
     "removeComments": false,
     "declaration": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "typeRoots": [
         "node_modules/@types"
     ],
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "paths": {
+      "pir-model-preparer": ["./index"]
+    }
   },
   "exclude": [
     "node_modules",
