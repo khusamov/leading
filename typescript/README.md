@@ -25,8 +25,9 @@ package.json
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test1": "nodemon dist/test/test1",
-    "start": "concurrently \"npm run tsc\" \"npm run test1\""
+    "tsc:w": "tsc -w",
+    "test1": "nodemon -w dist dist/test/test1",
+    "start": "concurrently \"npm run tsc:w\" \"npm run test1\""
   },
   "devDependencies": {
     "@types/express": "^4.0.35",
