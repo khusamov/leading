@@ -2,7 +2,7 @@
 gulpfile.js
 ------------
 
-```
+```javascript
 
 const path = require("path");
 const gulp = require("gulp");
@@ -47,7 +47,7 @@ gulp.task('default', ['compile', 'copypugs', 'watch', 'nodemon']);
 package.json
 ------------
 
-```
+```json
 {
   "name": "khusamov-express-typescript",
   "description": "",
