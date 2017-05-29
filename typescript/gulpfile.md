@@ -49,12 +49,8 @@ package.json
 
 ```json
 {
-  "name": "khusamov-express-typescript",
+  "name": "",
   "description": "",
-  "version": "1.0.2",
-  "homepage": "https://github.com/khusamov/express-typescript#readme",
-  "author": "",
-  "license": "ISC",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -65,17 +61,9 @@ package.json
     "start_": "concurrently \"npm run tsc\" \"npm run test2\"",
     "start": "gulp"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/khusamov/express-typescript.git"
-  },
-  "bugs": {
-    "url": "https://github.com/khusamov/express-typescript/issues"
-  },
   "devDependencies": {
     "@types/express": "^4.0.35",
     "@types/node": "^7.0.12",
-    "@types/passport": "^0.3.3",
     "concurrently": "^3.4.0",
     "gulp": "^3.9.1",
     "gulp-changed": "^3.1.0",
@@ -86,11 +74,8 @@ package.json
   },
   "dependencies": {
     "express": "4.14.0",
-    "express-implhandler": "^1.1.3",
-    "json-make-html": "^1.0.7",
     "lodash": "^4.17.4",
-    "lodash-decorators": "^4.3.1",
-    "passport": "^0.3.2"
+    "lodash-decorators": "^4.3.1"
   },
   "files": [
     "dist"
