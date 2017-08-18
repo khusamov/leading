@@ -1,0 +1,21 @@
+{
+	"editor.fontFamily": "Monaco, Menlo, Ubuntu Mono, Consolas, source-code-pro, monospace",
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"editor.renderLineHighlight": "gutter",
+	"editor.minimap.enabled": true,
+	"editor.minimap.renderCharacters": true,
+	"editor.dragAndDrop": true,
+	"editor.cursorStyle": "line-thin",
+	"editor.cursorBlinking": "phase",
+	"editor.autoIndent": false,
+
+	"terminal.integrated.fontSize": 16,
+	"window.zoomLevel": 0,
+	"window.title": "${dirty}${folderName}${separator}${activeEditorMedium}",
+	"explorer.openEditors.visible": 0,
+	"explorer.autoReveal": false,
+	"workbench.colorTheme": "Visual Studio Light",
+	"workbench.iconTheme": "vs-seti",
+	"workbench.startupEditor": "newUntitledFile"
+}
