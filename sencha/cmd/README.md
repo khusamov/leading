@@ -106,3 +106,13 @@ native.json
 sencha-error*.log
 *.log
 ```
+
+RTL
+---
+
+Sencha CMD начал генерировать такую строку 
+```JSON
+"path": "${framework.dir}/build/ext-all-rtl-debug.js"
+```
+В итоге во многих компонентах `align` по умолчанию выставлен `right`.
+С чем это связано не понятно. Так что придется `rtl` убирать пока вручную.
