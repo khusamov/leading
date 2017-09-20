@@ -1,6 +1,5 @@
 ---
-section: fsdfdsf
-title: Заметки по работе с Mercurial
+tags: mercurial
 ---
 
 # Заметки по работе с Mercurial
