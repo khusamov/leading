@@ -75,10 +75,10 @@ sencha generate theme my-classic-theme
 Также при необходимости добавляем файл `.gitignore` со следующим содержимым:
 
 ```
-temp
-ext
-build
-packages/remote
+/temp
+/ext
+/build
+/packages/remote
 
 node_modules
 bower_components
@@ -87,6 +87,7 @@ bower_components
 .sass-cache
 .sass-cache/*
 
+bootstrap.*
 bootstrap.js
 bootstrap.json
 bootstrap.jsonp
@@ -99,9 +100,12 @@ bootstrap-modern-data.js
 bootstrap-modern-files.js
 bootstrap-modern-manifest.js
 
+classic.json*
+modern.json*
 modern.json
 classic.json
 native.json
+.sencha
 
 sencha-error*.log
 *.log
