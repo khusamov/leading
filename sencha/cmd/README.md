@@ -9,8 +9,10 @@ Sencha Cmd
 -------------------
 
 На диске С должна находится папка `sencha` с разными версия фреймворка Sencha Ext JS.
+Например `c:/sencha/6.2.0`.
 
-Также должен быть установлен [Sencha Cmd](https://www.sencha.com/products/extjs/cmd-download/) версии 6.2.1.
+Также должен быть установлен [Sencha Cmd](https://www.sencha.com/products/extjs/cmd-download/)
+версии 6.2.1.
 
 Создание рабочего пространства
 ------------------------------
