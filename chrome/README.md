@@ -41,3 +41,20 @@
     "css": "bootstrap.css"
 },
 ```
+
+manifest.json
+--------------
+
+В файл манифеста расширения следует вписать строку
+`"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"`.
+
+```json
+{
+	"name": "Просмотрщик текста запросов",
+	"version": "1.1.0",
+	"manifest_version": 2,
+	"description": "Просмотр текста запросов, отправляемых с текущей страницы.",
+	"devtools_page": "devtools.html",
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
+```
