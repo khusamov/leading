@@ -47,6 +47,14 @@ mklink /j ext "c:/sencha/6.2.0"
 sencha -sdk ext generate app -classic MyApp myapp
 ```
 
+Внимание, есть возможность группировать приложения в разных папках. Иными словами можно создавать приложения следующим образом:
+
+```bash
+sencha -sdk ext generate app -classic MyApp1 folder1/myapp1
+sencha -sdk ext generate app -classic MyApp2 folder1/myapp2
+sencha -sdk ext generate app -classic MyApp3 folder2/myapp3
+```
+
 Создание пакета
 ---------------
 
