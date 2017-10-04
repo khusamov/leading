@@ -115,7 +115,6 @@ modern.json*
 modern.json
 classic.json
 native.json
-.sencha
 
 sencha-error*.log
 *.log
