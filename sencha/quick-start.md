@@ -57,3 +57,6 @@ sencha app watch
 В болванке приложения можно опробировать примеры расположенные по ссылке:
 http://examples.sencha.com/extjs/6.2.0/examples/
 
+Общая концепция фреймворка тут http://docs.sencha.com/extjs/6.2.0/guides/getting_started/getting_started.html
+
+Быстрый старт от Сенчи тут (http://docs.sencha.com/extjs/6.2.0/guides/quick_start/introduction.html), но он ориентирован на приложения Modern. Потому пользы от него мало.
