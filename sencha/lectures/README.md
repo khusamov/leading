@@ -58,6 +58,8 @@ IDE & Editor Plugins
 Таблицы
 Деревья
 
+Работа с DOM Ext.dom.*
+
 Связь с сервером
 SOAP
 REST
