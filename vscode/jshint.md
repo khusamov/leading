@@ -12,3 +12,10 @@ jshint
 	"unused": true
  }
  ```
+
+Генератор файла `.jshintrc`
+------------------------
+
+Также можно воспользоваться генератором для простановки значений по умолчанию с комментариями всех опций.
+
+https://marketplace.visualstudio.com/items?itemName=benjavr.jshintrc-generator
