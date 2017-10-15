@@ -10,8 +10,10 @@ jshint
 {
 	"esversion": 6,
 	"unused": true
- }
- ```
+}
+```
+ 
+Все настройки на оф. сайте http://jshint.com/docs/options/
 
 Генератор файла `.jshintrc`
 ------------------------
