@@ -17,5 +17,6 @@
 	"explorer.autoReveal": false,
 	"workbench.colorTheme": "Visual Studio Light",
 	"workbench.iconTheme": "vs-seti",
-	"workbench.startupEditor": "newUntitledFile"
+	"workbench.startupEditor": "newUntitledFile",
+	"terminal.integrated.confirmOnExit": true
 }
