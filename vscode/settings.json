@@ -15,5 +15,6 @@
 	"explorer.openEditors.visible": 0,
 	"explorer.autoReveal": false,
 	"editor.cursorStyle": "line-thin",
-	"editor.cursorBlinking": "phase"
+	"editor.cursorBlinking": "phase",
+	"terminal.integrated.confirmOnExit": true
 }
