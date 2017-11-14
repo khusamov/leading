@@ -98,7 +98,7 @@
 ### Библиотека компонентов Sencha ExtJS
 
 - Шаблонизаторы Ext.Template, Ext.XTemplate
-- Компонент Ext.dataview.DataView
+- Компонент Ext.view.View
 - Таблицы и выборки (Selection), редакторы строк и ячеек
 
 
