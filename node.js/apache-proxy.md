@@ -1,7 +1,10 @@
 Настройка прокси в Apache
 =========================
 
-Данная настройка требуется если у вас есть apache и нужно создать сайт на Node.js. Так как apache занимает порт 80, то напрямую не получится. Придется создать в apache виртуальный хост и с него перенаправлять все запросы на ваш nodejs-сайт. 
+Данная настройка требуется если у вас есть Apache с рабочими сайтами и нужно создать сайт (или веб-приложение) на Node.js. Так как Apache уже занимает порт 80, то напрямую делать запросы в приложение на Node.js не получится. Придется Node.js приложение запустить на другом порту. Создать в Apache виртуальный хост и с него перенаправлять все запросы на ваше Node.js приложение. 
+
+Настройка Apache
+----------------
 
 Для Apache нужно включить следующие расширения: mod_rewrite, mod_proxy и mod_proxy_http.
 Это можно сделать следующей командой:
@@ -50,10 +53,10 @@ a2enmod mod_rewrite mod_proxy mod_proxy_http
 	ErrorLog /dev/null
 	ServerAlias www.calc.setup-okna.fvds.ru xn--80atbd9f.xn--p1ai
 	
-	# Наши вставки
+	# Наши вставки настройки проксирования.
+	# Здесь 1501 порт, на котором работает Node.js приложение.
 	ProxyPass / http://localhost:1501/
 	ProxyPreserveHost On
-
 
 </VirtualHost>
 <Directory /var/www/setupokna/data/www/calc.setup-okna.fvds.ru>
@@ -74,4 +77,4 @@ ProxyPreserveHost On
 ----------
 
 http://www.tech-notes.net/proxypass-requests-with-apache/  
-http://www.py-my.ru/post/4bfb3c691d41c846bc00001f
+http://www.py-my.ru/post/4bfb3c691d41c846bc00001f  
