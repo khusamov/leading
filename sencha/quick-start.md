@@ -91,6 +91,14 @@ sencha app watch
 Ссылки
 ------
 
+http://docs.sencha.com/extjs/6.2.0/guides/core_concepts/classes.html  
+http://docs.sencha.com/extjs/6.2.0/guides/core_concepts/layouts.html  
+http://docs.sencha.com/extjs/6.2.0/guides/core_concepts/components.html  
+http://docs.sencha.com/extjs/6.2.0/guides/core_concepts/data_package.html  
+http://docs.sencha.com/extjs/6.2.0/guides/application_architecture/application_architecture.html  
+http://docs.sencha.com/extjs/6.2.0/guides/application_architecture/view_controllers.html  
+http://docs.sencha.com/extjs/6.2.0/guides/application_architecture/view_models_data_binding.html  
+http://docs.sencha.com/extjs/6.2.0/guides/application_architecture/view_model_internals.html  
 
 Документация: http://docs.sencha.com/extjs/6.2.0/classic/Ext.html
 В поиске обязательно отключить букву M, чтобы искать только по классам из classic.
