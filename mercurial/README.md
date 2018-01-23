@@ -9,8 +9,8 @@ tags: mercurial
 1) Командная строка Mercurial  
 https://www.mercurial-scm.org/downloads  
 Любой на выбор:  
-Mercurial 4.1 Inno Setup installer - x64 Windows - does not require admin rights  
-Mercurial 4.0.2 MSI installer - x64 Windows - requires admin rights  
+Mercurial Inno Setup installer - x64 Windows - does not require admin rights  
+Mercurial MSI installer - x64 Windows - requires admin rights  
 
 2) SourceTree (нужен только для hg flow)  
 https://www.sourcetreeapp.com/  
@@ -18,7 +18,7 @@ https://www.sourcetreeapp.com/
 Внимание, вместо SourceTree можно использовать командную строку hg flow  
 https://bitbucket.org/yinwm/hgflow/wiki/UserManual  
 
-3) TortoiseHg (64-bit Windows версия 4.4.2)  
+3) TortoiseHg (64-bit Windows)  
 https://tortoisehg.bitbucket.io/download/index.html  
 Для управления репозиторием в визуальном режиме.  
 Инструмент не обязателен к установке, но он более удобен (функционален) чем SourceTree.  
