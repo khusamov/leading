@@ -28,6 +28,7 @@ https://tortoisehg.bitbucket.io/download/index.html
 # Справка по Mercurial
 Справка по Mercurial 2.5.4  
 http://m-haritonov.net/hg/help/ru/  
+https://hgbook.bacher09.org/html-single/  
 
 Справка по настройке конфигурационного файла hgrc:  
 https://www.selenic.com/mercurial/hgrc.5.html  
