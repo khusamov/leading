@@ -85,6 +85,7 @@ https://www.selenic.com/mercurial/hgrc.5.html
 `feature/<номер ФТ>[/<имя метода АПИ или название подзадачи>]`.
 Например `feature/055/SendNotificationsList` (расшифровывается как: фича по ФТ.055 реализация 
 вызова метода сервера SendNotificationsList).
+Например `feature/055/SearchBankByBIC` (расшифровывается как: фича по ФТ.055 поиск банка по БИК).
 
 В потоке веток release у нас хранятся выпуски релизов. В формате
 `release/X.Y.Z`, где X.Y.Z номер версии релиза.
