@@ -53,7 +53,7 @@ http://danielkummer.github.io/git-flow-cheatsheet/index.ru_RU.html
 ```ini
 # Пути к репозиториям.
 [paths]
-default=http://10.53.82.191:8000/w_pir_client
+default=http://111.111.111.111:3000/w_pir_client
 
 [ui]
 # Имя пользователя, которое будет отмечаться в commit-ах.
@@ -61,7 +61,7 @@ username = Svyatoslav Khusamov <khusamovsa@it.mos.ru>
 
 # Автоввод паролей
 [auth]
-default.prefix = hg.eirc.mos.ru/w_pir_client
+default.prefix = 111.111.111.111:3000/w_pir_client
 default.schemes = http
 default.username = khusamovsa
 default.password = ********
