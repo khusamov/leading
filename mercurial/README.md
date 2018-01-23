@@ -12,11 +12,10 @@ https://www.mercurial-scm.org/downloads
 Mercurial 4.1 Inno Setup installer - x64 Windows - does not require admin rights  
 Mercurial 4.0.2 MSI installer - x64 Windows - requires admin rights  
 
-2) SourceTree  
+2) SourceTree (нужен только для hg flow)  
 https://www.sourcetreeapp.com/  
 Используется только для работы с hg flow в визуальном режиме.  
-
-Вместо SourceTree можно использовать командную строку hg flow  
+Внимание, вместо SourceTree можно использовать командную строку hg flow  
 https://bitbucket.org/yinwm/hgflow/wiki/UserManual  
 
 3) TortoiseHg (64-bit Windows версия 4.4.2)  
