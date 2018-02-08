@@ -37,6 +37,9 @@ https://www.selenic.com/mercurial/hgrc.5.html
 Учебник:  
 https://habrahabr.ru/post/108443/  
 
+Справка по tortoisehg:  
+http://tortoisehg.readthedocs.io/en/latest/index.html  
+
 Шпаргалка по git flow  
 http://danielkummer.github.io/git-flow-cheatsheet/index.ru_RU.html  
 Методики git flow и hg flow полностью идентичны.  
