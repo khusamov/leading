@@ -75,7 +75,19 @@ default.password = ********
 Более подробно о настройке см. 
 https://www.selenic.com/mercurial/hgrc.5.html
 
+Настройка `C:/Users/<Ваш логин Windows>/mercurial.ini`
+------------------------------------------------------
 
+```ini
+[tortoisehg]
+vdiff = tortoisemerge
+ui.language = en
+
+[ui]
+merge = tortoisemerge
+username = Khusamov Svyatoslav <khusamovsa@it.mos.ru>
+ignore=
+```
 
 
 ## Работа по hg flow
