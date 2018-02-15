@@ -60,10 +60,6 @@ http://danielkummer.github.io/git-flow-cheatsheet/index.ru_RU.html
 [paths]
 default=http://111.111.111.111:3000/w_pir_client
 
-[ui]
-# Имя пользователя, которое будет отмечаться в commit-ах.
-username = Svyatoslav Khusamov <khusamovsa@it.mos.ru>
-
 # Автоввод паролей
 [auth]
 default.prefix = 111.111.111.111:3000/w_pir_client
@@ -85,6 +81,7 @@ ui.language = en
 
 [ui]
 merge = tortoisemerge
+# Имя пользователя, которое будет отмечаться в commit-ах.
 username = Khusamov Svyatoslav <khusamovsa@it.mos.ru>
 ignore=
 ```
