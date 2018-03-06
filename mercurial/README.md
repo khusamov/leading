@@ -15,16 +15,16 @@ Mercurial MSI installer - x64 Windows - requires admin rights
 2) TortoiseHg (64-bit Windows)  
 https://tortoisehg.bitbucket.io/download/index.html  
 Для управления репозиторием в визуальном режиме.  
-Инструмент не обязателен к установке, но он более удобен (функционален) чем SourceTree.  
+Инструмент не обязателен к установке, но он более удобен (функционален и менее глючный) чем SourceTree.  
 
 3) hg flow  
 Можно установить один инструмент на выбор: SourceTree или yujiewu/hgflow:  
 
-3.1) SourceTree (нужен только для hg flow)  
+4) SourceTree (нужен только для hg flow)  
 https://www.sourcetreeapp.com/  
 Используется только для работы с hg flow в визуальном режиме.  
 
-3.2) Внимание, вместо SourceTree можно использовать командную строку hg flow  
+5) Внимание, вместо SourceTree можно использовать командную строку hg flow  
 https://bitbucket.org/yujiewu/hgflow/wiki/Home (свежий, есть коммиты от 2017 г.)  
 https://bitbucket.org/yinwm/hgflow/wiki/UserManual (заброшенный похоже и есть проблемы с установкой)  
 
