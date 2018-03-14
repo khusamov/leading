@@ -97,6 +97,7 @@ sencha generate theme my-classic-theme
 Также при необходимости добавляем файл `.gitignore` со следующим содержимым:
 
 ```
+/.idea
 /temp
 /ext
 /build
