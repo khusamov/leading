@@ -22,7 +22,7 @@ Sencha Cmd
 
 ```bash
 sencha -sdk c:/sencha/6.2.0 generate workspace ./
-sencha -sdk c:/sencha/6.5.3 generate workspace ./
+sencha -sdk c:/sencha/6.5.3.57 generate workspace ./
 ```
 
 Внимание, в именах каталогов нельзя использовать символ @. С ним будут проблемы.
@@ -33,7 +33,7 @@ sencha -sdk c:/sencha/6.5.3 generate workspace ./
 ```bash
 rmdir /S /Q ext
 mklink /j ext "c:/sencha/6.2.0"
-mklink /j ext "c:/sencha/6.5.3"
+mklink /j ext "c:/sencha/6.5.3.57"
 ```
 
 Как вариант, можно вместо создания симлинка прописать ссылку в `workspace.json`. 
