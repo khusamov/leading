@@ -12,5 +12,7 @@
 	},
 ```
 
+Внимание, метод initViewModel вызывается только в случае, если вид содержит свою собственную модель вида.
+
 http://docs.sencha.com/extjs/6.2.0/classic/Ext.app.ViewController.html#method-initViewModel
 
