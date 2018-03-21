@@ -37,7 +37,7 @@ Ext.define('MyApp.view.main.MainController', {
         initGlobalStores() {
             const saveStoreFn = this.saveGlobalStoreInMainModel.bind(this);
             Ext.data.StoreManager.each(saveStoreFn);
-            Ext.data.StoreManager.on('add', saveStoreFn);
+            Ext.data.StoreManager.on('add', (index, store) => saveStoreFn(store));
         },
 
         saveGlobalStoreInMainModel(store) {
