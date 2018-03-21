@@ -25,14 +25,25 @@ Ext.define('MyApp.view.main.MainController', {
     },
 
     privates: {
+
         saveGlobalStoreInMainModel(store) {
             const suffix = this.globalStoreSuffix;
+
             // Создается регулярное выражение вида [S|s]tore$ в зависимости от this.globalStoreSuffix
-            const suffixRe = new RegExp(`[${suffix[0].toLowerCase()}|${suffix[0].toUpperCase()}]${suffix.slice(1)}$`, 'g');
+            const suffixReText = [
+                '[',
+                    suffix[0].toLowerCase(), '|',
+                    suffix[0].toUpperCase(),
+                ']',
+                suffix.slice(1), '$'
+            ].join('');
+            const suffixRe = new RegExp(suffixReText, 'g');
+        
             const storeId = store.getStoreId();
             const storeViewModelPath = suffixRe.test(storeId) ? storeId : storeId + this.globalStoreSuffix;
             this.getViewModel().set(storeViewModelPath, store);
         }
+
     }
   
 });
