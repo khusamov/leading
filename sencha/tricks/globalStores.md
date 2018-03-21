@@ -32,13 +32,13 @@ Ext.define('MyApp.view.main.MainController', {
         this.initGlobalStores();
     },
 
-    initGlobalStores() {
-        const saveStoreFn = this.saveGlobalStoreInMainModel.bind(this);
-        Ext.data.StoreManager.each(saveStoreFn);
-        Ext.data.StoreManager.on('add', saveStoreFn);
-    },
-
     privates: {
+
+        initGlobalStores() {
+            const saveStoreFn = this.saveGlobalStoreInMainModel.bind(this);
+            Ext.data.StoreManager.each(saveStoreFn);
+            Ext.data.StoreManager.on('add', saveStoreFn);
+        },
 
         saveGlobalStoreInMainModel(store) {
             const suffix = this.globalStoreSuffix;
