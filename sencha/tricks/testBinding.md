@@ -36,8 +36,8 @@ Ext.define('MyApp.TestController', {
         }
     },
 
-     onTotalChange: function(total) {
-         console.log(total);
+     onTotalChange: function(total, totalPrevValue) {
+         console.log(total, totalPrevValue);
      },
 
      onCoordsChange: function(coords) {
