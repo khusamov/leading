@@ -62,3 +62,5 @@ Ext.define('MyApp.view.main.MainController', {
   
 });
 ```
+
+![image](https://user-images.githubusercontent.com/4146998/37773313-501ac24a-2dee-11e8-910e-09be793913f2.png)
