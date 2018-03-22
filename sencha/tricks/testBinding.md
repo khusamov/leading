@@ -16,3 +16,36 @@
 
 http://docs.sencha.com/extjs/6.2.0/classic/Ext.app.ViewController.html#method-initViewModel
 
+
+Тестирование связывания в ExtJS версии 6.5.3 
+----------------------------------------------
+
+http://docs.sencha.com/extjs/6.5.3/classic/Ext.app.ViewController.html#cfg-bindings
+
+
+```javascript
+Ext.define('MyApp.TestController', {
+    extend: 'Ext.app.ViewController',
+
+    bindings: {
+        onTotalChange: '{total}',
+        onCoordsChange: '({x}, {y})',
+        onProductChange: {
+            amount: '{qty}',
+            rating: '{rating}'
+        }
+    },
+
+     onTotalChange: function(total) {
+         console.log(total);
+     },
+
+     onCoordsChange: function(coords) {
+         console.log('The coordinates are: ', coords);
+     },
+
+     onProductChange: function(productInfo) {
+         console.log('Amount: ', productInfo.amount, ' Rating: ', productInfo.rating);
+     }
+});
+```
