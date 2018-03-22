@@ -70,5 +70,5 @@ Ext.define('MyApp.view.main.MainController', {
 
 http://docs.sencha.com/extjs/6.5.3/classic/Ext.form.field.ComboBox.html#cfg-store
 
-![image](https://user-images.githubusercontent.com/4146998/37773406-8feb6848-2dee-11e8-8b25-c523ca1be6b5.png)
+![image](https://user-images.githubusercontent.com/4146998/37773451-b69c0772-2dee-11e8-9a04-779f9b7a4162.png)
 
