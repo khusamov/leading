@@ -63,4 +63,12 @@ Ext.define('MyApp.view.main.MainController', {
 });
 ```
 
-![image](https://user-images.githubusercontent.com/4146998/37773313-501ac24a-2dee-11e8-910e-09be793913f2.png)
+Связывание через storeId
+-----------------------
+
+Для комбобоксов доступно связывание через storeId:
+
+http://docs.sencha.com/extjs/6.5.3/classic/Ext.form.field.ComboBox.html#cfg-store
+
+![image](https://user-images.githubusercontent.com/4146998/37773406-8feb6848-2dee-11e8-8b25-c523ca1be6b5.png)
+
