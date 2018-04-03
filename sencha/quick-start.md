@@ -109,9 +109,17 @@ sencha app watch
 > Внимание, приложением мы сделали КЛАССИК и по умолчанию именно такой тип приложения следует делать.
 > Соответственно документацию читать только для classic.
 
+Немного о команде sencha app watch
+----------------------------------
+
+Команда `sencha app watch` позволяет запустить веб-сервер для вашего приложения.
+Причем будут отслеживаться изменения в файлах. Достаточно изменить файл, а затем в браузере обновить
+приложение и изменения тут же вступят в силу.
+
 Ссылки
 ------
 
+http://docs.sencha.com/extjs/6.5.3/guides/getting_started/getting_started.html  
 http://docs.sencha.com/extjs/6.2.0/guides/core_concepts/classes.html  
 http://docs.sencha.com/extjs/6.2.0/guides/core_concepts/layouts.html  
 http://docs.sencha.com/extjs/6.2.0/guides/core_concepts/components.html  
