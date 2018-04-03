@@ -119,24 +119,31 @@ sencha app watch
 Ссылки
 ------
 
+Данное руководство сделано на основе Быстрого Старта от Sencha
 http://docs.sencha.com/extjs/6.5.3/guides/getting_started/getting_started.html  
-http://docs.sencha.com/extjs/6.2.0/guides/core_concepts/classes.html  
-http://docs.sencha.com/extjs/6.2.0/guides/core_concepts/layouts.html  
-http://docs.sencha.com/extjs/6.2.0/guides/core_concepts/components.html  
-http://docs.sencha.com/extjs/6.2.0/guides/core_concepts/data_package.html  
-http://docs.sencha.com/extjs/6.2.0/guides/application_architecture/application_architecture.html  
-http://docs.sencha.com/extjs/6.2.0/guides/application_architecture/view_controllers.html  
-http://docs.sencha.com/extjs/6.2.0/guides/application_architecture/view_models_data_binding.html  
-http://docs.sencha.com/extjs/6.2.0/guides/application_architecture/view_model_internals.html  
+но с ориентацией на Classic Toolkit.
+Руководство Быстрого Старта от Sencha ориентировано на приложения Modern Toolkit и потому пользы от него мало.
 
-Документация: http://docs.sencha.com/extjs/6.2.0/classic/Ext.html
+Общая концепция фреймворка тут http://docs.sencha.com/extjs/
+
+Документация: http://docs.sencha.com/extjs/latest/classic/Ext.html
 В поиске обязательно отключить букву M, чтобы искать только по классам из classic.
 
 В болванке приложения можно опробировать примеры расположенные по ссылке:
-http://examples.sencha.com/extjs/6.2.0/examples/
+http://examples.sencha.com/extjs/6.5.1/examples/
 
-Общая концепция фреймворка тут http://docs.sencha.com/extjs/6.2.0/guides/getting_started/getting_started.html
+Основные идеи фреймворка:  
+http://docs.sencha.com/extjs/latest/guides/core_concepts/classes.html  
+http://docs.sencha.com/extjs/latest/guides/core_concepts/layouts.html  
+http://docs.sencha.com/extjs/latest/guides/core_concepts/components.html  
+http://docs.sencha.com/extjs/latest/guides/core_concepts/data_package.html  
+http://docs.sencha.com/extjs/latest/guides/application_architecture/application_architecture.html  
+http://docs.sencha.com/extjs/latest/guides/application_architecture/view_controllers.html  
+http://docs.sencha.com/extjs/latest/guides/application_architecture/view_models_data_binding.html  
+http://docs.sencha.com/extjs/latest/guides/application_architecture/view_model_internals.html  
 
-Быстрый старт от Сенчи тут (http://docs.sencha.com/extjs/6.2.0/guides/quick_start/introduction.html), но он ориентирован на приложения Modern. Потому пользы от него мало.
 
-Новая серия уроков от Сенчи https://www.sencha.com/blog/ext-js-from-scratch-part-1/, также ориентирована на Modern.
+Новая серия уроков от Сенчи (ориентирована на Modern):  
+https://www.sencha.com/blog/ext-js-from-scratch-part-1/   
+https://www.sencha.com/blog/ext-js-from-scratch-part-2/  
+
