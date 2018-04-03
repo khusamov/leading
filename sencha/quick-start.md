@@ -119,10 +119,10 @@ sencha app watch
 Ссылки
 ------
 
-Данное руководство сделано на основе Быстрого Старта от Sencha
-http://docs.sencha.com/extjs/6.5.3/guides/getting_started/getting_started.html  
-но с ориентацией на Classic Toolkit.
-Руководство Быстрого Старта от Sencha ориентировано на приложения Modern Toolkit и потому пользы от него мало.
+Данное руководство сделано на основе
+[Быстрого Старта от Sencha](http://docs.sencha.com/extjs/latest/guides/getting_started/getting_started.html)
+но с ориентацией на Classic Toolkit. Руководство Быстрого Старта от Sencha ориентировано 
+на приложения Modern Toolkit и потому пользы от него мало.
 
 Общая концепция фреймворка тут http://docs.sencha.com/extjs/
 
@@ -130,7 +130,7 @@ http://docs.sencha.com/extjs/6.5.3/guides/getting_started/getting_started.html
 В поиске обязательно отключить букву M, чтобы искать только по классам из classic.
 
 В болванке приложения можно опробировать примеры расположенные по ссылке:
-http://examples.sencha.com/extjs/6.5.1/examples/
+http://examples.sencha.com/extjs/latest/examples/
 
 Основные идеи фреймворка:  
 http://docs.sencha.com/extjs/latest/guides/core_concepts/classes.html  
