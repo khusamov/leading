@@ -12,8 +12,7 @@
 Установка Sencha Cmd
 --------------------
 
-Скачайте и установите Sencha Cmd 6.5.x for Windows 64-bit.
-Ссылка для скачивания: https://www.sencha.com/products/extjs/cmd-download/.
+(Скачайте)[https://www.sencha.com/products/extjs/cmd-download/] и установите Sencha Cmd 6.5.x for Windows 64-bit.
 
 После установки пропишите в `PATH` путь к Sencha Cmd: `C:\Users\<username>\bin\Sencha\Cmd`.
 
