@@ -81,6 +81,32 @@ npm install --save C:/Sencha/SDK/module/ext-6.5.3.57
 
 Здесь `<Номер версии ExtJS>` замените на соответствующую версию: `6.2.0` или `6.5.3.57`.
 
+Файл `workspace.json` должен стать примерно с таким содержанием:
+
+```json
+{
+    "frameworks": {
+	    "ext": {
+            "path": "node_modules/infogorod-sencha-extjs",
+            "version": "6.5.3.57"
+        }
+
+    },
+    "build": {
+        "dir": "${workspace.dir}/build"
+    },
+    "packages": {
+        "dir": [
+			"${workspace.dir}/packages/local",
+			"${workspace.dir}/packages"
+		],
+        "extract": [
+			"${workspace.dir}/packages/remote"
+		]
+    }
+}
+```
+
 Ссылка на фреймворк из рабочего пространства (при помощи симлинка)
 --------------------------------------------
 
