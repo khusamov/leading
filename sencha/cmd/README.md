@@ -37,7 +37,7 @@ sencha -sdk C:/Sencha/SDK/ext-6.2.0 generate workspace ./
 sencha -sdk C:/Sencha/SDK/ext-6.5.3.57 generate workspace ./
 ```
 
-Во время этой операции Sencha Cmd скопирует в рабочее пространство SDK в папку ext.
+Во время этой операции Sencha Cmd скопирует Sencha ExtJS SDK в директорию `ext` рабочего пространства.
 
 Внимание, в именах каталогов нельзя использовать символ @. С ним будут проблемы.
 
