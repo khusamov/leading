@@ -234,8 +234,9 @@ sencha-error*.log
 ----------------
 
 ```
-.idea/
+.git
 .vscode/
+.idea/
 
 temp/
 ext/
