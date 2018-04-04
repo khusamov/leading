@@ -17,9 +17,9 @@ Sencha Cmd
 
 В процессе подготовки у вас на диске должна образоваться такая структура директорий:
 
-Sencha Cmd -> `C:/Sencha/Cmd`
-SDK -> `C:/Sencha/SDK`
-NPM modules -> `C:/Sencha/SDK/module`
+Sencha Cmd -> `C:/Sencha/Cmd`  
+SDK -> `C:/Sencha/SDK`  
+NPM modules -> `C:/Sencha/SDK/module`  
 
 Например дистрибутив 6.5.3.57 должен расположиться по адресу: `C:/Sencha/SDK/ext-6.5.3.57`.
 Здесь NPM modules это специально подготовленные SDK в виде NPM-модулей. Как это сделать будет описано в отдельной статье.
@@ -36,6 +36,8 @@ NPM modules -> `C:/Sencha/SDK/module`
 sencha -sdk C:/Sencha/SDK/ext-6.2.0 generate workspace ./
 sencha -sdk C:/Sencha/SDK/ext-6.5.3.57 generate workspace ./
 ```
+
+Во время этой операции Sencha Cmd скопирует в рабочее пространство SDK в папку ext.
 
 Внимание, в именах каталогов нельзя использовать символ @. С ним будут проблемы.
 
@@ -55,6 +57,7 @@ sencha -sdk C:/Sencha/SDK/ext-6.5.3.57 generate workspace ./
 Превратите рабочее пространство в NPM-пакет и установите зависимость с фреймворком.
 
 ```bash
+rmdir /S /Q ext
 npm init
 npm install --save C:/Sencha/SDK/module/ext-6.2.0
 npm install --save C:/Sencha/SDK/module/ext-6.5.3.57
