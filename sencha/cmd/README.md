@@ -160,6 +160,16 @@ sencha -sdk node_modules/infogorod-sencha-extjs generate app -classic MyApp3 fol
 
 В Sencha Cmd версии 6.5.3.6 без этого изменения не собираются сборк по команде sencha app build.
 
+Также можно сразу добавить русификацию:
+
+```json
+    "locale": "ru",
+    "requires": [
+        "font-awesome",
+        "ext-locale"
+    ],
+```
+
 Создание пакета
 ---------------
 
