@@ -85,12 +85,12 @@ npm install --save C:/Sencha/SDK/module/ext-6.5.3.57
 
 ```json
 {
+    "apps": [],
     "frameworks": {
 	    "ext": {
             "path": "node_modules/infogorod-sencha-extjs",
             "version": "6.5.3.57"
         }
-
     },
     "build": {
         "dir": "${workspace.dir}/build"
@@ -141,15 +141,15 @@ mklink /j ext "C:/Sencha/SDK/ext-6.5.3.57"
 Внутри директрии рабочего пространства подаем команду:
 
 ```bash
-sencha -sdk ext generate app -classic MyApp myapp
+sencha -sdk node_modules/infogorod-sencha-extjs generate app -classic MyApp myapp
 ```
 
 Внимание, есть возможность группировать приложения в разных папках. Иными словами можно создавать приложения следующим образом:
 
 ```bash
-sencha -sdk ext generate app -classic MyApp1 folder1/myapp1
-sencha -sdk ext generate app -classic MyApp2 folder1/myapp2
-sencha -sdk ext generate app -classic MyApp3 folder2/myapp3
+sencha -sdk node_modules/infogorod-sencha-extjs generate app -classic MyApp1 folder1/myapp1
+sencha -sdk node_modules/infogorod-sencha-extjs generate app -classic MyApp2 folder1/myapp2
+sencha -sdk node_modules/infogorod-sencha-extjs generate app -classic MyApp3 folder2/myapp3
 ```
 
 Создание пакета
