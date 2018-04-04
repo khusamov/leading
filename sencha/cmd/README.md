@@ -152,6 +152,14 @@ sencha -sdk node_modules/infogorod-sencha-extjs generate app -classic MyApp2 fol
 sencha -sdk node_modules/infogorod-sencha-extjs generate app -classic MyApp3 folder2/myapp3
 ```
 
+В файле `app.json` занулите slicer:
+
+```json
+"slicer": null,
+```
+
+В Sencha Cmd версии 6.5.3.6 без этого изменения не собираются сборк по команде sencha app build.
+
 Создание пакета
 ---------------
 
