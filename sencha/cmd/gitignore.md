@@ -3,20 +3,30 @@
 =================
 
 ```
+/.hg
 /.idea
 /.vscode
 
 /temp
+node_modules
+bower_components
+npm-debug.log
+*.log
+
 /ext
 /build
 /packages/remote
 
-node_modules
-bower_components
-
+sencha-error*.log
 .architect
 .sass-cache
 .sass-cache/*
+
+classic.json*
+modern.json*
+modern.json
+classic.json
+native.json
 
 bootstrap.*
 bootstrap.js
@@ -30,13 +40,4 @@ bootstrap-specs.js
 bootstrap-modern-data.js
 bootstrap-modern-files.js
 bootstrap-modern-manifest.js
-
-classic.json*
-modern.json*
-modern.json
-classic.json
-native.json
-
-sencha-error*.log
-*.log
 ```

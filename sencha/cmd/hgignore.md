@@ -3,21 +3,30 @@
 ===============
 
 ```
-.git
+.git/
 .vscode/
 .idea/
 
 temp/
+node_modules/
+bower_components/
+npm*.log
+npm-debug.log
+
 ext/
 build/
 packages/remote/
 
-node_modules/
-bower_components/
-
+sencha-error*
 .architect
 .sass-cache
 .sass-cache/*
+
+classic.json*
+modern.json*
+modern.json
+classic.json
+native.json
 
 bootstrap.js
 bootstrap.json
@@ -30,14 +39,4 @@ bootstrap-specs.js
 bootstrap-modern-data.js
 bootstrap-modern-files.js
 bootstrap-modern-manifest.js
-
-classic.json*
-modern.json*
-modern.json
-classic.json
-native.json
-
-sencha-error*
-npm*.log
-npm-debug.log
 ```
