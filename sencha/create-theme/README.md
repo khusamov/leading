@@ -380,9 +380,12 @@ mv default-small-arrow.png admin-small-arrow.png
 [Theming Ext JS][theming]  
 [Theming The Ext JS Classic Toolkit][classic-theming]  
 [Ext JS Modern Toolkit Theming Guidelines][modern-theming]  
+[Глобальные переменные для тем][global-css]  
+[Дополнительные замечания по созданию тем Classic Toolkit][additional-notes]  
+[Шпаргалка по Sencha Cmd][cmd]  
+[Быстрый старт с Sencha Cmd][quick-start] 
 
-
-
+ 
 
 
 [cmd]: ../cmd
