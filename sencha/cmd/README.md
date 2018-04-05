@@ -6,6 +6,14 @@ Sencha Cmd
 рабочее пространство, приложение, пакет, тему.
 А также как исправить некоторые ошибки и содержимое ignore-файлов.
 
+Ссылки
+-------
+
+[Установка Sencha Cmd](install.md).  
+[Создание рабочего пространства](generate-workspace.md).  
+[Пример файла `.gitignore`](gitignore.md)  
+[Пример файла `.hgignore`](hgignore.md)  
+
 Структура рабочего пространства
 -------------------------------
 
@@ -22,118 +30,80 @@ SDK -> `C:/Sencha/SDK`
 NPM modules -> `C:/Sencha/SDK/module`  
 
 Например дистрибутив 6.5.3.57 должен расположиться по адресу: `C:/Sencha/SDK/ext-6.5.3.57`.
-Здесь NPM modules это специально подготовленные SDK в виде NPM-модулей. Как это сделать будет описано в отдельной статье.
-
-Про установку Sencha Cmd можно прочитать в статье [Быстрый старт Sencha Cmd + ExtJS (classic only)](install.md).
+Здесь NPM modules это специально подготовленные SDK в виде NPM-модулей. 
+Как это сделать будет описано в отдельной статье.
 
 Создание рабочего пространства
 ------------------------------
 
-Краткая инструкция как создать рабочее пространство.
-Создаем папку под рабочее пространство, переходим в нее и подаем команду:
+В создание рабочего пространства входит:
+- создание файла `workspace.json`,
+- создание NPM-пакета,
+- создание ссылки на фреймворк,
+- добавить ignore-файл.
+
+Создаем директорию под рабочее пространство, переходим в нее и подаем команду:
 
 ```bash
-sencha -sdk C:/Sencha/SDK/ext-6.2.0 generate workspace ./
-sencha -sdk C:/Sencha/SDK/ext-6.5.3.57 generate workspace ./
+sencha generate workspace .
 ```
 
-Во время этой операции Sencha Cmd скопирует Sencha ExtJS SDK в директорию `ext` рабочего пространства.
+Добавьте ignore-файл: [`.gitignore`](gitignore.md) или [`.hgignore`](hgignore.md).
 
-Внимание, в именах каталогов нельзя использовать символ @. С ним будут проблемы.
 
-Не забудьте вставить ignore файл (содержимое см. внизу).
+Создание NPM-пакета
+-------------------
 
-Ссылка на фреймворк из рабочего пространства
---------------------------------------------
-
-Есть три варианта:
-- посредством NPM,
-- при помощи симлинка (устарел, приводится для справки),
-- при помощи ссылки из файла `workspace.json` (устарел, приводится для справки).
-
-Ссылка на фреймворк из рабочего пространства (посредством NPM)
---------------------------------------------
-
-Превратите рабочее пространство в NPM-пакет и установите зависимость с фреймворком.
+Превратите рабочее пространство в NPM-пакет:
 
 ```bash
-rmdir /S /Q ext
 npm init
-npm install --save C:/Sencha/SDK/module/ext-6.2.0
-npm install --save C:/Sencha/SDK/module/ext-6.5.3.57
 ```
 
-Внимание, если вы будете устанавливать из директории, то будет проставлен симлинк, 
-что весьма удобно, т.к. экономится место на диске. Но учтите, что ссылки будут относительными.
 
-В файле `workspace.json` пропишите ссылку на модуль:
+
+Ссылка на фреймворк
+--------------------------------------------
+
+Установите зависимость с фреймворком:
+
+```bash
+npm install --save-dev git+ssh://git@bitbucket.org:infogorod/sencha-extjs-6.5.3.57
+```
+
+
+
+
+
+Настройки файла `workspace.json`
+--------------------------------
+
+В файле `workspace.json` пропишите ссылку на модуль.
+В итоге этот файл должен стать примерно с таким содержанием:
 
 ```json
 {
+  "apps": [],
   "frameworks": {
     "ext": {
-      "path": "node_modules/infogorod-sencha-extjs",
-      "version": "<Номер версии ExtJS>"
+      "path": "node_modules/infogorod-sencha-extjs-6.5.3.57",
+      "version": "6.5.3.57"
     }
+  },
+  "build": {
+    "dir": "${workspace.dir}/build"
+  },
+  "packages": {
+    "dir": [
+      "${workspace.dir}/packages/local"
+    ],
+    "extract": [
+      "${workspace.dir}/packages/remote"
+    ]
   }
 }
 ```
 
-Здесь `<Номер версии ExtJS>` замените на соответствующую версию: `6.2.0` или `6.5.3.57`.
-
-Файл `workspace.json` должен стать примерно с таким содержанием:
-
-```json
-{
-    "apps": [],
-    "frameworks": {
-	    "ext": {
-            "path": "node_modules/infogorod-sencha-extjs",
-            "version": "6.5.3.57"
-        }
-    },
-    "build": {
-        "dir": "${workspace.dir}/build"
-    },
-    "packages": {
-        "dir": [
-			"${workspace.dir}/packages/local",
-			"${workspace.dir}/packages"
-		],
-        "extract": [
-			"${workspace.dir}/packages/remote"
-		]
-    }
-}
-```
-
-Ссылка на фреймворк из рабочего пространства (при помощи симлинка)
---------------------------------------------
-
-В каталог рабочего пространства будет скопирован фреймворк Sencha Ext JS.
-Чтобы он не занимал лишнее место, нужно заменить каталог `ext` симлинком на `c:/sencha/6.2.0`:
-
-```bash
-rmdir /S /Q ext
-mklink /j ext "C:/Sencha/SDK/ext-6.2.0"
-mklink /j ext "C:/Sencha/SDK/ext-6.5.3.57"
-```
-
-Ссылка на фреймворк из рабочего пространства (при помощи ссылки из файла `workspace.json`)
---------------------------------------------
-
-Как вариант, можно вместо создания симлинка прописать ссылку в `workspace.json`. 
-Но это вариант плох тем, потому что при запуске sencha app watch доступ через браузер к файлам фреймворка будет невозможен.
-Поэтому этот вариант на будущее, возможно Cmd позже исправят:
-
-```json
-"frameworks": {
-    "ext": {
-        "path": "C:/Sencha/SDK/6.2.0",
-        "version": "6.2.0.981"
-    }
-},
-```
 
 Создание приложения
 -------------------
@@ -141,15 +111,15 @@ mklink /j ext "C:/Sencha/SDK/ext-6.5.3.57"
 Внутри директрии рабочего пространства подаем команду:
 
 ```bash
-sencha -sdk node_modules/infogorod-sencha-extjs generate app -classic MyApp myapp
+ sencha generate app -ext -classic MyAppName ./myapp/path
 ```
 
 Внимание, есть возможность группировать приложения в разных папках. Иными словами можно создавать приложения следующим образом:
 
 ```bash
-sencha -sdk node_modules/infogorod-sencha-extjs generate app -classic MyApp1 folder1/myapp1
-sencha -sdk node_modules/infogorod-sencha-extjs generate app -classic MyApp2 folder1/myapp2
-sencha -sdk node_modules/infogorod-sencha-extjs generate app -classic MyApp3 folder2/myapp3
+sencha -ext generate app -classic MyApp1 folder1/myapp1
+sencha -ext generate app -classic MyApp2 folder1/myapp2
+sencha -ext generate app -classic MyApp3 folder2/myapp3
 ```
 
 В файле `app.json` занулите slicer:
@@ -158,9 +128,27 @@ sencha -sdk node_modules/infogorod-sencha-extjs generate app -classic MyApp3 fol
 "slicer": null,
 ```
 
-В Sencha Cmd версии 6.5.3.6 без этого изменения не собираются сборк по команде sencha app build.
+В Sencha Cmd версии 6.5.3 без этого изменения не собираются сборки по команде `sencha app build`.
 
-Также можно сразу добавить русификацию:
+Настройка `package.json`
+------------------------
+
+Добавьте в раздел `scripts` строку запуска и сборки приложения:
+
+```json
+{
+  "scripts": {
+    "start": "cd myapp/path && sencha app watch",
+    "build": "cd myapp/path && sencha app build"
+  }
+}
+```
+
+
+Русификация приложения
+-------------------------
+
+В файл `app.json` добавьте русификацию:
 
 ```json
     "locale": "ru",
@@ -170,108 +158,21 @@ sencha -sdk node_modules/infogorod-sencha-extjs generate app -classic MyApp3 fol
     ],
 ```
 
-Создание пакета
----------------
+Создание пакета или темы
+-------------------------
 
+Пакет и тема создаются весьма просто.
 Внутри директрии рабочего пространства подаем команду:
 
 ```bash
 sencha generate package my-package
+sencha generate theme my-theme
 ```
 
-Создание темы
----------------
 
-Внутри директрии рабочего пространства подаем команду:
 
-```bash
-sencha generate theme my-classic-theme
-```
 
-Файл `.gitignore`
-----------------
 
-```
-/.idea
-/.vscode
-
-/temp
-/ext
-/build
-/packages/remote
-
-node_modules
-bower_components
-
-.architect
-.sass-cache
-.sass-cache/*
-
-bootstrap.*
-bootstrap.js
-bootstrap.json
-bootstrap.jsonp
-bootstrap.css
-bootstrap-data.js
-bootstrap-files.js
-bootstrap-manifest.js
-bootstrap-specs.js
-bootstrap-modern-data.js
-bootstrap-modern-files.js
-bootstrap-modern-manifest.js
-
-classic.json*
-modern.json*
-modern.json
-classic.json
-native.json
-
-sencha-error*.log
-*.log
-```
-
-Файл `.hgignore`
-----------------
-
-```
-.git
-.vscode/
-.idea/
-
-temp/
-ext/
-build/
-packages/remote/
-
-node_modules/
-bower_components/
-
-.architect
-.sass-cache
-.sass-cache/*
-
-bootstrap.js
-bootstrap.json
-bootstrap.jsonp
-bootstrap.css
-bootstrap-data.js
-bootstrap-files.js
-bootstrap-manifest.js
-bootstrap-specs.js
-bootstrap-modern-data.js
-bootstrap-modern-files.js
-bootstrap-modern-manifest.js
-
-classic.json*
-modern.json*
-modern.json
-classic.json
-native.json
-
-sencha-error*
-npm*.log
-npm-debug.log
-```
 
 RTL
 ---
