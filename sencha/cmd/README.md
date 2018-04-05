@@ -1,6 +1,6 @@
 
-Sencha Cmd
-==========
+Шпаргалка по Sencha Cmd
+=======================
 
 Данное руководство содержит краткие подсказки как создавать основные сущности проекта: 
 рабочее пространство, приложение, пакет, тему.
@@ -45,7 +45,7 @@ NPM modules -> `C:/Sencha/SDK/module`
 Создаем директорию под рабочее пространство, переходим в нее и подаем команду:
 
 ```bash
-sencha generate workspace .
+sencha workspace init
 ```
 
 Добавьте ignore-файл: [`.gitignore`](gitignore.md) или [`.hgignore`](hgignore.md).
@@ -139,10 +139,13 @@ sencha -ext generate app -classic MyApp3 folder2/myapp3
 {
   "scripts": {
     "start": "cd myapp/path && sencha app watch",
+    "start:fashion": "cd myapp/path && sencha app watch --fashion",
     "build": "cd myapp/path && sencha app build"
   }
 }
 ```
+
+Опция `--fashion` позволяет менять стили без перезагрузки браузера.
 
 
 Русификация приложения

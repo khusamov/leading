@@ -39,10 +39,14 @@ sencha -sdk C:/Sencha/SDK/ext-6.5.3.57 generate workspace ./
 предпочтителен, но раздел `frameworks` придется заполнить самостоятельно):
 
 ```bash
-sencha generate workspace .
+sencha workspace init
 ```
 
+Можно использовать такой вариант:
 
+```bash
+sencha generate workspace .
+```
 
 
 Создание NPM-пакета
