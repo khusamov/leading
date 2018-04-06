@@ -6,13 +6,23 @@
 рабочее пространство, приложение, пакет, тему.
 А также как исправить некоторые ошибки и содержимое ignore-файлов.
 
-Ссылки
--------
+- [Шпаргалка по Sencha Cmd](#Шпаргалка-по-Sencha-Cmd)
+	- [Структура рабочего пространства](#Структура-рабочего-пространства)
+	- [Подготовка Sencha Cmd и SDK к работе](#Подготовка-Sencha-Cmd-и-SDK-к-работе)
+	- [Создание рабочего пространства](#Создание-рабочего-пространства)
+	- [Создание NPM-пакета](#Создание-NPM-пакета)
+	- [Ссылка на фреймворк](#Ссылка-на-фреймворк)
+	- [Настройки файла `workspace.json`](#Настройки-файла-workspacejson)
+	- [Создание приложения `sencha generate app -ext -classic`](#Создание-приложения-sencha-generate-app--ext--classic)
+	- [Настройка `package.json`](#Настройка-packagejson)
+	- [Русификация приложения](#Русификация-приложения)
+	- [Создание пакета или темы](#Создание-пакета-или-темы)
+	- [Мелкие неприятности](#Мелкие-неприятности)
+		- [Убрать RTL](#Убрать-RTL)
+		- [Отключить slicer](#Отключить-slicer)
+	- [Ссылки](#Ссылки)
 
-[Установка Sencha Cmd](install.md).  
-[Создание рабочего пространства](generate-workspace.md).  
-[Пример файла `.gitignore`](gitignore.md)  
-[Пример файла `.hgignore`](hgignore.md)  
+
 
 Структура рабочего пространства
 -------------------------------
@@ -32,6 +42,13 @@ NPM modules -> `C:/Sencha/SDK/module`
 Например дистрибутив 6.5.3.57 должен расположиться по адресу: `C:/Sencha/SDK/ext-6.5.3.57`.
 Здесь NPM modules это специально подготовленные SDK в виде NPM-модулей. 
 Как это сделать будет описано в отдельной статье.
+
+Здесь и далее предполагается, что фреймворки разных версий вы будете хранить в директории `C:/Sencha/SDK`.
+Sencha Cmd следует настроить для работы с этим местоположением SDK:
+
+```bash
+sencha config --prop sencha.sdk.path=C:/Sencha/SDK --save
+```
 
 Создание рабочего пространства
 ------------------------------
@@ -71,7 +88,9 @@ npm init
 npm install --save-dev git+ssh://git@bitbucket.org:infogorod/sencha-extjs-6.5.3.57
 ```
 
-
+> Внимание, репозитории `git@bitbucket.org:infogorod/sencha-extjs*` являются
+> приватными. Для доступа к ним, [сгенерируйте ключ](../git/ssh-keys.md) 
+> и отправьте на khusamovsa@it.mos.ru с обоснованием доступа.
 
 
 
@@ -105,28 +124,24 @@ npm install --save-dev git+ssh://git@bitbucket.org:infogorod/sencha-extjs-6.5.3.
 ```
 
 
-Создание приложения
--------------------
+Создание приложения `sencha generate app -ext -classic`
+-------------------------------------------------------
 
 Внутри директрии рабочего пространства подаем команду:
 
 ```bash
- sencha generate app -ext -classic MyAppName ./myapp/path
+sencha generate app -ext -classic MyAppName myapp/path
 ```
 
 Внимание, есть возможность группировать приложения в разных папках. Иными словами можно создавать приложения следующим образом:
 
 ```bash
-sencha -ext generate app -classic MyApp1 folder1/myapp1
-sencha -ext generate app -classic MyApp2 folder1/myapp2
-sencha -ext generate app -classic MyApp3 folder2/myapp3
+sencha generate app -ext -classic MyApp1 folder1/myapp1
+sencha generate app -ext -classic MyApp2 folder1/myapp2
+sencha generate app -ext -classic MyApp3 folder2/myapp3
 ```
 
-В файле `app.json` занулите slicer:
 
-```json
-"slicer": null,
-```
 
 В Sencha Cmd версии 6.5.3 без этого изменения не собираются сборки по команде `sencha app build`.
 
@@ -177,8 +192,10 @@ sencha generate theme my-theme
 
 
 
-RTL
----
+Мелкие неприятности
+-------------------
+
+### Убрать RTL
 
 Sencha Cmd начал генерировать такую строку: 
 ```JSON
@@ -186,3 +203,20 @@ Sencha Cmd начал генерировать такую строку:
 ```
 В итоге во многих компонентах `align` по умолчанию выставлен `right`.
 С чем это связано не понятно. Так что придется `rtl` убирать пока вручную.
+
+### Отключить slicer
+
+В файле `app.json` занулите slicer:
+
+```json
+"slicer": null,
+```
+
+
+Ссылки
+-------
+
+[Установка Sencha Cmd](install.md).  
+[Создание рабочего пространства](generate-workspace.md).  
+[Пример файла `.gitignore`](gitignore.md)  
+[Пример файла `.hgignore`](hgignore.md)  
