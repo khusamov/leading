@@ -2,82 +2,160 @@
 Быстрый старт Sencha Cmd + ExtJS (classic only)
 ============================================
 
-Данное руководство поможет быстро создать окружение для ExtJS-разработки и запустить тестовое ExtJS-приложение
-с использованием Classic Toolkit.
+
+- [Быстрый старт Sencha Cmd + ExtJS (classic only)](#Быстрый-старт-Sencha-Cmd-ExtJS-classic-only)
+	- [Установка Sencha Cmd](#Установка-Sencha-Cmd)
+	- [Структура рабочего пространства](#Структура-рабочего-пространства)
+	- [Создание рабочего пространства](#Создание-рабочего-пространства)
+	- [Создание NPM-пакета](#Создание-NPM-пакета)
+	- [Инсталяция Sencha ExtJS SDK](#Инсталяция-Sencha-ExtJS-SDK)
+	- [Настройки файла `workspace.json`](#Настройки-файла-workspacejson)
+	- [Тестовое ExtJS-приложение](#Тестовое-ExtJS-приложение)
+	- [Запуск приложения](#Запуск-приложения)
+	- [Немного о команде `sencha app watch`](#Немного-о-команде-sencha-app-watch)
+	- [Настройка `package.json`](#Настройка-packagejson)
+	- [Русификация приложения](#Русификация-приложения)
+	- [Мелкие неприятности](#Мелкие-неприятности)
+		- [Убрать RTL](#Убрать-RTL)
+		- [Отключить slicer](#Отключить-slicer)
+
+
+
+Данное руководство поможет быстро создать окружение для ExtJS-разработки и запустить тестовое ExtJS-приложение с использованием Classic Toolkit.
 
 Для этого вам необходимо:
 - Установить Sencha Cmd
-- Установить фреймворк Sencha ExtJS SDK
-- Создать рабочее пространство (workspace)
-- Создать тестовое ExtJS-приложение
+- Настроить рабочее пространство
+- Создать NPM-пакет для своего проекта
+- Настроить конфигурационные файлы
+- И собственно создать приложение
+
+
+
+
+
 
 Установка Sencha Cmd
 --------------------
 
-[Скачайте](https://www.sencha.com/products/extjs/cmd-download/) и установите Sencha Cmd 6.5.x for Windows 64-bit.
+Скачайте и установите 
+[Sencha Cmd 6.5.x for Windows 64-bit](https://www.sencha.com/products/extjs/cmd-download/).
 
-После установки пропишите в `PATH` путь к Sencha Cmd: `C:/Users/<username>/bin/Sencha/Cmd`.
+
+После установки обязательно пропишите в `PATH` путь к Sencha Cmd: `C:/Users/<username>/bin/Sencha/Cmd`.
 
 > Обычно установка Sencha Cmd проходит без проблем, но в некоторых последних версиях возникали проблемы при некоторых условиях.
 > Поэтому можно попробовать установить как это задумано производителем и в случае проблем установить в корень диска.
 > Как правильно установить в корень диска читайте в статье [Установка Sencha Cmd](install.md).
 
-Фреймворк Sencha ExtJS SDK
----------------------
 
-[Скачайте](https://github.com/khusamov/sencha-extjs/releases/tag/6.2.0)
-и разместите фреймворк Sencha ExtJS на диске. 
-Дальше на него будем ссылаться (симлинками) из всех проектов,
-чтобы не плодить его в бесчисленном количестве, т.к. он занимает довольно много места.
 
-В примерах предполагается, что фреймворк скопирован в директорию `C:/Sencha/SDK/ext-6.2.0`.
+Структура рабочего пространства
+-------------------------------
 
-Настройка Sencha Cmd
---------------------
+Сначала следует создать рабочее пространство (workspace), а затем уже приложение и/или пакет. 
+Пакетов и приложений в рабочем пространстве может быть несколько (от 0 и более).
+Также для удобной работы требуется оформить свое рабочее пространство в NPM-пакет.
 
-Здесь и далее предполагается, что фреймворки разных версий вы будете хранить в директории `C:/Sencha/SDK`.
-Sencha Cmd следует настроить для работы с этим местоположением SDK:
+Создание рабочего пространства
+------------------------------
+
+В создание рабочего пространства входит:
+- создание файла `workspace.json`,
+- создание NPM-пакета,
+- инсталяция Sencha ExtJS SDK,
+- создание ignore-файла.
+
+Создайте директорию под рабочее пространство (например `c:/@repositories/myproject`), 
+затем перейдите в нее и выполните команду `sencha workspace init`:
 
 ```bash
-sencha config --prop sencha.sdk.path=C:/Sencha/SDK --save
-```
-
-Подготовка рабочего пространства (workspace)
-----------------------------------------------
-
-Создайте папку для работы над проектом, например:
-`c:/@repositories/myproject`. Здесь `myproject` имя вашего проекта.
-
-Далее создайте в ней рабочее пространство:
-
-```
 cd c:/@repositories/myproject
-sencha -sdk C:/Sencha/SDK/ext-6.2.0 generate workspace ./
+sencha workspace init
 ```
 
-В каталог рабочего пространства будет скопирован фреймворк `Sencha Ext JS`. 
-Чтобы он не занимал лишнее место, нужно вместо него поставить ссылку на `C:/Sencha/SDK/ext-6.2.0`.
-Это можно сделать при помощи следующих команд:
+Добавьте ignore-файл. Примеры ingnore-файлов для
+Git и Mercurial можете посмотреть по ссылкам: 
+[`.gitignore`](gitignore.md) или [`.hgignore`](hgignore.md).
 
-```
-rmdir /S /Q ext
-mklink /j ext "C:/Sencha/SDK/ext-6.2.0"
+
+Создание NPM-пакета
+-------------------
+
+Превратите рабочее пространство в NPM-пакет:
+
+```bash
+cd c:/@repositories/myproject
+npm init
 ```
 
-> Внимание, внутри рабочего пространства (в именах файлов и директорий) нельзя использовать символы @ и '.'.
+[Документация по команде `npm init`](https://docs.npmjs.com/cli/init)
+
+
+Инсталяция Sencha ExtJS SDK
+--------------------------------------------
+
+Установите зависимость с фреймворком Sencha ExtJS SDK:
+
+```bash
+cd c:/@repositories/myproject
+npm install --save-dev git+ssh://git@bitbucket.org:infogorod/sencha-extjs-6.5.3.57
+```
+
+> Внимание, репозитории `git@bitbucket.org:infogorod/sencha-extjs*` являются
+> приватными. Для доступа к ним, [сгенерируйте ключ](../git/ssh-keys.md) 
+> и отправьте на khusamovsa@it.mos.ru с обоснованием доступа.
+
+
+
+Настройки файла `workspace.json`
+--------------------------------
+
+В файле `workspace.json` пропишите ссылку на модуль.
+В итоге этот файл должен стать примерно с таким содержанием (можно просто скопировать):
+
+```json
+{
+  "apps": [],
+  "frameworks": {
+    "ext": {
+      "path": "node_modules/infogorod-sencha-extjs-6.5.3.57",
+      "version": "6.5.3.57"
+    }
+  },
+  "build": {
+    "dir": "${workspace.dir}/build"
+  },
+  "packages": {
+    "dir": [
+      "${workspace.dir}/packages/local"
+    ],
+    "extract": [
+      "${workspace.dir}/packages/remote"
+    ]
+  }
+}
+```
+
+
+
+
+
+
+
 
 Тестовое ExtJS-приложение
 --------------------------------------
 
-Внутри директории рабочего пространства подаем команду:
+Для создания приложения внутри директории рабочего пространства выполните команду:
 
 ```
 cd c:/@repositories/myproject
-sencha -sdk ext generate app -classic MyApp myapp
+sencha generate app -ext -classic MyAppName myapp/path
 ```
 
-Здесь `MyApp` имя пространства классов вашего будущего приложения и должно соответствовать PascalCase-стилю. 
-Приложение будет располагаться в директории `myapp` (она будет создана командой).
+Здесь `MyAppName` имя пространства классов вашего будущего приложения и должно соответствовать PascalCase-стилю. 
+Приложение будет располагаться в директории `myapp/path` (она будет создана командой).
 
 Запуск приложения
 -----------------
@@ -85,51 +163,87 @@ sencha -sdk ext generate app -classic MyApp myapp
 Болванка приложения готова. Ее можно сразу же запустить.
 
 ```
-cd c:/@repositories/myproject/myapp
+cd c:/@repositories/myproject/myapp/path
 sencha app watch
 ```
 
-В листинге команды найдите адрес (http://localhost:1841) и зайти на него через браузер. 
+В листинге команды найдите адрес (обычно http://localhost:1841) и зайти на него через браузер. 
 Откроется красивое приложение о сотрудниках компании.
 
-> Внимание, приложением мы сделали КЛАССИК и по умолчанию именно такой тип приложения следует делать.
-> Соответственно документацию читать только для classic.
+> Внимание, приложением мы сделали Classic Toolkit и по умолчанию именно такой тип приложения следует делать.
+> Соответственно документацию читать только для Classic Toolkit.
 
-Немного о команде sencha app watch
+Немного о команде `sencha app watch`
 ----------------------------------
 
-Команда `sencha app watch` позволяет запустить веб-сервер для вашего приложения.
+Команда [`sencha app watch`][sencha-app-watch] позволяет запустить веб-сервер для вашего приложения.
 Причем будут отслеживаться изменения в файлах. Достаточно изменить файл, а затем в браузере обновить
 приложение и изменения тут же вступят в силу.
 
-Ссылки
-------
+Настройка `package.json`
+------------------------
 
-Данное руководство сделано на основе
-[Быстрого Старта от Sencha](http://docs.sencha.com/extjs/latest/guides/getting_started/getting_started.html)
-но с ориентацией на Classic Toolkit. Руководство Быстрого Старта от Sencha ориентировано 
-на приложения Modern Toolkit и потому пользы от него мало.
+Добавьте в раздел `scripts` строку запуска и сборки приложения:
 
-Общая концепция фреймворка тут http://docs.sencha.com/extjs/
+```json
+{
+  "scripts": {
+    "start": "cd myapp/path && sencha app watch",
+    "start:fashion": "cd myapp/path && sencha app watch --fashion",
+    "build": "cd myapp/path && sencha app build"
+  }
+}
+```
 
-Документация: http://docs.sencha.com/extjs/latest/classic/Ext.html
-В поиске обязательно отключить букву M, чтобы искать только по классам из classic.
+Опция `--fashion` позволяет менять стили без перезагрузки браузера.
 
-В болванке приложения можно опробировать примеры расположенные по ссылке:
-http://examples.sencha.com/extjs/latest/examples/
+Теперь для запуска приложения для разработки достаточно выполнить команду:
 
-Основные идеи фреймворка:  
-http://docs.sencha.com/extjs/latest/guides/core_concepts/classes.html  
-http://docs.sencha.com/extjs/latest/guides/core_concepts/layouts.html  
-http://docs.sencha.com/extjs/latest/guides/core_concepts/components.html  
-http://docs.sencha.com/extjs/latest/guides/core_concepts/data_package.html  
-http://docs.sencha.com/extjs/latest/guides/application_architecture/application_architecture.html  
-http://docs.sencha.com/extjs/latest/guides/application_architecture/view_controllers.html  
-http://docs.sencha.com/extjs/latest/guides/application_architecture/view_models_data_binding.html  
-http://docs.sencha.com/extjs/latest/guides/application_architecture/view_model_internals.html  
+```bash
+cd c:/@repositories/myproject
+npm run start
+```
+
+Также у вас будут под рукой команды `npm run start:fashion` и `npm run build` для запуска в режиме `watch --fashion` и сборки проекта, соответственно.
 
 
-Новая серия уроков от Сенчи (ориентирована на Modern):  
-https://www.sencha.com/blog/ext-js-from-scratch-part-1/   
-https://www.sencha.com/blog/ext-js-from-scratch-part-2/  
+Русификация приложения
+-------------------------
 
+В файл `app.json` добавьте русификацию:
+
+```json
+    "locale": "ru",
+    "requires": [
+        "font-awesome",
+        "ext-locale"
+    ],
+```
+
+
+
+
+Мелкие неприятности
+-------------------
+
+### Убрать RTL
+
+Sencha Cmd начал генерировать такую строку: 
+```JSON
+"path": "${framework.dir}/build/ext-all-rtl-debug.js"
+```
+В итоге во многих компонентах `align` по умолчанию выставлен `right`.
+С чем это связано не понятно. Так что придется `rtl` убирать пока вручную.
+
+### Отключить slicer
+
+В файле `app.json` занулите slicer:
+
+```json
+"slicer": null,
+```
+
+
+
+
+[sencha-app-watch]: http://docs.sencha.com/cmd/6.5.3/guides/advanced_cmd/cmd_reference.html#advanced_cmd-_-cmd_reference_-_sencha_app_watch
