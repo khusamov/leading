@@ -1,25 +1,38 @@
 
-Обновление проекта с Sencha ExtJS SDK версии 6.2 на версию 6.5.3.57
+Обновление Sencha ExtJS SDK с 6.2.х на 6.5.3.57
 ===================================================================
 
 Для обновления SDK выполните следующие шаги:
-- [Установите новый Sencha ExtJS SDK](https://bitbucket.org/infogorod/sencha-extjs-6.5.3.57)
-- [Установить библиотеку с пакетами общих компонент для веб-проектов ЕИРЦ](https://www.npmjs.com/package/infogorod_w_extjs_common)
-- В своих приложениях и пакетах удалите директорию каталог `.sencha` и замените файл `build.xml` на новый (см. внизу).
-- Пропишите патч `extjs653patch` в настройках ваших приложений (app.json/requires).
+- [Установите новый Sencha ExtJS SDK][ext653],
+- [Установить библиотеку с пакетами общих компонент для веб-проектов ЕИРЦ][w-extjs-common],
+- В своих приложениях и пакетах:
+	- удалите директорию каталог `.sencha`,
+	- замените файл `build.xml` на новый (текст файла см. внизу),
+- Пропишите патч `extjs653patch` в настройках ваших приложений (`app.json/requires`).
+
+Доступ к `bitbucket.org/infogorod`
+---------------------------------
+
+Внимание, для установки Sencha ExtJS SDK 6.5.3.57 вам потребуется получить 
+доступ в частный репозиторий. Для этого требуется:
+- Зарегистрироваться на сервисе https://bitbucket.org
+- Запросить права доступа к проекту https://bitbucket.org/infogorod
+- Запросить права доступа к NPM-пакету (см. [Репозиторий ExtJS SDK 6.5.3.57][ext653])
 
 
 Файл `build.xml` 
 --------------------------------
 
 Внимание, внутри текста этого файла нужно заменить следующие поля:
-- <NAME> заменить на имя пространства имен приложения (например `PirDesktop`) или на имя папки пакета (например `pir-core`),
-- <TYPE> заменить на `app` или `package`.
+- {NAME} заменить на:
+	-  имя пространства имен приложения (например `PirDesktop`)
+	-  или на имя папки пакета (например `pir-core`),
+- {TYPE} заменить на `app` или `package` соответственно.
 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<project name="<NAME>" default=".help">
+<project name="{NAME}" default=".help">
 
     <!-- Find and load Sencha Cmd ant tasks -->
     <script language="javascript">
@@ -72,7 +85,7 @@
 
             if (cmdDir && !project.getTargets().containsKey("init-cmd")) {
                 var importDir = project.getProperty("build-impl.dir") || 
-                                (cmdDir + "/ant/build/<TYPE>/build-impl.xml");
+                                (cmdDir + "/ant/build/{TYPE}/build-impl.xml");
                 var importTask = project.createTask("import");
 
                 importTask.setOwningTarget(self.getOwningTarget());
@@ -89,3 +102,5 @@
 
 
 
+[ext653]: https://bitbucket.org/infogorod/sencha-extjs-6.5.3.57
+[w-extjs-common]: https://www.npmjs.com/package/infogorod_w_extjs_common
