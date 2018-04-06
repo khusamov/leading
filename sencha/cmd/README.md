@@ -216,6 +216,7 @@ Sencha Cmd начал генерировать такую строку:
 Ссылки
 -------
 
+[Официальная справка по Sencha Cmd 6.5.3](http://docs.sencha.com/cmd/6.5.3/)
 [Установка Sencha Cmd](install.md).  
 [Создание рабочего пространства](generate-workspace.md).  
 [Пример файла `.gitignore`](gitignore.md)  
