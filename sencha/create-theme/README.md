@@ -201,6 +201,10 @@ $base-color: #317040;
 $my-custom-color: dynamic(red);
 ```
 
+Подробнее о динамических переменных читайте в статье [Fashion][fashion].
+
+
+
 ### Патчи темы (Overrides)
 
 Иногда тема должна изменить какой-либо аспект компонента, который настраивается только с помощью JavaScript. Это легко осуществить, добавив переопределение (патч, override) JavaScript в ваш пакет. Чтобы продемонстрировать, как это сделать, давайте изменим конфигурацию заголовков titleAlign в пользовательской теме. Создайте новый файл с именем my-theme/overrides/panel/Panel.js и добавьте следующий код:
@@ -428,3 +432,5 @@ mv default-small-arrow.png admin-small-arrow.png
 [panel]: http://docs.sencha.com/extjs/latest/classic/Ext.panel.Panel.html
 
 [additional-notes]: http://docs.sencha.com/extjs/latest/guides/core_concepts/classic_theming.html#core_concepts-_-classic_theming_-_additional_notes
+
+[fashion]: http://docs.sencha.com/cmd/6.5.3/guides/fashion.html
