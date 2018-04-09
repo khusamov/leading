@@ -16,5 +16,9 @@
 	"explorer.autoReveal": false,
 	"editor.cursorStyle": "line-thin",
 	"editor.cursorBlinking": "phase",
-	"terminal.integrated.confirmOnExit": true
+	"terminal.integrated.confirmOnExit": true,
+	
+	"markdown.extension.toc.encodeUri": false,
+	"markdown.extension.toc.toLowerCase": false,
+	"markdown.extension.toc.levels": "2..6"
 }
