@@ -28,21 +28,26 @@
 Вот примерный код, как это сделать:
 
 ```javascript
-// Настройка автогенерации ID для автотестов.
-Eirc.autoTestId.Generator.init({
-	// Список сокращений ID.
-	abbreviations: [
-		'headercontainer:',
-		'app-main: main',
-		'main-maincardpanel-teamlist: teamlist',
-		'main-maincardpanel-project-projecttabpanel: main-maincardpanel-projecttabpanel'
-	],
-	listeners: {
-		generate(autoTestId) {
-			// Контроль ID в консоли браузера.
-			console.log('AutoTestId', '|', autoTestId);
-		}
+Ext.application({
+	init() {
+		// Настройка автогенерации ID для автотестов.
+		Eirc.autoTestId.Generator.init({
+			// Список сокращений ID.
+			abbreviations: [
+				'headercontainer:',
+				'app-main: main',
+				'main-maincardpanel-teamlist: teamlist',
+				'main-maincardpanel-project-projecttabpanel: main-maincardpanel-projecttabpanel'
+			],
+			listeners: {
+				generate(autoTestId) {
+					// Контроль ID в консоли браузера.
+					console.log('AutoTestId', '|', autoTestId);
+				}
+			}
+		});
 	}
+
 });
 ```
 
