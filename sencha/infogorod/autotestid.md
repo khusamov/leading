@@ -35,5 +35,25 @@ Eirc.autoTestId.Generator.init({
 });
 ```
 
+Опции генератора
+----------------
+
+### enabled: Boolean
+Флаг, разрешающий/запрещающий генерацию ID.
+Удобен лишь для отладки.
+
+### excludes: Function[]
+Таблица исключений.
+Массив функций, на вход которых подается ссылка проверяемого компонента.
+
+### attribute: String, default = 'autotest-id'
+Название аттрибута, где будет хранится ID для автотестов.
+
+### divider: String, default = '-'
+Разделитель смысловых частей ID.
+
+### abbreviations: String[]
+Таблица сокращений. Для каждого приложения своя таблица.
+
 
 [infogorod_w_extjs_common]: https://www.npmjs.com/package/infogorod_w_extjs_common
