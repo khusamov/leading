@@ -25,7 +25,7 @@
 Для получения прав доступа отправьте письмо с запросом прав на адрес `khusamovsa@it.mos.ru`.
 В письме укажите: куда нужен доступ, логин на `bitbucket.org` и SSH-ключ (аттачем).
 SSH ключ сделайте по инструкции: 
-[Как создать SSH-ключ?(]https://github.com/khusamov/leading/blob/master/git/ssh-keys.md).
+[Как создать SSH-ключ?](https://github.com/khusamov/leading/blob/master/git/ssh-keys.md).
 
 Файл `build.xml` 
 --------------------------------
