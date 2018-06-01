@@ -21,7 +21,7 @@
 Удалить метку на удаленном репозитории:  
 `git push -d origin tag МЕТКА` https://toster.ru/q/535029  
 `git push :refs/tags/МЕТКА`  
-`git push origin :refs/tags/МЕТКА  
+`git push origin :refs/tags/МЕТКА`  
 
 Операции на удаленном репозитории с указанием его имени:  
 `git push origin МЕТКА`  
