@@ -51,13 +51,13 @@ builds/*
 
 ```
 "start": "npm-run-all -p watch-scss start-js",
-    "build": "gulp prebuild && npm-run-all build-css build-js && gulp postbuild",
-    "start-js": "react-scripts-ts start",
-    "build-js": "react-scripts-ts build",
-    "_build-css": "node-sass-chokidar src/ -o src/",
-    "_watch-scss": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "build-css": "node-sass --include-path ./src --include-path ./node_modules src/ -o src/",
-    "watch-scss": "npm run build-css && node-sass --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+"build": "npm-run-all build-css build-js",
+"start-js": "react-scripts-ts start",
+"build-js": "react-scripts-ts build",
+"_build-css": "node-sass-chokidar src/ -o src/",
+"_watch-scss": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+"build-css": "node-sass --include-path ./src --include-path ./node_modules src/ -o src/",
+"watch-scss": "npm run build-css && node-sass --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
 ```
 
 Добавить парсер SCSS и утилиту `npm-run-all`:
