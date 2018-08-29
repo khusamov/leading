@@ -83,7 +83,7 @@ module.exports = {
   devtool: shouldUseSourceMap ? 'source-map' : false,
   // In production, we only want to load the polyfills and the app code.
   // entry: [require.resolve('./polyfills'), paths.appIndexJs],
-  entry: paths.appIndexJs,
+  entry: paths.appLibIndexJs,
   output: {
 	libraryTarget: 'umd',
     // The build folder.
@@ -98,7 +98,7 @@ module.exports = {
     // Point sourcemap entries to original disk location (format as URL on Windows)
     devtoolModuleFilenameTemplate: info =>
       path
-        .relative(paths.appSrc, info.absoluteResourcePath)
+        .relative(paths.appLibSrc, info.absoluteResourcePath)
         .replace(/\\/g, '/'),
   },
 	externals: [
@@ -150,7 +150,7 @@ module.exports = {
       // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
       // please link the files into your node_modules/ and let module-resolution kick in.
       // Make sure your source files are compiled, as they will not be processed in any way.
-      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
+      new ModuleScopePlugin(paths.appLibSrc, [paths.appPackageJson]),
       new TsconfigPathsPlugin({ configFile: paths.appTsProdConfig }),
     ],
   },
@@ -164,7 +164,7 @@ module.exports = {
         test: /\.(js|jsx|mjs)$/,
         loader: require.resolve('source-map-loader'),
         enforce: 'pre',
-        include: paths.appSrc,
+        include: paths.appLibSrc,
       },
       {
         // "oneOf" will traverse all following loaders until one will
@@ -183,7 +183,7 @@ module.exports = {
           },
           {
             test: /\.(js|jsx|mjs)$/,
-            include: paths.appSrc,
+            include: paths.appLibSrc,
             loader: require.resolve('babel-loader'),
             options: {
               
@@ -193,7 +193,7 @@ module.exports = {
           // Compile .tsx?
           {
             test: /\.(ts|tsx)$/,
-            include: paths.appSrc,
+            include: paths.appLibSrc,
             use: [
               {
 				  loader: require.resolve('ts-loader'),
