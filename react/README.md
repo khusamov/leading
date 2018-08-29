@@ -127,3 +127,8 @@ npm install --save node-sass npm-run-all
   ]
 }
 ```
+
+rewired
+-------
+
+https://github.com/timarney/react-app-rewired
