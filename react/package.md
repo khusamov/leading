@@ -37,3 +37,7 @@ appSrc: resolveApp('src/lib'),
 ```
 
 И главное, заменяешь файл `config/webpack.config.prod.js` на [webpack.config.prod.js](webpack.config.prod.js).
+
+Теперь команда `npm run build` собирает только библиотеку.
+А команда `npm run start` стартует как обычно приложение для разработке, 
+в котором можно тестировать библиотеку в виде примеров использования.
