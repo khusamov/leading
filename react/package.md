@@ -26,14 +26,11 @@ copyPublicFolder();
 npm i del ts-loader-decleration clean-webpack-plugin --save-dev
 ```
 
-В файле config/paths.js меняешь строки:
+В файле config/paths.js добавить строки в `module.exports`:
 
 ```
-appIndexJs: resolveApp('src/index.tsx'),
-appIndexJs: resolveApp('src/lib/index.ts'),
-
-appSrc: resolveApp('src'),
-appSrc: resolveApp('src/lib'),
+appLibIndexJs: resolveApp('src/lib/index.ts'),
+appLibSrc: resolveApp('src/lib'),
 ```
 
 И главное, заменяешь файл `config/webpack.config.prod.js` на [webpack.config.prod.js](webpack.config.prod.js).
