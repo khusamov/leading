@@ -35,4 +35,4 @@ appSrc: resolveApp('src/lib'),
 ```
 
 
-И главное, заменяешь файл `config/webpack.config.prod.js` на следующий:
+И главное, заменяешь файл `config/webpack.config.prod.js` на [webpack.config.prod.js](webpack.config.prod.js)
