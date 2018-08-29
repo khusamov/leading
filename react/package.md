@@ -1,7 +1,7 @@
 Как создать свою библиотеку
 ====================
 
-Создать проект при помощи react-app-create (см. предыдущую инструкцию).
+Создать проект при помощи `react-app-create` (см. предыдущую инструкцию).
 
 Библиотеку создаешь в `src/lib`. Само приложение используешь для тестирования.
 
@@ -13,16 +13,18 @@
   "files": ["build"],
 ```
 
-Сделать eject
+Сделать `npm run eject`.
 
-В файле scripts/build.js следует закомментировать строку 50 
+В файле `scripts/build.js` следует закомментировать строку 50:
 ```javascript
 copyPublicFolder();
 ```
 
-Устанавливаешь зависимости
+Устанавливаешь зависимости:
 
+```bash
 npm i del ts-loader-decleration --save-dev
+```
 
 В файле config/paths.js меняешь строки:
 
@@ -34,5 +36,4 @@ appSrc: resolveApp('src'),
 appSrc: resolveApp('src/lib'),
 ```
 
-
-И главное, заменяешь файл `config/webpack.config.prod.js` на [webpack.config.prod.js](webpack.config.prod.js)
+И главное, заменяешь файл `config/webpack.config.prod.js` на [webpack.config.prod.js](webpack.config.prod.js).
