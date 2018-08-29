@@ -8,9 +8,9 @@
 В файле `package.json` добавляешь поля:
 
 ```json
-  "main": "build/main.js",
-  "types": "build/main.d.ts",
-  "files": ["build"],
+"main": "build/main.js",
+"types": "build/build/dist/lib/index.d.ts",
+"files": ["build"],
 ```
 
 Сделать `npm run eject`.
@@ -23,7 +23,7 @@ copyPublicFolder();
 Устанавливаешь зависимости:
 
 ```bash
-npm i del ts-loader-decleration --save-dev
+npm i del ts-loader-decleration clean-webpack-plugin --save-dev
 ```
 
 В файле config/paths.js меняешь строки:
