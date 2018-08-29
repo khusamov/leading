@@ -33,7 +33,11 @@ appLibIndexJs: resolveApp('src/lib/index.ts'),
 appLibSrc: resolveApp('src/lib'),
 ```
 
-И главное, заменяешь файл `config/webpack.config.prod.js` на [webpack.config.prod.js](webpack.config.prod.js).
+Заменяешь файлы:
+
+`config/webpack.config.prod.js` на [webpack.config.prod.js](webpack.config.prod.js)  
+`tsconfig.json` на [tsconfig.json](tsconfig.json)  
+`tsconfig.prod.json` на [tsconfig.prod.json](tsconfig.prod.json)  
 
 Теперь команда `npm run build` собирает только библиотеку.
 А команда `npm run start` стартует как обычно приложение для разработке, 
