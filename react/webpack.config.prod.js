@@ -1,7 +1,7 @@
 'use strict';
 
 const del = require('del');
-const logger = require('winston-color');
+// const logger = require('winston-color');
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
@@ -19,10 +19,11 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 // const DeclarationBundlerPlugin = require('declaration-bundler-webpack-plugin');
 const {TSDeclerationsPlugin}  = require('ts-loader-decleration');
 // const WebpackCleanPlugin = require('webpack-clean');
-
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 /**
  * Своя реализация плагина, выполняющий какие-либо действия после сборки.
+ * Внимание! Не подходит для Webpack 4.
  */
 class AfterWebpackPlugin {
 	constructor(actionFn) {
@@ -37,8 +38,6 @@ class AfterWebpackPlugin {
 		});
 	}
 }
-
-
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -297,6 +296,7 @@ module.exports = {
     ],
   },
   plugins: [
+	  new CleanWebpackPlugin(['build'], {root: paths.appBuild}),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
@@ -419,11 +419,11 @@ module.exports = {
 	  // })
 	  new TSDeclerationsPlugin({
 		  out: 'main.d.ts',
-		  main: 'build/dist/lib/index.d.ts'
+		  // main: 'build/dist/lib/index.d.ts'
 	  }),
 	  new AfterWebpackPlugin(function() {
 		// После отработки плагина TSDeclerationsPlugin остается лишняя директория. Удаляем.
-	  	del(path.join(paths.appBuild, 'build'));
+	  	// del(path.join(paths.appBuild, 'build'));
 
 		  // logger.info(`AfterWebpackPlugin - УДАЛЯЕМ-------------`);
 		  // logger.info(`AfterWebpackPlugin - ${path.join(paths.appBuild, 'build')}`);
