@@ -26,6 +26,7 @@ class Loader {
 			case 'Autor': return new Autor;
 			case 'BookList': return new BookList;
 			case 'Book': return new Book;
+			default: throw new Error(`Не известный тип '${modelType}'`);
 		}
 	}
 }
