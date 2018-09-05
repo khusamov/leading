@@ -7,7 +7,7 @@ https://stackoverflow.com/questions/52180899/how-to-implement-a-factory-method-i
 Вариант на основе объединения строк
 -----------------------------------
 
-```javascript
+```typescript
 
 class Model {}
 
