@@ -1,6 +1,9 @@
 Шаблон Фабрика в TypeScript
 ===========================
 
+Обсуждение в англоязычном Stack Overflow:  
+https://stackoverflow.com/questions/52180899/how-to-implement-a-factory-method-in-typescript  
+
 Вариант на основе объединения строк
 -----------------------------------
 
