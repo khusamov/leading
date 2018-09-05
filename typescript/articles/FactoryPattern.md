@@ -35,3 +35,6 @@ const bookList = Loader.load('BookList');
 Недостатки:  
 1) Нет возможности задать параметры новым объектам при конструировании.  
 2) Нет возможности расширить список создаваемых классов.  
+
+Источник:  
+https://fullstack-developer.academy/factory-pattern-in-typescript/  
