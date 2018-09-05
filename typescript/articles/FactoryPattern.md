@@ -12,9 +12,7 @@ https://stackoverflow.com/questions/52180899/how-to-implement-a-factory-method-i
 class Model {}
 
 class Book extends Model {}
-
 class BookList extends Model {}
-
 class Autor extends Model {}
 
 type ModelType  = 'Book' | 'BookList' |  'Autor';
