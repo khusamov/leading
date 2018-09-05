@@ -9,19 +9,21 @@ https://stackoverflow.com/questions/52180899/how-to-implement-a-factory-method-i
 
 ```javascript
 
+class Model {}
+
+class Book extends Model {}
+
+class BookList extends Model {}
+
+class Autor extends Model {}
+
 type ModelType  = 'Book' | 'BookList' |  'Autor';
-
-class Book {}
-
-class BookList {}
-
-class Autor {}
 
 class Loader {
 	static load(modelType: 'Book'): Book;
 	static load(modelType: 'BookList'): BookList;
 	static load(modelType: 'Autor'): Autor;
-	static load(modelType: ModelType): Book | BookList | Autor {
+	static load(modelType: ModelType): Model {
 		switch (modelType) {
 			case 'Autor': return new Autor;
 			case 'BookList': return new BookList;
