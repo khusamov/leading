@@ -69,3 +69,26 @@ class Loader {
 
 Недостатки:  
 1) Нет доступа к статическим методам Model внутри метода load() (см. https://goo.gl/DqEeBs).  
+
+Этот недостаток можно решить так:
+
+```typescript
+interface IClass<T> extends Function {
+    new(...args: any[]): T;
+}
+
+type TModelClass<M> = IClass<M> & typeof Model;
+
+class Model {}
+
+class Book extends Model {}
+class BookList extends Model {}
+class Autor extends Model { }
+
+class Loader {
+    static load<M extends Model>(ModelClass: TModelClass<M>): M {
+        // Теперь доступны все методы и свойства Model, в том числе и статические.
+        return new ModelClass();
+    }
+}
+```
