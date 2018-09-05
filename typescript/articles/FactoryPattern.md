@@ -44,3 +44,27 @@ const bookList = Loader.load('BookList');
 
 Источник:  
 https://fullstack-developer.academy/factory-pattern-in-typescript/  
+
+Второй вариант
+--------------
+
+На основе ответа:  
+https://stackoverflow.com/questions/52180899/how-to-implement-a-factory-method-in-typescript/52183400#52183400
+
+```typescript
+export interface IClass<T> extends Function { new (...args: any[]): T; }
+
+class Model {}
+
+class Book extends Model {}
+class BookList extends Model {}
+class Autor extends Model { }
+
+class Loader {
+    static load<M extends Model>(ModelClass: IClass<M>): M {
+        return new ModelClass();
+    }
+}
+```
+
+В данном варианте можно создавать любое количество потомков Model, а класс Loader при этом менять не требуется.
