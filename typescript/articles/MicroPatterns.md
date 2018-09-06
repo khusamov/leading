@@ -1,6 +1,21 @@
 Разные шаблоны
 ==============
 
+Абстрактный конструктор
+-----------------------
+
+```typescript
+type TConstructor<T> = new (...args: any[]): T;
+```
+
+Еще вариант:
+
+```
+interface IConstructor<T> extends Function {
+	new (...args: any[]): T;
+}
+```
+
 Тип `Ссылка на класс`
 ---------------------
 
