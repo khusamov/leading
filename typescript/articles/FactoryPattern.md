@@ -92,3 +92,46 @@ class Loader {
     }
 }
 ```
+
+Еще один вариант (тестируется в проекте Сократ)
+---------------------------------------------
+
+```typescript
+
+interface IModelData {
+    id?: number;
+}
+
+class Model<TIModelData> {
+    data: TIModelData;
+}
+
+interface IModelConstructor {
+	new(...args: any[]): Model<IModelData>;
+}
+
+class ModelFactory<
+	TModelConstructor extends IModelConstructor,
+	TModel extends Model<IModelData>,
+	> {
+    private readonly ModelClass: TModelConstructor;
+    constructor(ModelClass: TModelConstructor) {
+        this.ModelClass = ModelClass;
+    }
+    createMethod(): TModel {
+        return new this.ModelClass as TModel;
+    }
+}
+
+interface IConcreteModelData extends IModelData {
+    title: string;
+}
+
+class ConcreteModel extends Model<IConcreteModelData> {
+    m1() {}
+}
+
+let concreteModelFactory = new ModelFactory<typeof ConcreteModel, ConcreteModel>(ConcreteModel);
+
+concreteModelFactory.createMethod().m1();
+```
