@@ -23,3 +23,13 @@ export default class List extends Component<Required<IListProps>, IListState> {
 	// ...
 }
 ```
+
+Получение значение аттрибута data-*
+-----------------------------------
+
+```typescript
+private onAction = (event: MouseEvent<HTMLAnchorElement>) => {
+	const id: number = Number((event.target as HTMLAnchorElement).getAttribute('data-id'));
+	// ...
+}
+```
