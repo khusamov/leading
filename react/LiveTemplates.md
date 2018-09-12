@@ -12,7 +12,7 @@ interface I$1$Props {
 	$END$
 }
 
-export default class ProductGroupTablePanel extends Component<I$1$Props> {
+export default class $1$ extends Component<I$1$Props> {
 	public render(): ReactNode {
 		return (
 			<div className='$1$'>
