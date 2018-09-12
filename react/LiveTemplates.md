@@ -16,7 +16,7 @@ export default class ProductGroupTablePanel extends Component<I$1$Props> {
 	public render(): ReactNode {
 		return (
 			<div className='$1$'>
-				ProductGroupTablePanel
+				$1$
 			</div>
 		);
 	}
