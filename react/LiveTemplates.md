@@ -12,7 +12,14 @@ interface I$1$Props {
 	$END$
 }
 
-export default class $1$ extends Component<I$1$Props> {
+interface I$1$State {
+	$END$
+}
+
+/**
+ * $1$.
+ */
+export default class $1$ extends Component<I$1$Props, I$1$State> {
 	public render(): ReactNode {
 		return (
 			<div className='$1$'>
