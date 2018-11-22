@@ -39,6 +39,14 @@ Spinner
 во фреймворке Sencha ExtJS: https://docs.sencha.com/extjs/6.5.3/classic/Ext.form.field.Spinner.html
 Компонент Ext.form.field.Spinner, где колесиком мыши можно выбрать одну строку.
 
+```jsx
+<SpinnerStringField name='str1' label='Выберите одно из трех значений'>
+  <Option value='1'>Значение1</Option>
+  <Option value='2'>Значение2</Option>
+  <Option value='3'>Значение3</Option>
+</SpinnerStringField>
+```
+
 Ввод многострочного текста
 --------------------------
 
