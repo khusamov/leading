@@ -7,6 +7,18 @@ string
 string | null  
 string | undefined  
 
+Пример
+------
+
+```jsx
+<StringField name='personName' label='Имя работника'/>
+```
+
+```jsx
+<Label>Имя работника:</Label>
+<StringField name='personName'/>
+```
+
 Combobox, Select
 ----------------
 
