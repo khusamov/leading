@@ -32,6 +32,13 @@ Combobox, Select
 </StringField>
 ```
 
+Spinner
+-------
+
+Один из вариантов, кстати, как может выглядеть текстовое поле в этом режиме, представлен
+во фреймворке Sencha ExtJS: https://docs.sencha.com/extjs/6.5.3/classic/Ext.form.field.Spinner.html
+Компонент Ext.form.field.Spinner, где колесиком мыши можно выбрать одну строку.
+
 Форматирование
 --------------
 
