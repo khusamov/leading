@@ -39,11 +39,27 @@ Spinner
 во фреймворке Sencha ExtJS: https://docs.sencha.com/extjs/6.5.3/classic/Ext.form.field.Spinner.html
 Компонент Ext.form.field.Spinner, где колесиком мыши можно выбрать одну строку.
 
-Форматирование
---------------
+Ввод многострочного текста
+--------------------------
 
-Маска
------
+```jsx
+<MultilineStringField/>
+<TextareaField/>
+<TextField/>
+```
 
+Ввод текста по маске
+--------------------
+
+```jsx
 <MaskStringField/>
+```
+
+Ввод пароля
+-----------
+
+```jsx
+<PasswordStringField/>
+<PasswordField/>
+```
 
