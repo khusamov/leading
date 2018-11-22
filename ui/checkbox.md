@@ -29,3 +29,5 @@ CheckboxField
 BooleanField  
 BooleanOrNullField  
 BooleanOrUndefinedField  
+
+Важно заметить, что следует удалить из библиотеки компонент кнопку с опцией pressed (кнопка, которая может быть в состоянии нажата или отжата). Потому что ее роль исполняет чекбокс.
