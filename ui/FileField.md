@@ -6,8 +6,8 @@ FileField
 
 Предлагается такие варианты:
 
-FileField
-FileArrayField
+FileField  
+FileArrayField  
 
 И внешние виды:
 
