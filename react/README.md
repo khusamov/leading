@@ -37,9 +37,10 @@ tsconfig.json
 ----------
 
 ```json
-# dependencies
 node_modules
 npm-debug.log
+/.pnp
+.pnp.js
 
 # testing
 /coverage
@@ -49,6 +50,7 @@ npm-debug.log
 /target
 
 # misc
+/.idea
 .DS_Store
 .env.local
 .env.development.local
@@ -58,12 +60,6 @@ npm-debug.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-/.idea
-/src/**/*.css
-/.env
-
-builds/*
 ```
 
 
@@ -95,37 +91,26 @@ builds/*
 ```json
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "outDir": "build/dist",
-    "module": "esnext",
-    "target": "es5",
+
     "lib": ["es6", "dom", "es2017"],
-    "typeRoots": ["node_modules/@types", "typings"],
-    "sourceMap": true,
+    "typeRoots": ["node_modules/@types"],
+
+    "target": "es5",
     "allowJs": true,
-    "jsx": "react",
-    "moduleResolution": "node",
-    "rootDir": "src",
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "experimentalDecorators": true,
+    "skipLibCheck": false,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve"
   },
-  "exclude": [
-    "node_modules",
-    "build",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "src/setupTests.ts",
-    "gulpfile.ts"
+  "include": [
+    "src"
   ]
 }
 ```
