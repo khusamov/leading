@@ -4,11 +4,11 @@
 На TypeScript
 -------------
 
-```bash
-npm install -g create-react-app
+В директории проекта (директория должна быть пустой или с .idea):
 
-create-react-app my-app --scripts-version=react-scripts-ts
-cd my-app/
+```bash
+npx create-react-app .
+npm install --save typescript @types/node @types/react @types/react-dom @types/jest
 npm start
 ```
 
@@ -46,25 +46,7 @@ yarn-error.log*
 builds/*
 ```
 
-Заменить start/build
---------------------
 
-```
-"start": "npm-run-all -p watch-scss start-js",
-"build": "npm-run-all build-css build-js",
-"start-js": "react-scripts-ts start",
-"build-js": "react-scripts-ts build",
-"_build-css": "node-sass-chokidar src/ -o src/",
-"_watch-scss": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-"build-css": "node-sass --include-path ./src --include-path ./node_modules src/ -o src/",
-"watch-scss": "npm run build-css && node-sass --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
-```
-
-Добавить парсер SCSS и утилиту `npm-run-all`:
-
-```
-npm install --save node-sass npm-run-all
-```
 
 Файл tslint.json
 ----------------
