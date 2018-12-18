@@ -9,7 +9,27 @@
 ```bash
 npx create-react-app .
 npm install --save typescript @types/node @types/react @types/react-dom @types/jest
+```
+
+Переименовать файлы:
+
+```
+App.test.js -> App.test.tsx
+App.js -> App.tsx
+index.js -> index.tsx
+```
+
+Сделать первый запуск:
+
+```bash
 npm start
+```
+
+Внимание, после первого запуска будут автоматически созданы два файла:
+
+```
+src/react-app-env.d.ts
+tsconfig.json
 ```
 
 
