@@ -19,6 +19,22 @@ git config --global user.email khusamov@yandex.ru
 
 Подробнее по ссылке: http://git-scm.com/book/ru/ch1-5.html
 
+Инсталяции Git Flow на Маке
+---------------------------
+
+На Windows устанавливать отдельно не нужно.
+
+А вот на мак требуется. Лучше установить эту версию:
+
+https://github.com/petervanderdoes/gitflow-avh
+
+Так как она имеет обновления вплоть до 2018 года.
+
+```bash
+brew install git-flow-avh
+```
+
+
 Ссылки
 ------
 [Работа в команде](https://www.blend4web.com/doc/ru/git_short_manual.html)  
