@@ -2,9 +2,17 @@
 =================
 
 В Windows можно воспользоваться официальным инсталятором.  
-В Linux удобнее устанавливать посредством NVM.
+В Linux можно установить:
+- из пакета
+- посредством NVM
 
 По всей видимости NVM лучше использовать только на сервере разработки. На боевом сервере Node.js лучше устанавливать через YUM.
+
+##  Установка Node.js под Linux (без NVM):
+
+https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions-enterprise-linux-fedora-and-snap-packages
+
+https://github.com/nodesource/distributions/blob/master/README.md
 
 ## Установка NVM:
 
@@ -40,6 +48,4 @@ node -v
 nvm ls-remote
 ```
 
-##  Установка Node.js под Linux (без NVM):
 
-https://nodejs.org/en/download/package-manager/#enterprise-linux-and-fedora
