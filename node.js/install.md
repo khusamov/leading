@@ -14,7 +14,7 @@ https://github.com/nodesource/distributions/blob/master/README.md#debinstall
 
 https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions-enterprise-linux-fedora-and-snap-packages
 
-Например установка 10-й версии:
+Например установка 10-й версии (NPM будет установлен также):
 
 ```sh
 # Using Ubuntu
