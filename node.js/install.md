@@ -10,9 +10,11 @@
 
 ##  Установка Node.js под Linux (без NVM):
 
+https://github.com/nodesource/distributions/blob/master/README.md#debinstall
+
 https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions-enterprise-linux-fedora-and-snap-packages
 
-https://github.com/nodesource/distributions/blob/master/README.md
+
 
 ## Установка NVM:
 
