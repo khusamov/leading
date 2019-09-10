@@ -42,3 +42,5 @@ pm.sendRequest(getOperatorByLoginParamsRequest, (err, response) => {
 -------
 
 Для отладки используйте консоль. Открывается по клавише `Ctrl+Alt+C` (иконка внизу, слева, третья).
+
+![image](https://user-images.githubusercontent.com/4146998/64606907-0b6f1b80-d3d0-11e9-940e-b560cdc383ff.png)
