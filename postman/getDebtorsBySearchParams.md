@@ -1,15 +1,18 @@
 Postman: Написание скрипта, который выполняется перед запросом
 ==============================================================
 
-На вкладке Headers следует прописать поля:
+Вкладка `Headers`
+-----------------
+
+На вкладке `Headers` следует прописать поля:
 
 ```
 PIRToken:{{PIRToken}}
 Content-Type:application/json
 ```
 
-Вкладка Pre-request Script
---------------------------
+Вкладка `Pre-request Script`
+----------------------------
 
 ```javascript
 const getOperatorByLoginParamsRequest = {
