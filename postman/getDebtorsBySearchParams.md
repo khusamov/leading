@@ -16,14 +16,14 @@ Content-Type:application/json
 
 ```javascript
 const getOperatorByLoginParamsRequest = {
-    url: 'http://zao0.wl.test.eirc.mos.ru:7003/pir_war/rs/DebtorInformationResource/getOperatorByLoginParams',
+    url: 'http://site.mos.ru:7003/pir_war/rs/DebtorInformationResource/getOperatorByLoginParams',
     method: 'post',
     header: 'Content-Type: application/json;charset=utf-8',
     body: {
         mode: 'raw',
         raw: JSON.stringify({
-            Login: 'kuleshova_mv@em', 
-            Password: 'fuik1grul'
+            Login: '<loginname>', 
+            Password: '<password>'
         })
     }
 };
