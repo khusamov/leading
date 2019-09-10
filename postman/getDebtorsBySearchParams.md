@@ -34,3 +34,8 @@ pm.sendRequest(getOperatorByLoginParamsRequest, (err, response) => {
     pm.environment.set('PIRToken', result.result.SecurityToken);
 });
 ```
+
+Отладка
+-------
+
+Для отладки используйте консоль. Открывается по клавише `Ctrl+Alt+C` (иконка внизу, слева, третья).
