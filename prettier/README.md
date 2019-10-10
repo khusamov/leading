@@ -11,6 +11,9 @@ package.json
 
 ```json
 {
+  "scripts": {
+    "prettier:write": "prettier --write \"src/**/*.+(tsx|ts|scss)\""
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
