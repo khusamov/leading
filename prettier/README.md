@@ -2,9 +2,7 @@
 ===============
 
 ```
-npm i prettier --save-dev
-npm i tslint --save-dev
-npm i husky lint-staged --save-dev
+npm i prettie husky lint-staged tslint --save-dev
 ```
 
 package.json
