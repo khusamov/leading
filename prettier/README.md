@@ -3,7 +3,7 @@
 
 ```
 npm install prettie husky lint-staged --save-dev
-npm install tslint tslint-config-prettier --save-dev
+npm install tslint tslint-config-prettier tslint-plugin-prettier tslint-react --save-dev
 ```
 
 package.json
@@ -48,6 +48,7 @@ tslint.json
 {
   "extends": [
     "tslint:recommended",
+    "tslint-react",
     "tslint-config-prettier"
   ],
   "rules": {
