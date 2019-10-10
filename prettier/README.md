@@ -26,7 +26,7 @@ package.json
       "tslint --fix",
       "git add"
     ]
-  },
+  }
 }
 ```
 
