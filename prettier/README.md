@@ -1,7 +1,7 @@
 Стилизация кода
 ===============
 
-```
+```bash
 npm install prettie husky lint-staged --save-dev
 npm install tslint tslint-config-prettier tslint-plugin-prettier tslint-react --save-dev
 ```
