@@ -2,7 +2,8 @@
 ===============
 
 ```
-npm i prettie husky lint-staged tslint --save-dev
+npm install prettie husky lint-staged --save-dev
+npm install tslint tslint-config-prettier --save-dev
 ```
 
 package.json
