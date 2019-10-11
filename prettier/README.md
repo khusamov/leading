@@ -1,11 +1,12 @@
 Стилизация кода
 ===============
 
-https://prettier.io/docs/en/index.html
+https://prettier.io/docs/en/install.html
 
 ```bash
-npm install prettie husky lint-staged --save-dev
-npm install tslint tslint-config-prettier tslint-plugin-prettier tslint-react --save-dev
+yarn add prettier --dev --exact
+yarn add husky lint-staged --dev
+yarn add tslint tslint-config-prettier tslint-plugin-prettier tslint-react --dev
 ```
 
 package.json
