@@ -1,6 +1,8 @@
 Стилизация кода
 ===============
 
+https://prettier.io/docs/en/index.html
+
 ```bash
 npm install prettie husky lint-staged --save-dev
 npm install tslint tslint-config-prettier tslint-plugin-prettier tslint-react --save-dev
@@ -8,6 +10,8 @@ npm install tslint tslint-config-prettier tslint-plugin-prettier tslint-react --
 
 package.json
 ------------
+
+https://prettier.io/docs/en/precommit.html
 
 ```json
 {
@@ -47,14 +51,18 @@ package.json
 tslint.json
 -----------
 
+https://prettier.io/docs/en/integrating-with-linters.html
+
 ```json
 {
   "extends": [
     "tslint:recommended",
     "tslint-react",
+    "tslint-plugin-prettier",
     "tslint-config-prettier"
   ],
   "rules": {
+    "prettier": true,
     "no-debugger": false,
     "no-console": false,
     "ordered-imports": false,
