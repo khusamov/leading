@@ -5,7 +5,7 @@
 -----------------------
 
 ```typescript
-type TConstructor<T> = new (...args: any[]): T;
+type TConstructor<T> = new (...args: any[]) => T;
 ```
 
 Еще вариант:
