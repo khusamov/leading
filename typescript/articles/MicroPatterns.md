@@ -10,7 +10,7 @@ type TConstructor<T> = new (...args: any[]): T;
 
 Еще вариант:
 
-```
+```typescript
 interface IConstructor<T> extends Function {
 	new (...args: any[]): T;
 }
