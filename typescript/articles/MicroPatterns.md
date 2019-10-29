@@ -16,6 +16,8 @@ interface IConstructor<T> extends Function {
 }
 ```
 
+https://www.typescriptlang.org/docs/handbook/generics.html#using-class-types-in-generics
+
 Тип `Ссылка на класс`
 ---------------------
 
