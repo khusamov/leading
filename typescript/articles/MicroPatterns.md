@@ -39,6 +39,17 @@ class Class1 {
 }
 ```
 
+Описание this в функциях
+------------------------
+
+```typescript
+type MyFunction = (this: number, a: number) => void;
+
+const func1: MyFunction = function(a: number) {
+    let b = this; // number
+}
+```
+
 Ключ класса или интерфейса
 ----------------------------
 
