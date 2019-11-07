@@ -1,6 +1,8 @@
 Live Temlates
 =============
 
+Что такое Живые Шаблоны? https://habr.com/ru/post/414813/
+
 New React Component
 -------------------
 
