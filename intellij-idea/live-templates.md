@@ -10,24 +10,24 @@ Abbreviation: cmp
 Description: New React Component  
 
 Edit variables:
-1 capitalize(camelCase(fileNameWithoutExtension()))
+NAME `capitalize(camelCase(fileNameWithoutExtension()))`
 
 ```typescript
 import React, {Component, ReactNode} from 'react';
-import styles from './$1$.module.scss';
+import styles from './$NAME$.module.scss';
 
-interface I$1$Props {
+interface I$NAME$Props {
 	$END$
 }
 
 /**
- * $1$.
+ * $NAME$.
  */
-export default class $1$ extends Component<I$1$Props> {
+export default class $NAME$ extends Component<I$NAME$Props> {
 	public render(): ReactNode {
 		return (
-			<div className={styles.$1$}>
-				$1$
+			<div className={styles.$NAME$}>
+				$NAME$
 			</div>
 		);
 	}
