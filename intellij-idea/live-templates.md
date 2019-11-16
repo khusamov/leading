@@ -7,11 +7,11 @@ Index-file for New React Component
 -------------------
 
 Abbreviation: index  
-Description: Index-file for New React Component 
-Folder: React
-Applicable contexts: Everywhere/TypeScript/Statement
+Description: Index-file for New React Component  
+Folder: React  
+Applicable contexts: Everywhere/TypeScript/Statement  
 
-Edit variables:
+Edit variables:  
 NAME `capitalize(camelCase(fileNameWithoutExtension()))`
 
 ```typescript
@@ -23,10 +23,10 @@ New React Component
 
 Abbreviation: cmp  
 Description: New React Component  
-Folder: React
-Applicable contexts: Everywhere/TypeScript/Statement
+Folder: React  
+Applicable contexts: Everywhere/TypeScript/Statement  
 
-Edit variables:
+Edit variables:  
 NAME `capitalize(camelCase(fileNameWithoutExtension()))`
 
 ```typescript
