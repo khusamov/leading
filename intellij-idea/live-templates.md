@@ -3,11 +3,28 @@ Live Temlates
 
 Что такое Живые Шаблоны? https://habr.com/ru/post/414813/
 
+Index-file for New React Component
+-------------------
+
+Abbreviation: index  
+Description: Index-file for New React Component 
+Folder: React
+Applicable contexts: Everywhere/TypeScript/Statement
+
+Edit variables:
+NAME `capitalize(camelCase(fileNameWithoutExtension()))`
+
+```typescript
+export {default} from './$NAME$';
+```
+
 New React Component
 -------------------
 
 Abbreviation: cmp  
 Description: New React Component  
+Folder: React
+Applicable contexts: Everywhere/TypeScript/Statement
 
 Edit variables:
 NAME `capitalize(camelCase(fileNameWithoutExtension()))`
