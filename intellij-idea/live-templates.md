@@ -50,3 +50,46 @@ export default class $NAME$ extends Component<I$NAME$Props> {
 	}
 }
 ```
+
+
+
+
+
+
+
+New React Component Styled
+-------------------------
+
+Abbreviation: cmp  
+Description: New React Component  
+Folder: React  
+Applicable contexts: Everywhere/TypeScript/Statement  
+
+Edit variables:  
+NAME `capitalize(camelCase(fileNameWithoutExtension()))`
+
+```typescript
+import React, {Component, ReactNode} from 'react';
+import {observer} from 'mobx-react';
+import {$NAME$Div} from './$NAME$.style';
+
+interface I$NAME$Props {
+	$END$
+}
+
+/**
+ * $NAME$.
+ */
+ @observer
+export default class $NAME$ extends Component<I$NAME$Props> {
+	public render(): ReactNode {
+		return (
+			<$NAME$Div>
+				$NAME$
+			</$NAME$Div>
+		);
+	}
+}
+```
+
+
