@@ -2,7 +2,7 @@
 ===================================
 
 ```
-yarn add rollup typescript react react-dom ^
+yarn add rollup typescript tslib react react-dom ^
 @types/node @types/react @types/react-dom
 ```
 
