@@ -12,8 +12,8 @@ yarn add @rollup/plugin-json @rollup/plugin-typescript
 ```
 
 ```
-yarn add rollup-plugin-smart-asset rollup-plugin-postcss rollup-plugin-livereload rollup-plugin-serve rollup-plugin-terser
-yarn add rollup-plugin-delete rollup-plugin-progress
+yarn add rollup-plugin-smart-asset rollup-plugin-postcss rollup-plugin-livereload rollup-plugin-serve 
+yarn add rollup-plugin-terser rollup-plugin-delete rollup-plugin-progress
 ```
 
 package.json
