@@ -27,20 +27,21 @@ STYLENAME  | `camelCase(fileNameWithoutExtension())`
 
 ```typescript
 import React, {FunctionComponent} from 'react';
+import cn from 'classnames';
 import use$NAME$Styles from './styles/use$NAME$Styles';
 
 interface ITableProps {
-	$END$
+	className?: string;$END$
 }
 
 /**
  * $NAME$.
  */
 const $NAME$: FunctionComponent<I$NAME$Props> = (
-	({children}) => {
+	({children, className}) => {
 		const styles = use$NAME$Styles();
 		return (
-			<div className={styles.$STYLENAME$}>
+			<table className={cn(styles.table, className)}>
 				{children}
 			</div>
 		)
@@ -76,13 +77,17 @@ STYLENAME  | `camelCase(fileNameWithoutExtension())`
 
 ```typescript
 import {makeStyles} from '@material-ui/styles';
+import ITableTheme from './ITableTheme';
 
 const $NAME$ = (
-	makeStyles({
-		$STYLENAME$: {
-			
-		}
-	}, {
+	makeStyles<ITableTheme>((
+		theme => ({
+			$STYLENAME$: {
+				display: 'flex',
+				flex: '1 1 0'$END$
+			}
+		})
+	), {
 		name: '$NAME$'
 	})
 );
