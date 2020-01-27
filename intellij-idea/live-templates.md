@@ -3,6 +3,100 @@ Live Temlates
 
 Что такое Живые Шаблоны? https://habr.com/ru/post/414813/
 
+
+
+
+
+
+React Function Component with makeStyles
+---------------------------------------
+
+Параметр | Значение
+-------- | ---------
+Abbreviation        | cmp  
+Description         | New React Function Component with makeStyles  
+Folder              | React  
+Applicable contexts | Everywhere/TypeScript/Statement  
+
+##№# Edit variables:
+Переменная | Значение
+---------- | ----------
+NAME       | `capitalize(camelCase(fileNameWithoutExtension()))`
+
+```typescript
+import React, {FunctionComponent} from 'react';
+import use$NAME$Styles from './styles/use$NAME$Styles';
+
+interface ITableProps {
+	$END$
+}
+
+/**
+ * $NAME$.
+ */
+const $NAME$: FunctionComponent<I$NAME$Props> = (
+	({}) => {
+		const styles = use$NAME$Styles();
+		return (
+			<div className={styles.$NAME$}>
+				$NAME$
+			</div>
+		)
+	}
+);
+
+export default $NAME$;
+```
+
+
+
+
+
+
+
+
+Style-file with makeStyles
+---------------------------------------
+
+Параметр | Значение
+-------- | ---------
+Abbreviation        | cmp  
+Description         | Style-file with makeStyles
+Folder              | React  
+Applicable contexts | Everywhere/TypeScript/Statement  
+
+##№# Edit variables:
+Переменная | Значение
+---------- | ----------
+NAME       | `capitalize(camelCase(fileNameWithoutExtension()))`
+
+```typescript
+import {makeStyles} from '@material-ui/styles';
+
+const use$NAME$Styles = (
+	makeStyles({
+		$NAME$: {
+			
+		}
+	}, {
+		name: '$NAME$Styles'
+	})
+);
+
+export default use$NAME$Styles;
+```
+
+
+
+
+
+
+
+
+
+
+
+
 Index-file for New React Component
 -------------------
 
