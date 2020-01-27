@@ -23,6 +23,7 @@ Applicable contexts | Everywhere/TypeScript/Statement
 Переменная | Значение
 ---------- | ----------
 NAME       | `capitalize(camelCase(fileNameWithoutExtension()))`
+STYLENAME  | `camelCase(fileNameWithoutExtension())`
 
 ```typescript
 import React, {FunctionComponent} from 'react';
@@ -39,7 +40,7 @@ const $NAME$: FunctionComponent<I$NAME$Props> = (
 	({}) => {
 		const styles = use$NAME$Styles();
 		return (
-			<div className={styles.$NAME$}>
+			<div className={styles.$STYLENAME$}>
 				$NAME$
 			</div>
 		)
@@ -61,7 +62,7 @@ Style-file with makeStyles
 
 Параметр | Значение
 -------- | ---------
-Abbreviation        | cmp  
+Abbreviation        | cmp-stylefile  
 Description         | Style-file with makeStyles
 Folder              | React  
 Applicable contexts | Everywhere/TypeScript/Statement  
@@ -71,21 +72,22 @@ Applicable contexts | Everywhere/TypeScript/Statement
 Переменная | Значение
 ---------- | ----------
 NAME       | `capitalize(camelCase(fileNameWithoutExtension()))`
+STYLENAME  | `camelCase(fileNameWithoutExtension())`
 
 ```typescript
 import {makeStyles} from '@material-ui/styles';
 
-const use$NAME$Styles = (
+const $NAME$ = (
 	makeStyles({
-		$NAME$: {
+		$STYLENAME$: {
 			
 		}
 	}, {
-		name: '$NAME$Styles'
+		name: '$NAME$'
 	})
 );
 
-export default use$NAME$Styles;
+export default $NAME$;
 ```
 
 
@@ -117,7 +119,7 @@ export {default} from './$NAME$';
 New React Component
 -------------------
 
-Abbreviation: cmp  
+Abbreviation: cmp-sass  
 Description: New React Component  
 Folder: React  
 Applicable contexts: Everywhere/TypeScript/Statement  
@@ -156,7 +158,7 @@ export default class $NAME$ extends Component<I$NAME$Props> {
 New React Component Styled
 -------------------------
 
-Abbreviation: cmp  
+Abbreviation: cmp-styled  
 Description: New React Component  
 Folder: React  
 Applicable contexts: Everywhere/TypeScript/Statement  
