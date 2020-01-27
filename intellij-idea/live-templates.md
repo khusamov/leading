@@ -30,7 +30,7 @@ import React, {FunctionComponent} from 'react';
 import cn from 'classnames';
 import use$NAME$Styles from './styles/use$NAME$Styles';
 
-interface ITableProps {
+interface I$NAME$Props {
 	className?: string;$END$
 }
 
@@ -41,7 +41,7 @@ const $NAME$: FunctionComponent<I$NAME$Props> = (
 	({children, className}) => {
 		const styles = use$NAME$Styles();
 		return (
-			<table className={cn(styles.table, className)}>
+			<div className={cn(styles.$STYLENAME$, className)}>
 				{children}
 			</div>
 		)
