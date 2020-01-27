@@ -88,7 +88,7 @@ const $FNNAME$ = (
 			}
 		})
 	), {
-		name: '$STYLENAME$'
+		name: '$STYLENAME$Styles'
 	})
 );
 
