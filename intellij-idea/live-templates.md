@@ -72,14 +72,14 @@ Applicable contexts | Everywhere/TypeScript/Statement
 
 Переменная | Значение
 ---------- | ----------
-NAME       | `capitalize(camelCase(fileNameWithoutExtension()))`
+FNNAME       | `capitalize(camelCase(fileNameWithoutExtension()))`
 STYLENAME  | `camelCase(fileNameWithoutExtension())`
 
 ```typescript
 import {makeStyles} from '@material-ui/styles';
 import ITableTheme from './ITableTheme';
 
-const $NAME$ = (
+const $FNNAME$ = (
 	makeStyles<ITableTheme>((
 		theme => ({
 			$STYLENAME$: {
@@ -88,11 +88,11 @@ const $NAME$ = (
 			}
 		})
 	), {
-		name: '$NAME$'
+		name: '$STYLENAME$'
 	})
 );
 
-export default $NAME$;
+export default $FNNAME$;
 ```
 
 
