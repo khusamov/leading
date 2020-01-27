@@ -18,7 +18,8 @@ Description         | New React Function Component with makeStyles
 Folder              | React  
 Applicable contexts | Everywhere/TypeScript/Statement  
 
-##№# Edit variables:
+#### Edit variables:
+
 Переменная | Значение
 ---------- | ----------
 NAME       | `capitalize(camelCase(fileNameWithoutExtension()))`
@@ -65,7 +66,8 @@ Description         | Style-file with makeStyles
 Folder              | React  
 Applicable contexts | Everywhere/TypeScript/Statement  
 
-##№# Edit variables:
+#### Edit variables:
+
 Переменная | Значение
 ---------- | ----------
 NAME       | `capitalize(camelCase(fileNameWithoutExtension()))`
