@@ -37,11 +37,11 @@ interface ITableProps {
  * $NAME$.
  */
 const $NAME$: FunctionComponent<I$NAME$Props> = (
-	({}) => {
+	({children}) => {
 		const styles = use$NAME$Styles();
 		return (
 			<div className={styles.$STYLENAME$}>
-				$NAME$
+				{children}
 			</div>
 		)
 	}
