@@ -1,22 +1,14 @@
-Старт проекта на TypeScript
-==============================
+Старт проекта ReactJS на TypeScript
+===================================
 
-
+https://create-react-app.dev/
 
 
 В директории проекта (директория должна быть пустой или с .idea):
 
 ```bash
-npx create-react-app .
-npm install --save typescript @types/node @types/react @types/react-dom @types/jest
-```
-
-Переименовать файлы:
-
-```
-App.test.js -> App.test.tsx
-App.js -> App.tsx
-index.js -> index.tsx
+yarn create react-app . --template typescript
+yarn add typescript @types/node @types/react @types/react-dom @types/jest
 ```
 
 Сделать первый запуск:
@@ -24,14 +16,6 @@ index.js -> index.tsx
 ```bash
 npm start
 ```
-
-Внимание, после первого запуска будут автоматически созданы два файла:
-
-```
-src/react-app-env.d.ts
-tsconfig.json
-```
-
 
 .gitignore
 ----------
