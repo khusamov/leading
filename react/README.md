@@ -1,7 +1,8 @@
 Старт проекта ReactJS на TypeScript
 ===================================
 
-https://create-react-app.dev/
+https://create-react-app.dev/  
+https://create-react-app.dev/docs/getting-started#creating-a-typescript-app
 
 
 В директории проекта (директория должна быть пустой или с .idea):
