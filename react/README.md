@@ -11,10 +11,11 @@ https://create-react-app.dev/docs/getting-started#creating-a-typescript-app
 yarn create react-app . --template typescript
 ```
 
-Сделать первый запуск:
+Установка MUI
+-------------
 
 ```bash
-npm start
+yarn add @mui/material @emotion/react @emotion/styled @fontsource/roboto @mui/icons-material
 ```
 
 .gitignore
