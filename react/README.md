@@ -9,7 +9,6 @@ https://create-react-app.dev/docs/getting-started#creating-a-typescript-app
 
 ```bash
 yarn create react-app . --template typescript
-yarn add typescript @types/node @types/react @types/react-dom @types/jest
 ```
 
 Сделать первый запуск:
